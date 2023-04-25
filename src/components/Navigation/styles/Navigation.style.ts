@@ -23,12 +23,17 @@ export const Menu = styled.ul(
   (props: StyledNavigationProps): FlattenSimpleInterpolation => css`
     display: flex;
     flex-direction: column;
-    gap: ${props.theme.spacing[4]}px;
+    gap: ${props.theme.spacing[8]}px;
   `,
 )
 
 export const MenuItem = styled.li(
   (props: StyledNavigationProps): FlattenSimpleInterpolation => css`
     font-size: ${props.theme.typography.heading[3].fontSize};
+
+    a {
+      color: ${props.theme.colours.white};
+      text-decoration: none;
+    }
   `,
 )

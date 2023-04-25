@@ -5,6 +5,29 @@ import type { GlobalStyleProps } from './GlobalStyle.types'
 
 const GlobalStyle = createGlobalStyle(
   (props: GlobalStyleProps): FlattenSimpleInterpolation => css`
+    @font-face {
+      font-family: 'everettlight';
+      src: url('/assets/fonts/everett-light-webfont.woff2') format('woff2'), url('/assets/fonts/everett-light-webfont.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'everettmedium';
+      src: url('/assets/fonts/everett-medium-webfont.woff2') format('woff2'),
+        url('/assets/fonts/everett-medium-webfont.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'everettregular';
+      src: url('/assets/fonts/everett-regular-webfont.woff2') format('woff2'),
+        url('/assets/fonts/everett-regular-webfont.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
     #___gatsby {
       height: 100%;
       display: flex;
@@ -21,11 +44,11 @@ const GlobalStyle = createGlobalStyle(
     }
 
     body {
-      font-size: ${props.theme.typography.paragraph[3].fontSize};
-      line-height: ${props.theme.typography.paragraph[3].lineHeight};
-      font-family: ${props.theme.typography.fontFamily.body};
-      color: ${props.theme.colours.white};
-      background: ${props.theme.colours.black};
+      font-size: ${props.theme.typography.paragraph[2].fontSize};
+      line-height: ${props.theme.typography.paragraph[2].lineHeight};
+      font-family: ${props.theme.typography.fontFamily};
+      color: ${props.theme.colours.black};
+      background: ${props.theme.colours.white};
       -webkit-font-smoothing: antialiased !important;
     }
 

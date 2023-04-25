@@ -6,4 +6,5 @@ export interface HeadingProps {
   size?: HeadingKeys
   noMargin?: boolean
   inverse?: boolean
+  weight?: 1 | 2 | 3
 }

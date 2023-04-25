@@ -1,33 +1,33 @@
-import CaseStudyGrid from '@components/CaseStudyGrid'
-import FullPageFeature from '@components/FullPageFeature'
-import LogoGrid from '@components/LogoGrid'
-import ServicesGrid from '@components/ServicesGrid'
-import type { CaseStudyProps } from '@typings/CaseStudy.types'
-import { graphql, type HeadFC, type PageProps } from 'gatsby'
-import type { GatsbyImageProps } from 'gatsby-plugin-image'
+import { type HeadFC, type PageProps, graphql } from 'gatsby'
+import type { IGatsbyImageData } from 'gatsby-plugin-image'
 import type { FC, ReactElement } from 'react'
 import React from 'react'
 
+import ClientLogo from '@components/ClientLogo/ClientLogo'
+import FullPageFeature from '@components/FullPageFeature'
+import Section from '@components/Section'
+import SimpleCard from '@components/SimpleCard'
+import SimpleContentBlock from '@components/SimpleContentBlock'
+import SimpleGrid from '@components/SimpleGrid'
+import Title from '@components/Title'
+
+import type { CaseStudyProps } from '@typings/CaseStudy.types'
 
 interface HomePageProps {
   data: {
     wpPage: {
-      homePage: {
-        feature: {
-          featureTitle: string
-        }
+      homepageContent: {
+        featureTitle: string
         clients: {
-          logos: {
-            clientName: string
-            logo: {
-              localFile: {
-                childImageSharp: {
-                  gatsbyImageData: GatsbyImageProps
-                }
-              }
-            }
-          }[]
-        }
+          clientName: string
+          logo: {
+            localFile: IGatsbyImageData
+          }
+        }[]
+        services: {
+          title: string
+          content: string
+        }[]
       }
     }
     caseStudies: {
@@ -38,14 +38,44 @@ interface HomePageProps {
 
 const HomePage: FC<HomePageProps> = ({ data }: HomePageProps): ReactElement => {
   const { caseStudies } = data
-  const { homePage } = data.wpPage
+  const { homepageContent } = data.wpPage
+
+  console.log(homepageContent)
 
   return (
     <>
-      <FullPageFeature title={homePage.feature.featureTitle} />
-      <LogoGrid logos={homePage.clients.logos} />
-      <ServicesGrid />
-      <CaseStudyGrid caseStudies={caseStudies} />
+      <FullPageFeature title={homepageContent.featureTitle} />
+      {/* <Section appearance='tertiary'>
+        <SimpleGrid columns={6}>
+          {homepageContent.clients.map((client, index) => {
+            return (
+              <ClientLogo key={index} logo={client.logo} title={client.clientName} />
+            )
+          })}
+        </SimpleGrid>
+      </Section> */}
+      <Section appearance='secondary'>
+        <SimpleGrid columns={3}>
+          {homepageContent.services.map((service, index) => {
+            return <SimpleContentBlock key={index} heading={service.title} content={service.content} />
+          })}
+        </SimpleGrid>
+      </Section>
+      <Section appearance='secondary'>
+        <Title title='Our Work' link={{ to: '/work', text: 'All Work' }} />
+        <SimpleGrid columns={3} spacing={2} rowSpacing={2}>
+          {caseStudies.nodes.map((caseStudy) => {
+            return (
+              <SimpleCard
+                title={caseStudy.title}
+                uri={caseStudy.uri}
+                featuredImage={caseStudy.featuredImage.node.localFile}
+                secondaryHeading={caseStudy.workTypes.nodes.map((category) => category.name)}
+              />
+            )
+          })}
+        </SimpleGrid>
+      </Section>
     </>
   )
 }
@@ -56,23 +86,15 @@ export const Head: HeadFC = () => <title>Home Page</title>
 
 export const homepageQuery = graphql`
   query Homepage {
-    wpPage(databaseId: {eq: 22}) {
-      homePage {
-        feature {
-          featureTitle
-        }
+    wpPage(databaseId: { eq: 22 }) {
+      homepageContent {
+        featureTitle
         clients {
-          logos {
-            logo {
-              localFile {
-                childImageSharp {
-                  gatsbyImageData(
-                    width: 160
-                  )
-                }
-              }
-            }
-          }
+          clientName
+        }
+        services {
+          content
+          title
         }
       }
     }

@@ -9,7 +9,7 @@ const threeSixtyTheme: Theme = {
   breakpoints: breakpoints,
   colours: colours,
   typography: typography,
-  containerWidth: 1600,
+  containerWidth: 1296,
 }
 
 export { threeSixtyTheme }

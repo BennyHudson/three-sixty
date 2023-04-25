@@ -1,4 +1,5 @@
 import type { Theme } from '@themes/threeSixtyTheme/threeSixtyTheme.types'
+
 import type { HeadingProps } from '../Heading.types'
 
 export interface StyledHeadingProps {

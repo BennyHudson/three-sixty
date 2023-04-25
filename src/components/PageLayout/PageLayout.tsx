@@ -1,3 +1,6 @@
+import type { FC, ReactElement } from 'react'
+import React, { useEffect, useState } from 'react'
+import { ThemeProvider } from 'styled-components'
 
 import Footer from '@components/Footer'
 import Header from '@components/Header'
@@ -8,15 +11,20 @@ import PageContext from '@context/PageContext'
 import GlobalStyle from '@styles/GlobalStyle'
 
 import { threeSixtyTheme } from '@themes/threeSixtyTheme'
-import type { FC, ReactElement } from 'react'
-import React, { useState } from 'react'
-import { ThemeProvider } from 'styled-components'
 
 import type { PageLayoutProps } from './PageLayout.types'
 import * as Styled from './styles/PageLayout.style'
 
-const PageLayout: FC<PageLayoutProps> = ({ children }: PageLayoutProps): ReactElement => {
+const PageLayout: FC<PageLayoutProps> = ({ children, location }: PageLayoutProps): ReactElement => {
+  const { pathname } = location
+
   const [showNavigation, setShowNavigation] = useState(false)
+  const [inverseHeader, setInverseHeader] = useState(false)
+
+  useEffect(() => {
+    setShowNavigation(false)
+    setInverseHeader(pathname !== '/capability/' && pathname !== '/work/')
+  }, [location])
 
   return (
     <ThemeProvider theme={threeSixtyTheme}>
@@ -26,9 +34,10 @@ const PageLayout: FC<PageLayoutProps> = ({ children }: PageLayoutProps): ReactEl
           value={{
             showNavigation,
             setShowNavigation,
+            setInverseHeader,
           }}
         >
-          <Header />
+          <Header inverse={inverseHeader} />
           {showNavigation && <Navigation />}
           <Styled.Page>{children}</Styled.Page>
           <Footer />

@@ -10,13 +10,7 @@ const typography = {
       fontSizeMobile: '16px',
       lineHeightMobile: '1.5',
       fontSize: '14px',
-      lineHeight: '18px',
-    },
-    3: {
-      fontSizeMobile: '18px',
-      lineHeightMobile: '1.5',
-      fontSize: '20px',
-      lineHeight: '28px',
+      lineHeight: '22px',
     },
   },
   heading: {
@@ -62,7 +56,7 @@ const typography = {
     2: 400,
     3: 600,
   },
-  fontFamily: '"Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif',
+  fontFamily: '"everettlight", serif',
 }
 
 export default typography

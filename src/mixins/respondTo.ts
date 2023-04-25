@@ -1,9 +1,9 @@
 /* eslint-disable import/no-anonymous-default-export, @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
-import type { Theme } from '@themes/threeSixtyTheme/threeSixtyTheme.types'
 import type { FlattenSimpleInterpolation } from 'styled-components'
 import { css } from 'styled-components'
 
+import type { Theme } from '@themes/threeSixtyTheme/threeSixtyTheme.types'
 
 import type { MixinRespondToGeneric } from './respondTo.types'
 import createMixin from './utils/createMixin'

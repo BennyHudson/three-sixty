@@ -10,14 +10,10 @@ const Heading: FC<HeadingProps> = ({
   size = 2,
   noMargin = false,
   inverse = false,
+  weight = 2,
 }: HeadingProps): ReactElement => {
   return (
-    <Styled.Heading
-      as={`h${level}` as ElementType}
-      size={size}
-      noMargin={noMargin}
-      inverse={inverse}
-    >
+    <Styled.Heading as={`h${level}` as ElementType} size={size} noMargin={noMargin} inverse={inverse} weight={weight}>
       {text}
     </Styled.Heading>
   )

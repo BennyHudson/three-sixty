@@ -1,11 +1,64 @@
-import type { HeadFC, PageProps } from 'gatsby'
+import { type HeadFC, type PageProps, graphql } from 'gatsby'
 import type { FC, ReactElement } from 'react'
 import React from 'react'
 
-const NewsPage: FC<PageProps> = (): ReactElement => {
-  return <></>
+import FullPageFeature from '@components/FullPageFeature/FullPageFeature'
+import PostExcerpt from '@components/PostExcerpt'
+import Section from '@components/Section'
+import SimpleGrid from '@components/SimpleGrid'
+import Title from '@components/Title'
+
+import { PostProps } from '@typings/Post.types'
+
+interface NewsPageProps {
+  data: {
+    posts: {
+      edges: {
+        node: PostProps
+      }[]
+    }
+  }
+}
+
+const NewsPage: FC<NewsPageProps> = ({ data }: NewsPageProps): ReactElement => {
+  return (
+    <>
+      <FullPageFeature title='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' />
+      <Section appearance='tertiary'>
+        <Title title='Lorem ipsum dolor sit amet consectetur' />
+        <SimpleGrid columns={3} spacing={2} rowSpacing={6}>
+          {data.posts.edges.map((post) => {
+            return <PostExcerpt {...post.node} />
+          })}
+        </SimpleGrid>
+      </Section>
+    </>
+  )
 }
 
 export default NewsPage
 
 export const Head: HeadFC = () => <title>Home Page</title>
+
+export const newsQuery = graphql`
+  query WorkPage {
+    posts: allWpPost(limit: 200) {
+      edges {
+        node {
+          title
+          uri
+          excerpt
+          featuredImage {
+            node {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 640, height: 360)
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
