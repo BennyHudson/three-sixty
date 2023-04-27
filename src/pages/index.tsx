@@ -3,7 +3,6 @@ import type { IGatsbyImageData } from 'gatsby-plugin-image'
 import type { FC, ReactElement } from 'react'
 import React from 'react'
 
-import ClientLogo from '@components/ClientLogo/ClientLogo'
 import FullPageFeature from '@components/FullPageFeature'
 import Section from '@components/Section'
 import SimpleCard from '@components/SimpleCard'
@@ -12,13 +11,14 @@ import SimpleGrid from '@components/SimpleGrid'
 import Title from '@components/Title'
 
 import type { CaseStudyProps } from '@typings/CaseStudy.types'
+import ClientLogo from '@components/ClientLogo/ClientLogo'
 
 interface HomePageProps {
   data: {
     wpPage: {
       homepageContent: {
         featureTitle: string
-        clients: {
+        homeClients: {
           clientName: string
           logo: {
             localFile: IGatsbyImageData
@@ -40,20 +40,18 @@ const HomePage: FC<HomePageProps> = ({ data }: HomePageProps): ReactElement => {
   const { caseStudies } = data
   const { homepageContent } = data.wpPage
 
-  console.log(homepageContent)
-
   return (
     <>
       <FullPageFeature title={homepageContent.featureTitle} />
-      {/* <Section appearance='tertiary'>
+      <Section appearance='tertiary'>
         <SimpleGrid columns={6}>
-          {homepageContent.clients.map((client, index) => {
+          {homepageContent.homeClients.map((client, index) => {
             return (
-              <ClientLogo key={index} logo={client.logo} title={client.clientName} />
+              <ClientLogo key={index} logo={{ localFile: client.logo.localFile, title: client.clientName }} />
             )
           })}
         </SimpleGrid>
-      </Section> */}
+      </Section>
       <Section appearance='secondary'>
         <SimpleGrid columns={3}>
           {homepageContent.services.map((service, index) => {
@@ -86,11 +84,18 @@ export const Head: HeadFC = () => <title>Home Page</title>
 
 export const homepageQuery = graphql`
   query Homepage {
-    wpPage(databaseId: { eq: 22 }) {
+    wpPage(databaseId: {eq: 22}) {
       homepageContent {
         featureTitle
-        clients {
+        homeClients {
           clientName
+          logo {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(width: 100)
+              }
+            }
+          }
         }
         services {
           content

@@ -6,7 +6,7 @@ import Footer from '@components/Footer'
 import Header from '@components/Header'
 import Navigation from '@components/Navigation'
 
-import PageContext from '@context/PageContext'
+import PageContext, { PageContextProps } from '@context/PageContext'
 
 import GlobalStyle from '@styles/GlobalStyle'
 
@@ -20,6 +20,7 @@ const PageLayout: FC<PageLayoutProps> = ({ children, location }: PageLayoutProps
 
   const [showNavigation, setShowNavigation] = useState(false)
   const [inverseHeader, setInverseHeader] = useState(false)
+  const [headerHeight, setHeaderHeight] = useState<PageContextProps['headerHeight']>()
 
   useEffect(() => {
     setShowNavigation(false)
@@ -35,6 +36,8 @@ const PageLayout: FC<PageLayoutProps> = ({ children, location }: PageLayoutProps
             showNavigation,
             setShowNavigation,
             setInverseHeader,
+            headerHeight,
+            setHeaderHeight,
           }}
         >
           <Header inverse={inverseHeader} />

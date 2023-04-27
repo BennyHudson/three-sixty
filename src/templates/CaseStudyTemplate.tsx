@@ -8,6 +8,11 @@ interface CaseStudyTemplateProps {
     allWpCaseStudy: {
       nodes: {
         title: string
+        featuredImage: {
+          node: {
+            sourceUrl: string
+          }
+        }
       }[]
     }
   }
@@ -17,7 +22,7 @@ const CaseStudyTemplate: FC<CaseStudyTemplateProps> = ({ data }: CaseStudyTempla
   const caseStudy = data.allWpCaseStudy.nodes[0]
   return (
     <>
-      <FullPageFeature title={caseStudy.title} />
+      <FullPageFeature title={caseStudy.title} background={caseStudy.featuredImage.node.sourceUrl} />
     </>
   )
 }
@@ -29,6 +34,11 @@ export const caseStudyQuery = graphql`
     allWpCaseStudy(filter: { id: { eq: $id } }) {
       nodes {
         title
+        featuredImage {
+          node {
+            sourceUrl
+          }
+        }
       }
     }
   }

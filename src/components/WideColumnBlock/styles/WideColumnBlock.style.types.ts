@@ -1,6 +1,5 @@
 import type { Theme } from '@themes/threeSixtyTheme/threeSixtyTheme.types'
 
-export interface StyledFooterProps {
-  theme: Theme
-  headerHeight: number
+export interface StyledWideColumnBlockProps {
+  theme: Theme;
 }

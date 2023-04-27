@@ -2,8 +2,8 @@ import type { Colours } from './colours.types'
 
 const colours: Colours = {
   black: '#000000',
-  grey: '#141414',
-  midGrey: '#2d2d2d',
+  grey: '#252525',
+  midGrey: '#181818',
   lightGrey: '#f9f9f9',
   white: '#ffffff',
 }

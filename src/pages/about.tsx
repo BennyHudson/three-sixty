@@ -14,6 +14,8 @@ import SimpleGrid from '@components/SimpleGrid'
 import Title from '@components/Title/Title'
 
 import { PostProps } from '@typings/Post.types'
+import WideColumnBlock from '@components/WideColumnBlock/WideColumnBlock'
+import RawHtmlWrapper from '@components/RawHtmlWrapper/RawHtmlWrapper'
 
 interface AboutPageProps {
   data: {
@@ -65,6 +67,12 @@ const AboutPage: FC<AboutPageProps> = ({ data }: AboutPageProps): ReactElement =
   return (
     <>
       <FullPageFeature title={aboutPage.feature.title} />
+      <Section appearance='secondary'>
+        <WideColumnBlock 
+          leftColumn={<Heading text={aboutPage.mainContent.intro} />} 
+          rightColumn={<RawHtmlWrapper content={aboutPage.mainContent.content} />}
+        />
+      </Section>
       <Section appearance='secondary'>
         <SimpleGrid columns={3}>
           {aboutPage.mainContent.columns.map((column, index) => {

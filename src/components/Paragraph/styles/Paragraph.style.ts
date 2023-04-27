@@ -7,7 +7,10 @@ export const Paragraph = styled.p(
     font-size: ${props.theme.typography.paragraph[props.size].fontSize};
     line-height: ${props.theme.typography.paragraph[props.size].lineHeight};
     font-weight: ${props.theme.typography.fontWeight[props.weight!]};
-    margin-bottom: ${props.theme.spacing[2]}px;
+
+    ${!props.noMargin && css`
+      margin-bottom: ${props.theme.spacing[2]}px;
+    `}
 
     &:last-child {
       margin-bottom: 0;

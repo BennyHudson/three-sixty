@@ -8,4 +8,5 @@ export interface ParagraphProps {
   size?: ParagraphKeys
   weight?: 1 | 2 | 3
   inverse?: boolean
+  noMargin?: boolean
 }
