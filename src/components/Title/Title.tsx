@@ -10,7 +10,7 @@ import * as Styled from './styles/Title.style'
 const Title: FC<TitleProps> = ({ title, link, inverse = false }: TitleProps): ReactElement => {
   return (
     <Styled.Title>
-      <Heading size={3} text={title} inverse={inverse} />
+      <Heading size={3} text={title} inverse={inverse} noMargin />
       {link && <Link to={link.to} text={link.text ?? 'View All'} inverse={inverse} />}
     </Styled.Title>
   )

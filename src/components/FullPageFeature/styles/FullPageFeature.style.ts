@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components'
 import { Heading } from '@components/Heading/styles/Heading.style'
 
 import type { StyledFullPageFeatureProps } from './FullPageFeature.style.types'
+import { Container } from '@components/Container/styles/Container.style'
 
 export const FullPageFeature = styled.div(
   (props: StyledFullPageFeatureProps): FlattenSimpleInterpolation => css`
@@ -13,7 +14,13 @@ export const FullPageFeature = styled.div(
     background: ${props.appearance === 'primary' ? props.theme.colours.black : props.theme.colours.white};
 
     ${Heading} {
-      max-width: 15ch;
+      &:first-child {
+        max-width: 15ch;
+      }
+    }
+
+    ${Container} {
+      z-index: 10;
     }
 
     ${props.background && css`

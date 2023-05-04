@@ -9,10 +9,11 @@ import RawHtmlWrapper from '@components/RawHtmlWrapper/RawHtmlWrapper'
 const WideColumnBlock: FC<WideColumnBlockProps> = ({
   leftColumn,
   rightColumn,
-  inverse = false
+  inverse = false,
+  verticalAlign = 'top'
 }: WideColumnBlockProps): ReactElement => {
   return (
-    <Styled.WideColumnBlock>
+    <Styled.WideColumnBlock verticalAlign={verticalAlign}>
       <div>{leftColumn}</div>
       <div>{rightColumn}</div>
     </Styled.WideColumnBlock>

@@ -7,4 +7,5 @@ export const WideColumnBlock = styled.div((props: StyledWideColumnBlockProps): F
   display: grid;
   gap: ${props.theme.spacing[8]}px;
   grid-template-columns: 1fr 2fr;
+  align-items: ${props.verticalAlign === 'top' ? 'start' : props.verticalAlign};
 `)

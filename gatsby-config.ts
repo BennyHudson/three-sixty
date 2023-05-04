@@ -1,4 +1,9 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import type { GatsbyConfig } from 'gatsby'
+
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -13,7 +18,7 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-source-wordpress',
       options: {
-        url: 'http://three-sixty.local/graphql',
+        url: `${process.env.WORDPRESS_URL}/graphql`,
       },
     },
     'gatsby-plugin-image',

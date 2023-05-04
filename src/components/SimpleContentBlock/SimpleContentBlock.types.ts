@@ -5,4 +5,5 @@ export interface SimpleContentBlockProps {
   heading: string
   content?: string
   children?: ReactNode
+  subheading?: string
 }

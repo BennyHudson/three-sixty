@@ -6,13 +6,16 @@ import Heading from '@components/Heading/Heading'
 
 import type { FullPageFeatureProps } from './FullPageFeature.types'
 import * as Styled from './styles/FullPageFeature.style'
+import Overlay from '@components/Overlay/Overlay'
 
-const FullPageFeature: FC<FullPageFeatureProps> = ({ title, appearance = 'primary', background }: FullPageFeatureProps): ReactElement => {
+const FullPageFeature: FC<FullPageFeatureProps> = ({ title, appearance = 'primary', background, subtitle }: FullPageFeatureProps): ReactElement => {
   return (
     <Styled.FullPageFeature appearance={appearance} background={background}>
       <Container>
-        <Heading text={title} size={5} inverse={appearance === 'primary' || !!background} weight={3} />
+        <Heading text={title} size={5} inverse={appearance === 'primary' || !!background} weight={3} noMargin />
+        {subtitle && <Heading text={subtitle} size={1} inverse={appearance === 'primary' || !!background} weight={3} noMargin />}
       </Container>
+      <Overlay />
     </Styled.FullPageFeature>
   )
 }
