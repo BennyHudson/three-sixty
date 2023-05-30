@@ -1,5 +1,5 @@
 import type { Theme } from '@themes/threeSixtyTheme/threeSixtyTheme.types'
 
 export interface StyledArticleContentProps {
-  theme: Theme;
+  theme: Theme
 }

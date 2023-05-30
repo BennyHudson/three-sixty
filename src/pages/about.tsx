@@ -1,21 +1,22 @@
 import { type HeadFC, type PageProps, graphql } from 'gatsby'
-import { IGatsbyImageData, getImage } from 'gatsby-plugin-image'
-import type { FC, ReactElement } from 'react'
+import { getImage } from 'gatsby-plugin-image'
+import type { IGatsbyImageData } from 'gatsby-plugin-image'
 import React from 'react'
+import type { FC, ReactElement } from 'react'
 
 import ClientLogo from '@components/ClientLogo/ClientLogo'
 import FullPageFeature from '@components/FullPageFeature'
 import Heading from '@components/Heading'
 import PostExcerpt from '@components/PostExcerpt'
+import RawHtmlWrapper from '@components/RawHtmlWrapper/RawHtmlWrapper'
 import Section from '@components/Section'
 import SimpleCard from '@components/SimpleCard/SimpleCard'
 import SimpleContentBlock from '@components/SimpleContentBlock'
 import SimpleGrid from '@components/SimpleGrid'
 import Title from '@components/Title/Title'
-
-import { PostProps } from '@typings/Post.types'
 import WideColumnBlock from '@components/WideColumnBlock/WideColumnBlock'
-import RawHtmlWrapper from '@components/RawHtmlWrapper/RawHtmlWrapper'
+
+import type { PostProps } from '@typings/Post.types'
 
 interface AboutPageProps {
   data: {
@@ -68,13 +69,13 @@ const AboutPage: FC<AboutPageProps> = ({ data }: AboutPageProps): ReactElement =
     <>
       <FullPageFeature title={aboutPage.feature.title} />
       <Section appearance='secondary'>
-        <WideColumnBlock 
-          leftColumn={<Heading text={aboutPage.mainContent.intro} />} 
+        <WideColumnBlock
+          leftColumn={<Heading text={aboutPage.mainContent.intro} />}
           rightColumn={<RawHtmlWrapper content={aboutPage.mainContent.content} />}
         />
       </Section>
       <Section appearance='secondary'>
-        <SimpleGrid columns={3}>
+        <SimpleGrid columns={{ sm: 1, md: 3 }}>
           {aboutPage.mainContent.columns.map((column, index) => {
             return <SimpleContentBlock key={index} heading={column.title} content={column.content} />
           })}
@@ -82,7 +83,7 @@ const AboutPage: FC<AboutPageProps> = ({ data }: AboutPageProps): ReactElement =
       </Section>
       <Section appearance='tertiary'>
         <Title title={aboutPage.clients.title} />
-        <SimpleGrid columns={6}>
+        <SimpleGrid columns={{ sm: 1, md: 6 }}>
           {aboutPage.clients.logos.map((client) => {
             return <ClientLogo logo={{ localFile: client.logo.localFile, title: client.clientName }} />
           })}
@@ -90,7 +91,7 @@ const AboutPage: FC<AboutPageProps> = ({ data }: AboutPageProps): ReactElement =
       </Section>
       <Section appearance='secondary'>
         <Title title={aboutPage.theTeam.title} link={{ to: '/', text: 'Join The Team' }} />
-        <SimpleGrid columns={3} spacing={2} rowSpacing={2}>
+        <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={2} rowSpacing={2}>
           {aboutPage.theTeam.team.map((teamMember) => {
             return <SimpleCard title={teamMember.name} secondaryHeading={teamMember.role} featuredImage={teamMember.picture.localFile} />
           })}
@@ -98,7 +99,7 @@ const AboutPage: FC<AboutPageProps> = ({ data }: AboutPageProps): ReactElement =
       </Section>
       <Section appearance='tertiary'>
         <Title title='Lorem ipsum dolor sit amet consectetur' />
-        <SimpleGrid columns={3} spacing={2} rowSpacing={6}>
+        <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={2} rowSpacing={6}>
           {data.posts.edges.map((post) => {
             return <PostExcerpt {...post.node} />
           })}

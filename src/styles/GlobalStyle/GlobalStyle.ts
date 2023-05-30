@@ -1,5 +1,5 @@
-import type { FlattenSimpleInterpolation } from 'styled-components'
 import { createGlobalStyle, css } from 'styled-components'
+import type { FlattenSimpleInterpolation } from 'styled-components'
 
 import type { GlobalStyleProps } from './GlobalStyle.types'
 

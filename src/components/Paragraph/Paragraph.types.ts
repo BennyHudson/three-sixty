@@ -1,6 +1,6 @@
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
-import { ParagraphKeys } from '@themes/threeSixtyTheme/constants/typography.types'
+import type { ParagraphKeys } from '@themes/threeSixtyTheme/constants/typography.types'
 
 export interface ParagraphProps {
   children?: ReactNode

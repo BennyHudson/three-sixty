@@ -1,5 +1,7 @@
-import type { FlattenSimpleInterpolation } from 'styled-components'
 import styled, { css } from 'styled-components'
+import type { FlattenSimpleInterpolation } from 'styled-components'
+
+import respondTo from '@mixins/respondTo'
 
 import type { StyledHeaderProps } from './Header.style.types'
 
@@ -13,7 +15,8 @@ export const Header = styled.div(
     background: ${props.theme.colours.black};
     transition: 0.4s all ease;
 
-    ${props.inverse && css`
+    ${props.inverse &&
+    css`
       &::after {
         content: '';
         background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%);
@@ -33,12 +36,18 @@ export const Header = styled.div(
 )
 
 type ContentProps = Pick<StyledHeaderProps, 'theme'>
-export const Content = styled.div((props: ContentProps): FlattenSimpleInterpolation => css`
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  padding: ${props.theme.spacing[4]}px ${props.theme.spacing[8]}px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`)
+export const Content = styled.div(
+  (props: ContentProps): FlattenSimpleInterpolation => css`
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding: ${props.theme.spacing[4]}px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    ${respondTo.md(css`
+      padding: ${props.theme.spacing[4]}px ${props.theme.spacing[8]}px;
+    `)}
+  `,
+)

@@ -1,5 +1,7 @@
-import type { FlattenSimpleInterpolation } from 'styled-components'
 import styled, { css } from 'styled-components'
+import type { FlattenSimpleInterpolation } from 'styled-components'
+
+import respondTo from '@mixins/respondTo'
 
 import type { StyledFooterProps } from './Footer.style.types'
 
@@ -26,12 +28,15 @@ export const FooterMain = styled.div(
 
 export const FooterColumns = styled.div(
   (props: StyledFooterProps): FlattenSimpleInterpolation => css`
-    padding: ${props.theme.spacing[8]}px 0;
+    padding: ${props.theme.spacing[4]}px 0;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: ${props.theme.spacing[8]}px;
-    margin: 0 auto;
-    width: 90%;
-    max-width: ${props.theme.containerWidth}px;
+    grid-template-columns: repeat(1, 1fr);
+    gap: ${props.theme.spacing[2]}px;
+
+    ${respondTo.md(css`
+      padding: ${props.theme.spacing[8]}px 0;
+      grid-template-columns: repeat(4, 1fr);
+      gap: ${props.theme.spacing[8]}px;
+    `)}
   `,
 )

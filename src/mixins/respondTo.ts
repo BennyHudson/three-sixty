@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export, @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
-import type { FlattenSimpleInterpolation } from 'styled-components'
 import { css } from 'styled-components'
+import type { FlattenSimpleInterpolation } from 'styled-components'
 
 import type { Theme } from '@themes/threeSixtyTheme/threeSixtyTheme.types'
 

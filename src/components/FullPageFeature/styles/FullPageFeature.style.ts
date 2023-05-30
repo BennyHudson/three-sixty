@@ -1,10 +1,10 @@
-import type { FlattenSimpleInterpolation } from 'styled-components'
 import styled, { css } from 'styled-components'
+import type { FlattenSimpleInterpolation } from 'styled-components'
 
+import { Container } from '@components/Container/styles/Container.style'
 import { Heading } from '@components/Heading/styles/Heading.style'
 
 import type { StyledFullPageFeatureProps } from './FullPageFeature.style.types'
-import { Container } from '@components/Container/styles/Container.style'
 
 export const FullPageFeature = styled.div(
   (props: StyledFullPageFeatureProps): FlattenSimpleInterpolation => css`
@@ -23,7 +23,8 @@ export const FullPageFeature = styled.div(
       z-index: 10;
     }
 
-    ${props.background && css`
+    ${props.background &&
+    css`
       background: url('${props.background}') center center no-repeat;
       background-size: cover;
     `}

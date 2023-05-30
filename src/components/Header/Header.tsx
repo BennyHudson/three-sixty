@@ -1,14 +1,15 @@
-import type { FC, ReactElement } from 'react'
 import React, { useContext, useEffect, useRef, useState } from 'react'
+import type { FC, ReactElement } from 'react'
+import { useBreakpoints } from 'src/hooks/useBreakpoints'
 
 import Logo from '@components/Logo'
 import NavTrigger from '@components/NavTrigger'
 
-import PageContext, { PageContextProps } from '@context/PageContext'
+import type { PageContextProps } from '@context/PageContext'
+import PageContext from '@context/PageContext'
 
-import { HeaderProps } from './Header.types'
+import type { HeaderProps } from './Header.types'
 import * as Styled from './styles/Header.style'
-import { useBreakpoints } from 'src/hooks/useBreakpoints'
 
 const Header: FC<HeaderProps> = ({ inverse }: HeaderProps): ReactElement => {
   const header = useRef<HTMLDivElement>()

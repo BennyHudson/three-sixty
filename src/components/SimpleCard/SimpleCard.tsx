@@ -1,7 +1,7 @@
 import { Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import type { FC, ReactElement } from 'react'
 import React from 'react'
+import type { FC, ReactElement } from 'react'
 
 import Heading from '@components/Heading/Heading'
 

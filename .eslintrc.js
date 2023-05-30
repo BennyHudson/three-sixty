@@ -40,33 +40,21 @@ module.exports = {
       },
     ],
     'import/order': [
-      2,
+      'error',
       {
-        groups: ['external', 'builtin', 'internal', 'sibling', 'parent', 'index'],
+        // alphabetize: {
+        //   order: 'asc',
+        //   caseInsensitive: true
+        // },
+        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object'],
+        'newlines-between': 'always-and-inside-groups',
         pathGroups: [
           {
-            pattern: 'components',
+            pattern: '@*/**',
             group: 'internal',
-          },
-          {
-            pattern: 'common',
-            group: 'internal',
-          },
-          {
-            pattern: 'routes/ **',
-            group: 'internal',
-          },
-          {
-            pattern: 'assets/**',
-            group: 'internal',
-            position: 'after',
           },
         ],
-        pathGroupsExcludedImportTypes: ['internal'],
-        alphabetize: {
-          order: 'asc',
-          caseInsensitive: true,
-        },
+        pathGroupsExcludedImportTypes: ['builtin'],
       },
     ],
   },

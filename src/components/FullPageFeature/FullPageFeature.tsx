@@ -1,14 +1,19 @@
-import type { FC, ReactElement } from 'react'
 import React from 'react'
+import type { FC, ReactElement } from 'react'
 
 import Container from '@components/Container/Container'
 import Heading from '@components/Heading/Heading'
+import Overlay from '@components/Overlay/Overlay'
 
 import type { FullPageFeatureProps } from './FullPageFeature.types'
 import * as Styled from './styles/FullPageFeature.style'
-import Overlay from '@components/Overlay/Overlay'
 
-const FullPageFeature: FC<FullPageFeatureProps> = ({ title, appearance = 'primary', background, subtitle }: FullPageFeatureProps): ReactElement => {
+const FullPageFeature: FC<FullPageFeatureProps> = ({
+  title,
+  appearance = 'primary',
+  background,
+  subtitle,
+}: FullPageFeatureProps): ReactElement => {
   return (
     <Styled.FullPageFeature appearance={appearance} background={background}>
       <Container>

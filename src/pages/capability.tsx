@@ -1,18 +1,19 @@
-import { graphql, type HeadFC, type PageProps } from 'gatsby'
-import type { FC, ReactElement } from 'react'
+import { type HeadFC, type PageProps, graphql } from 'gatsby'
 import React from 'react'
+import type { FC, ReactElement } from 'react'
 
 import FullPageFeature from '@components/FullPageFeature'
-import Panel from '@components/Panel'
-import Section from '@components/Section'
-import Title from '@components/Title'
-import SimpleGrid from '@components/SimpleGrid'
-import SimpleCard from '@components/SimpleCard'
-import { CaseStudyProps } from '@typings/CaseStudy.types'
-import { PanelProps } from '@components/Panel/Panel.types'
-import SimpleContentBlock from '@components/SimpleContentBlock/SimpleContentBlock'
-import Paragraph from '@components/Paragraph/Paragraph'
 import ListGroup from '@components/ListGroup/ListGroup'
+import Panel from '@components/Panel'
+import type { PanelProps } from '@components/Panel/Panel.types'
+import Paragraph from '@components/Paragraph/Paragraph'
+import Section from '@components/Section'
+import SimpleCard from '@components/SimpleCard'
+import SimpleContentBlock from '@components/SimpleContentBlock/SimpleContentBlock'
+import SimpleGrid from '@components/SimpleGrid'
+import Title from '@components/Title'
+
+import type { CaseStudyProps } from '@typings/CaseStudy.types'
 
 interface CapabilityPageProps {
   data: {
@@ -47,10 +48,9 @@ const CapabilityPage: FC<CapabilityPageProps> = ({ data }: CapabilityPageProps):
     <>
       <FullPageFeature appearance='secondary' title='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' />
       {capabilities.map((capability, index) => {
-
         return (
-          <Panel appearance={panelAppearance(index)}>
-            <SimpleGrid columns={3}>
+          <Panel appearance={panelAppearance(index)} key={index}>
+            <SimpleGrid columns={{ sm: 1, md: 3 }}>
               <SimpleContentBlock inverse heading={capability.title}>
                 <Paragraph text={capability.content} />
                 <ListGroup items={capability.microservices.map((microservice) => microservice.title)} />
@@ -61,10 +61,11 @@ const CapabilityPage: FC<CapabilityPageProps> = ({ data }: CapabilityPageProps):
       })}
       <Section appearance='secondary'>
         <Title title='Our Work' link={{ to: '/work', text: 'All Work' }} />
-        <SimpleGrid columns={3} spacing={2} rowSpacing={2}>
-          {caseStudies.nodes.map((caseStudy) => {
+        <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={2} rowSpacing={2}>
+          {caseStudies.nodes.map((caseStudy, index) => {
             return (
               <SimpleCard
+                key={index}
                 title={caseStudy.title}
                 uri={caseStudy.uri}
                 featuredImage={caseStudy.featuredImage.node.localFile}
@@ -84,7 +85,7 @@ export const Head: HeadFC = () => <title>Home Page</title>
 
 export const capabilityPageQuery = graphql`
   query CapabilityPage {
-    wpPage(databaseId: {eq: 14}) {
+    wpPage(databaseId: { eq: 14 }) {
       capabilityPage {
         capabilities {
           title

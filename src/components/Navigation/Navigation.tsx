@@ -1,6 +1,6 @@
 import { Link, graphql, useStaticQuery } from 'gatsby'
-import type { FC, ReactElement } from 'react'
 import React from 'react'
+import type { FC, ReactElement } from 'react'
 
 import Container from '@components/Container'
 

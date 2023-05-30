@@ -1,5 +1,5 @@
-import type { HeadFC, PageProps } from 'gatsby'
 import { Link } from 'gatsby'
+import type { HeadFC, PageProps } from 'gatsby'
 import * as React from 'react'
 
 const pageStyles = {

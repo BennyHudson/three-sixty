@@ -1,6 +1,6 @@
 import { type HeadFC, type PageProps, graphql } from 'gatsby'
-import type { FC, ReactElement } from 'react'
 import React from 'react'
+import type { FC, ReactElement } from 'react'
 
 import FullPageFeature from '@components/FullPageFeature/FullPageFeature'
 import PostExcerpt from '@components/PostExcerpt'
@@ -8,7 +8,7 @@ import Section from '@components/Section'
 import SimpleGrid from '@components/SimpleGrid'
 import Title from '@components/Title'
 
-import { PostProps } from '@typings/Post.types'
+import type { PostProps } from '@typings/Post.types'
 
 interface NewsPageProps {
   data: {
@@ -26,9 +26,9 @@ const NewsPage: FC<NewsPageProps> = ({ data }: NewsPageProps): ReactElement => {
       <FullPageFeature title='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' />
       <Section appearance='tertiary'>
         <Title title='Lorem ipsum dolor sit amet consectetur' />
-        <SimpleGrid columns={3} spacing={2} rowSpacing={6}>
-          {data.posts.edges.map((post) => {
-            return <PostExcerpt {...post.node} />
+        <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={2} rowSpacing={6}>
+          {data.posts.edges.map((post, index) => {
+            return <PostExcerpt key={index} {...post.node} />
           })}
         </SimpleGrid>
       </Section>

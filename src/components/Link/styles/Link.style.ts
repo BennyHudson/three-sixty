@@ -1,6 +1,6 @@
 import { Link as GatsbyLink } from 'gatsby'
-import type { FlattenSimpleInterpolation } from 'styled-components'
 import styled, { css } from 'styled-components'
+import type { FlattenSimpleInterpolation } from 'styled-components'
 
 import type { StyledLinkProps } from './Link.style.types'
 

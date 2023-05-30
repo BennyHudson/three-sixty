@@ -1,5 +1,5 @@
-import type { FC, ReactElement } from 'react'
 import React from 'react'
+import type { FC, ReactElement } from 'react'
 
 import type { OverlayProps } from './Overlay.types'
 import * as Styled from './styles/Overlay.style'

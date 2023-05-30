@@ -1,13 +1,16 @@
-import type { FC, ReactElement } from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import React, { useContext } from 'react'
+import type { FC, ReactElement } from 'react'
+
+import Container from '@components/Container/Container'
+import Heading from '@components/Heading/Heading'
+import Link from '@components/Link/Link'
+import Paragraph from '@components/Paragraph/Paragraph'
+
+import type { PageContextProps } from '@context/PageContext'
+import PageContext from '@context/PageContext'
 
 import * as Styled from './styles/Footer.style'
-import Heading from '@components/Heading/Heading'
-import Container from '@components/Container/Container'
-import PageContext, { PageContextProps } from '@context/PageContext'
-import { graphql, useStaticQuery } from 'gatsby'
-import Paragraph from '@components/Paragraph/Paragraph'
-import Link from '@components/Link/Link'
 
 const Footer: FC = (): ReactElement => {
   const { headerHeight } = useContext(PageContext) as PageContextProps
@@ -48,29 +51,31 @@ const Footer: FC = (): ReactElement => {
           <Heading size={1} text='Work with us' inverse />
         </Container>
       </Styled.FooterMain>
-      <Styled.FooterColumns>
-        <div>
-          <Paragraph size={1} text='Company Name | 2023' inverse noMargin />
-          <Paragraph size={1} text={address} inverse />
-        </div>
+      <Container>
+        <Styled.FooterColumns>
+          <div>
+            <Paragraph size={1} text='Company Name | 2023' inverse noMargin />
+            <Paragraph size={1} text={address} inverse />
+          </div>
 
-        <div>
-          <Paragraph size={1} text='Follow' inverse noMargin />
-          <Paragraph size={1} text={address} inverse />
-        </div>
+          <div>
+            <Paragraph size={1} text='Follow' inverse noMargin />
+            <Paragraph size={1} text={address} inverse />
+          </div>
 
-        <div>
-          <Paragraph size={1} text='Legal' inverse noMargin />
-          <Paragraph size={1} text={address} inverse />
-        </div>
+          <div>
+            <Paragraph size={1} text='Legal' inverse noMargin />
+            <Paragraph size={1} text={address} inverse />
+          </div>
 
-        <div>
-          <Paragraph size={1} text='Contact' inverse noMargin />
-          <Paragraph size={1}>
-            <Link href={`mailto:${contactEmail}`} text={contactEmail} inverse />
-          </Paragraph>
-        </div>
-      </Styled.FooterColumns>
+          <div>
+            <Paragraph size={1} text='Contact' inverse noMargin />
+            <Paragraph size={1}>
+              <Link href={`mailto:${contactEmail}`} text={contactEmail} inverse />
+            </Paragraph>
+          </div>
+        </Styled.FooterColumns>
+      </Container>
     </Styled.Footer>
   )
 }

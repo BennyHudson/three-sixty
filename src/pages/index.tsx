@@ -1,8 +1,9 @@
 import { type HeadFC, type PageProps, graphql } from 'gatsby'
 import type { IGatsbyImageData } from 'gatsby-plugin-image'
-import type { FC, ReactElement } from 'react'
 import React from 'react'
+import type { FC, ReactElement } from 'react'
 
+import ClientLogo from '@components/ClientLogo/ClientLogo'
 import FullPageFeature from '@components/FullPageFeature'
 import Section from '@components/Section'
 import SimpleCard from '@components/SimpleCard'
@@ -11,7 +12,6 @@ import SimpleGrid from '@components/SimpleGrid'
 import Title from '@components/Title'
 
 import type { CaseStudyProps } from '@typings/CaseStudy.types'
-import ClientLogo from '@components/ClientLogo/ClientLogo'
 
 interface HomePageProps {
   data: {
@@ -44,16 +44,14 @@ const HomePage: FC<HomePageProps> = ({ data }: HomePageProps): ReactElement => {
     <>
       <FullPageFeature title={homepageContent.featureTitle} />
       <Section appearance='tertiary'>
-        <SimpleGrid columns={6}>
+        <SimpleGrid columns={{ sm: homepageContent.homeClients.length }} spacing={2}>
           {homepageContent.homeClients.map((client, index) => {
-            return (
-              <ClientLogo key={index} logo={{ localFile: client.logo.localFile, title: client.clientName }} />
-            )
+            return <ClientLogo key={index} logo={{ localFile: client.logo.localFile, title: client.clientName }} />
           })}
         </SimpleGrid>
       </Section>
       <Section appearance='secondary'>
-        <SimpleGrid columns={3}>
+        <SimpleGrid columns={{ sm: 1, md: 3 }}>
           {homepageContent.services.map((service, index) => {
             return <SimpleContentBlock key={index} heading={service.title} content={service.content} />
           })}
@@ -61,10 +59,11 @@ const HomePage: FC<HomePageProps> = ({ data }: HomePageProps): ReactElement => {
       </Section>
       <Section appearance='secondary'>
         <Title title='Our Work' link={{ to: '/work', text: 'All Work' }} />
-        <SimpleGrid columns={3} spacing={2} rowSpacing={2}>
-          {caseStudies.nodes.map((caseStudy) => {
+        <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={2} rowSpacing={2}>
+          {caseStudies.nodes.map((caseStudy, index) => {
             return (
               <SimpleCard
+                key={index}
                 title={caseStudy.title}
                 uri={caseStudy.uri}
                 featuredImage={caseStudy.featuredImage.node.localFile}
@@ -84,7 +83,7 @@ export const Head: HeadFC = () => <title>Home Page</title>
 
 export const homepageQuery = graphql`
   query Homepage {
-    wpPage(databaseId: {eq: 22}) {
+    wpPage(databaseId: { eq: 22 }) {
       homepageContent {
         featureTitle
         homeClients {

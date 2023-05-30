@@ -1,15 +1,13 @@
-import type { ReactElement, FC } from 'react'
 import React from 'react'
+import type { FC, ReactElement } from 'react'
 
-import * as Styled from './styles/MetaBlock.style'
-
-import type { MetaBlockProps } from './MetaBlock.types'
 import Heading from '@components/Heading/Heading'
 import Paragraph from '@components/Paragraph/Paragraph'
 
-const MetaBlock: FC<MetaBlockProps> = ({
-  metaContent,
-}: MetaBlockProps): ReactElement => {
+import type { MetaBlockProps } from './MetaBlock.types'
+import * as Styled from './styles/MetaBlock.style'
+
+const MetaBlock: FC<MetaBlockProps> = ({ metaContent }: MetaBlockProps): ReactElement => {
   return (
     <Styled.MetaBlock>
       {metaContent.map((metaContentBlock) => {

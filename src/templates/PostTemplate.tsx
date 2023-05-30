@@ -1,17 +1,18 @@
+import { graphql } from 'gatsby'
+import React from 'react'
+import type { FC, ReactElement } from 'react'
+
 import ArticleContent from '@components/ArticleContent/ArticleContent'
 import FullPageFeature from '@components/FullPageFeature/FullPageFeature'
 import Heading from '@components/Heading/Heading'
 import PostExcerpt from '@components/PostExcerpt/PostExcerpt'
-import RawHtmlWrapper from '@components/RawHtmlWrapper/RawHtmlWrapper'
 import Section from '@components/Section/Section'
 import SimpleGrid from '@components/SimpleGrid/SimpleGrid'
 import Title from '@components/Title/Title'
 import WideColumnBlock from '@components/WideColumnBlock/WideColumnBlock'
-import { PostProps } from '@typings/Post.types'
-import { ContentBlock, ImageBlock } from '@typings/PostContentBuilder.types'
-import { graphql } from 'gatsby'
-import React from 'react'
-import type { FC, ReactElement } from 'react'
+
+import type { PostProps } from '@typings/Post.types'
+import type { ContentBlock, ImageBlock } from '@typings/PostContentBuilder.types'
 
 interface PostTemplateProps {
   data: {
@@ -47,8 +48,8 @@ const PostTemplate: FC<PostTemplateProps> = ({ data }: PostTemplateProps): React
   const article = data.allWpPost.nodes[0]
   return (
     <>
-      <FullPageFeature 
-        title={article.title} 
+      <FullPageFeature
+        title={article.title}
         subtitle={`${article.date} | ${article.author.node.name}`}
         background={article.featuredImage.node.sourceUrl}
       />
@@ -59,7 +60,7 @@ const PostTemplate: FC<PostTemplateProps> = ({ data }: PostTemplateProps): React
         />
       </Section>
       <Section appearance='tertiary'>
-        <Title title='Related Articles' link={{ to: '/news', text: 'View all News'}} />
+        <Title title='Related Articles' link={{ to: '/news', text: 'View all News' }} />
         <SimpleGrid columns={3} spacing={2} rowSpacing={6}>
           {data.posts.edges.map((post) => {
             return <PostExcerpt {...post.node} />
@@ -73,7 +74,7 @@ const PostTemplate: FC<PostTemplateProps> = ({ data }: PostTemplateProps): React
 export default PostTemplate
 
 export const caseStudyQuery = graphql`
-  query($id: String!) {
+  query ($id: String!) {
     allWpPost(filter: { id: { eq: $id } }) {
       nodes {
         title
@@ -109,7 +110,7 @@ export const caseStudyQuery = graphql`
         }
       }
     }
-    posts: allWpPost(limit: 3, filter: {id: {ne: $id}}) {
+    posts: allWpPost(limit: 3, filter: { id: { ne: $id } }) {
       edges {
         node {
           title

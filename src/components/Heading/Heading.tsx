@@ -1,5 +1,5 @@
-import type { ElementType, FC, ReactElement } from 'react'
 import React from 'react'
+import type { ElementType, FC, ReactElement } from 'react'
 
 import type { HeadingProps } from './Heading.types'
 import * as Styled from './styles/Heading.style'

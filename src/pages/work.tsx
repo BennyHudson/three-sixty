@@ -1,13 +1,13 @@
 import { type HeadFC, type PageProps, graphql } from 'gatsby'
-import type { FC, ReactElement } from 'react'
 import React from 'react'
+import type { FC, ReactElement } from 'react'
 
 import FullPageFeature from '@components/FullPageFeature'
 import Section from '@components/Section/Section'
 import SimpleCard from '@components/SimpleCard'
 import SimpleGrid from '@components/SimpleGrid'
 
-import { CaseStudyProps } from '@typings/CaseStudy.types'
+import type { CaseStudyProps } from '@typings/CaseStudy.types'
 
 interface WorkPageProps {
   data: {
@@ -22,10 +22,11 @@ const WorkPage: FC<WorkPageProps> = ({ data }: WorkPageProps): ReactElement => {
     <>
       <FullPageFeature title='The eCommerce agency for market defining brands' appearance='secondary' />
       <Section appearance='secondary'>
-        <SimpleGrid columns={3} spacing={2} rowSpacing={2}>
-          {data.caseStudies.nodes.map((caseStudy) => {
+        <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={2} rowSpacing={2}>
+          {data.caseStudies.nodes.map((caseStudy, index) => {
             return (
               <SimpleCard
+                key={index}
                 title={caseStudy.title}
                 uri={caseStudy.uri}
                 featuredImage={caseStudy.featuredImage.node.localFile}

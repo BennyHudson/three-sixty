@@ -1,6 +1,6 @@
 import { StaticImage } from 'gatsby-plugin-image'
-import type { FC, ReactElement } from 'react'
 import React from 'react'
+import type { FC, ReactElement } from 'react'
 
 import type { LogoProps } from './Logo.types'
 import * as Styled from './styles/Logo.style'

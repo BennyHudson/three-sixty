@@ -1,12 +1,13 @@
+import { graphql } from 'gatsby'
+import React from 'react'
+import type { FC, ReactElement } from 'react'
+
 import CaseStudyContent from '@components/CaseStudyContent/CaseStudyContent'
 import FullPageFeature from '@components/FullPageFeature/FullPageFeature'
 import MetaBlock from '@components/MetaBlock/MetaBlock'
 import RawHtmlWrapper from '@components/RawHtmlWrapper/RawHtmlWrapper'
 import Section from '@components/Section/Section'
 import WideColumnBlock from '@components/WideColumnBlock/WideColumnBlock'
-import { graphql } from 'gatsby'
-import React from 'react'
-import type { FC, ReactElement } from 'react'
 
 interface CaseStudyTemplateProps {
   data: {
@@ -29,14 +30,14 @@ const CaseStudyTemplate: FC<CaseStudyTemplateProps> = ({ data }: CaseStudyTempla
   const metaContent = [
     {
       title: 'Services',
-      content: caseStudy.tags.nodes.map(tag => tag.name)
-    }
+      content: caseStudy.tags.nodes.map((tag) => tag.name),
+    },
   ]
 
   return (
     <>
-      <FullPageFeature 
-        title={caseStudy.title} 
+      <FullPageFeature
+        title={caseStudy.title}
         subtitle={caseStudy.workTypes.nodes[0].name}
         background={caseStudy.featuredImage.node.sourceUrl}
       />
@@ -54,7 +55,7 @@ const CaseStudyTemplate: FC<CaseStudyTemplateProps> = ({ data }: CaseStudyTempla
 export default CaseStudyTemplate
 
 export const caseStudyQuery = graphql`
-  query($id: String!) {
+  query ($id: String!) {
     allWpCaseStudy(filter: { id: { eq: $id } }) {
       nodes {
         title

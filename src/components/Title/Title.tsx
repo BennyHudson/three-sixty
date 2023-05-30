@@ -1,5 +1,5 @@
-import type { FC, ReactElement } from 'react'
 import React from 'react'
+import type { FC, ReactElement } from 'react'
 
 import Heading from '@components/Heading'
 import Link from '@components/Link'

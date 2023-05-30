@@ -1,6 +1,6 @@
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import type { FC, ReactElement } from 'react'
 import React from 'react'
+import type { FC, ReactElement } from 'react'
 
 import ClientLogo from '@components/ClientLogo/ClientLogo'
 

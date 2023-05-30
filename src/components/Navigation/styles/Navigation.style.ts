@@ -1,5 +1,7 @@
-import type { FlattenSimpleInterpolation } from 'styled-components'
 import styled, { css } from 'styled-components'
+import type { FlattenSimpleInterpolation } from 'styled-components'
+
+import respondTo from '@mixins/respondTo'
 
 import type { StyledNavigationProps } from './Navigation.style.types'
 
@@ -15,7 +17,11 @@ export const Navigation = styled.nav(
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: ${props.theme.spacing[8]}px;
+    padding: ${props.theme.spacing[8]}px 0;
+
+    ${respondTo.md(css`
+      padding: ${props.theme.spacing[8]}px;
+    `)}
   `,
 )
 

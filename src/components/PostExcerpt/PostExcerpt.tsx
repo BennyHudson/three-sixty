@@ -1,12 +1,12 @@
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import type { FC, ReactElement } from 'react'
 import React from 'react'
+import type { FC, ReactElement } from 'react'
 
 import Heading from '@components/Heading'
 import Link from '@components/Link'
 import RawHtmlWrapper from '@components/RawHtmlWrapper'
 
-import { PostProps } from '@typings/Post.types'
+import type { PostProps } from '@typings/Post.types'
 
 import * as Styled from './styles/PostExcerpt.style'
 

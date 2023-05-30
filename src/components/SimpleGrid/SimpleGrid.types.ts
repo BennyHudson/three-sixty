@@ -4,7 +4,11 @@ import type { SpacingKeys } from '@themes/threeSixtyTheme/constants/spacing.type
 
 export interface SimpleGridProps {
   children: ReactNode | ReactNode[]
-  columns: number
+  columns: {
+    sm: number
+    md?: number
+    lg?: number
+  }
   spacing?: SpacingKeys
   rowSpacing?: SpacingKeys
 }

@@ -1,6 +1,6 @@
 import { Link } from 'gatsby'
-import type { FlattenSimpleInterpolation } from 'styled-components'
 import styled, { css } from 'styled-components'
+import type { FlattenSimpleInterpolation } from 'styled-components'
 
 import type { StyledSimpleCardProps } from './SimpleCard.style.types'
 

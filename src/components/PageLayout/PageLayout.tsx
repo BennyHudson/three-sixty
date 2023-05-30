@@ -1,12 +1,13 @@
-import type { FC, ReactElement } from 'react'
 import React, { useEffect, useState } from 'react'
+import type { FC, ReactElement } from 'react'
 import { ThemeProvider } from 'styled-components'
 
 import Footer from '@components/Footer'
 import Header from '@components/Header'
 import Navigation from '@components/Navigation'
 
-import PageContext, { PageContextProps } from '@context/PageContext'
+import type { PageContextProps } from '@context/PageContext'
+import PageContext from '@context/PageContext'
 
 import GlobalStyle from '@styles/GlobalStyle'
 
