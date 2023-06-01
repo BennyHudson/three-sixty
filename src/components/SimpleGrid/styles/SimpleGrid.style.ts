@@ -23,3 +23,14 @@ export const SimpleGrid = styled.div(
     `)}
   `,
 )
+
+type CarouselProps = Pick<StyledSimpleGridProps, 'theme'>
+export const Carousel = styled.div((props: CarouselProps): FlattenSimpleInterpolation => css`
+  .slick-list {
+    overflow: visible;
+  }
+
+  .slick-slide {
+    padding-right: ${props.theme.spacing[2]}px;
+  }
+`)

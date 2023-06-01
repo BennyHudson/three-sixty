@@ -60,12 +60,31 @@ const Footer: FC = (): ReactElement => {
 
           <div>
             <Paragraph size={1} text='Follow' inverse noMargin />
-            <Paragraph size={1} text={address} inverse />
+            <Paragraph size={1} inverse>
+              {socials.map((social, index) => {
+                return (
+                  <>
+                    {index !== 0 && ' | '}
+                    <Link inverse href={social.url} key={index}>
+                      {social.title}
+                    </Link>
+                  </>
+                )
+              })}
+            </Paragraph>
           </div>
 
           <div>
             <Paragraph size={1} text='Legal' inverse noMargin />
-            <Paragraph size={1} text={address} inverse />
+            <Paragraph size={1} inverse>
+              {legals.map((legal, index) => {
+                return (
+                  <Link inverse href={legal.file.localFile.publicUrl} key={index}>
+                    {index !== 0 && ' | '}{legal.title}
+                  </Link>
+                )
+              })}
+            </Paragraph>
           </div>
 
           <div>

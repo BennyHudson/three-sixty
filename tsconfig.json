@@ -33,6 +33,7 @@
       "@components/*": ["src/components/*"],
       "@context/*": ["src/context/*"],
       "@helpers/*": ["src/helpers/*"],
+      "@hooks/*": ["src/hooks/*"],
       "@images/*": ["src/images/*"],
       "@mixins/*": ["src/mixins/*"],
       "@pages/*": ["src/pages/*"],

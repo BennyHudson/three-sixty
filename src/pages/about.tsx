@@ -83,7 +83,7 @@ const AboutPage: FC<AboutPageProps> = ({ data }: AboutPageProps): ReactElement =
       </Section>
       <Section appearance='tertiary'>
         <Title title={aboutPage.clients.title} />
-        <SimpleGrid columns={{ sm: 1, md: 6 }}>
+        <SimpleGrid columns={{ sm: 3, md: 6 }} spacing={2} rowSpacing={2}>
           {aboutPage.clients.logos.map((client) => {
             return <ClientLogo logo={{ localFile: client.logo.localFile, title: client.clientName }} />
           })}
@@ -91,7 +91,7 @@ const AboutPage: FC<AboutPageProps> = ({ data }: AboutPageProps): ReactElement =
       </Section>
       <Section appearance='secondary'>
         <Title title={aboutPage.theTeam.title} link={{ to: '/', text: 'Join The Team' }} />
-        <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={2} rowSpacing={2}>
+        <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={2} rowSpacing={2} smCarousel>
           {aboutPage.theTeam.team.map((teamMember) => {
             return <SimpleCard title={teamMember.name} secondaryHeading={teamMember.role} featuredImage={teamMember.picture.localFile} />
           })}

@@ -61,9 +61,9 @@ const PostTemplate: FC<PostTemplateProps> = ({ data }: PostTemplateProps): React
       </Section>
       <Section appearance='tertiary'>
         <Title title='Related Articles' link={{ to: '/news', text: 'View all News' }} />
-        <SimpleGrid columns={3} spacing={2} rowSpacing={6}>
-          {data.posts.edges.map((post) => {
-            return <PostExcerpt {...post.node} />
+        <SimpleGrid columns={{ sm: 1, md: 3}} spacing={2} rowSpacing={6}>
+          {data.posts.edges.map((post, index) => {
+            return <PostExcerpt key={index} {...post.node} />
           })}
         </SimpleGrid>
       </Section>
