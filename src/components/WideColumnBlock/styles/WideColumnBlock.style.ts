@@ -11,10 +11,25 @@ export const WideColumnBlock = styled.div(
     gap: ${props.theme.spacing[4]}px;
     grid-template-columns: repeat(1, 1fr);
     align-items: ${props.verticalAlign === 'top' ? 'start' : props.verticalAlign};
+    position: relative;
 
     ${respondTo.md(css`
-      grid-template-columns: 1fr 2fr;
-      gap: ${props.theme.spacing[8]}px;
+      display: grid;
+      grid-template-columns: repeat(12, [col-start] 1fr);
+      gap: ${props.theme.spacing[10]}px;
     `)}
   `,
 )
+
+export const NarrowColumn = styled.div((props: StyledWideColumnBlockProps): FlattenSimpleInterpolation => css`
+  grid-column: col-start / span 4;
+
+  ${props.sticky && css`
+    position: sticky;
+    top: ${props.theme.spacing[10] + props.headerHeight}px;
+  `}
+`)
+
+export const WideColumn = styled.div((): FlattenSimpleInterpolation => css`
+  grid-column: col-start 5 / span 8;
+`)

@@ -12,10 +12,11 @@ export const Header = styled.div(
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: ${props.theme.colours.black};
+    background: ${props.theme.colours.white};
     transition: 0.4s all ease;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
 
-    ${props.inverse &&
+    ${(props.inverse && props.transparent) &&
     css`
       &::after {
         content: '';
@@ -28,9 +29,10 @@ export const Header = styled.div(
       }
     `}
 
-    ${props.transparent &&
+    ${(props.transparent || props.showNavigation) &&
     css`
       background: none;
+      box-shadow: none;
     `}
   `,
 )
@@ -47,7 +49,7 @@ export const Content = styled.div(
     justify-content: space-between;
 
     ${respondTo.md(css`
-      padding: ${props.theme.spacing[4]}px ${props.theme.spacing[8]}px;
+      padding: ${props.theme.spacing[6]}px ${props.theme.spacing[10]}px;
     `)}
   `,
 )

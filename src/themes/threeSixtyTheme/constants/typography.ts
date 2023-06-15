@@ -17,8 +17,8 @@ const typography = {
     1: {
       fontSizeMobile: '20px',
       lineHeightMobile: '1.5',
-      fontSize: '18px',
-      lineHeight: '26px',
+      fontSize: '14px',
+      lineHeight: '22px',
     },
     2: {
       fontSizeMobile: '24px',
@@ -29,8 +29,8 @@ const typography = {
     3: {
       fontSizeMobile: '24px',
       lineHeightMobile: '1.5',
-      fontSize: '36px',
-      lineHeight: '44px',
+      fontSize: '28px',
+      lineHeight: '36px',
     },
     4: {
       fontSizeMobile: '32px',
@@ -41,8 +41,8 @@ const typography = {
     5: {
       fontSizeMobile: '36px',
       lineHeightMobile: '44px',
-      fontSize: '60px',
-      lineHeight: '68px',
+      fontSize: '44px',
+      lineHeight: '52px',
     },
     6: {
       fontSizeMobile: '36px',

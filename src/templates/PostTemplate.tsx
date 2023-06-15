@@ -55,11 +55,15 @@ const PostTemplate: FC<PostTemplateProps> = ({ data }: PostTemplateProps): React
       />
       <Section appearance='secondary'>
         <WideColumnBlock
-          leftColumn={<Heading size={2} text={article.articleContent.subtitle} />}
+          leftColumn={<>
+            <Heading size={2} text={article.title} noMargin />
+            <Heading size={1} text={`${article.date} | ${article.author.node.name}`} />
+          </>}
           rightColumn={<ArticleContent content={article.articleContent.postContentBuilder} />}
+          sticky
         />
       </Section>
-      <Section appearance='tertiary'>
+      <Section appearance='secondary'>
         <Title title='Related Articles' link={{ to: '/news', text: 'View all News' }} />
         <SimpleGrid columns={{ sm: 1, md: 3}} spacing={2} rowSpacing={6}>
           {data.posts.edges.map((post, index) => {

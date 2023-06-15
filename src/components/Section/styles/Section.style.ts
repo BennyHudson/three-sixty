@@ -8,7 +8,7 @@ import type { StyledSectionProps } from './Section.style.types'
 export const Section = styled.div(
   (props: StyledSectionProps): FlattenSimpleInterpolation => css`
     padding: ${props.theme.spacing[4]}px 0;
-    overflow: hidden;
+    /* overflow: hidden; */
 
     ${props.appearance === 'primary' &&
     css`
@@ -26,7 +26,7 @@ export const Section = styled.div(
     `}
 
   ${respondTo.md(css`
-      padding: ${props.theme.spacing[8]}px 0;
+      padding: ${props.theme.spacing[10]}px 0;
     `)}
   `,
 )

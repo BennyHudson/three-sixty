@@ -33,7 +33,7 @@ const SimpleGrid: FC<SimpleGridProps> = ({ children, columns, spacing = 8, rowSp
   return (
     <Styled.SimpleGrid columns={columns} spacing={spacing} rowSpacing={rowSpacing}>
       {React.Children.map(children, (child) => {
-        return <>{child}</>
+        return <Styled.GridColumn columns={columns}>{child}</Styled.GridColumn>
       })}
     </Styled.SimpleGrid>
   )

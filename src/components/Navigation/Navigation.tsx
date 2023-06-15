@@ -39,6 +39,7 @@ const Navigation: FC = (): ReactElement => {
           </Styled.Menu>
         </Container>
       </Styled.Navigation>
+      <Styled.ScrollLock />
     </>
   )
 }

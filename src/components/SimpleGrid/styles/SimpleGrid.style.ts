@@ -8,21 +8,26 @@ import type { StyledSimpleGridProps } from './SimpleGrid.style.types'
 export const SimpleGrid = styled.div(
   (props: StyledSimpleGridProps): FlattenSimpleInterpolation => css`
     display: grid;
-    grid-template-columns: repeat(${props.columns.sm}, 1fr);
+    grid-template-columns: repeat(12, [col-start] 1fr);
     column-gap: ${props.theme.spacing[props.spacing]}px;
     row-gap: ${props.theme.spacing[props.rowSpacing]}px;
+  `,
+)
 
-    ${props.columns.md &&
+export const GridColumn = styled.div((props: StyledSimpleGridProps): FlattenSimpleInterpolation => css`
+  display: flex;
+  grid-column: span ${12 / props.columns.sm};
+
+  ${props.columns.md &&
     respondTo.md(css`
-      grid-template-columns: repeat(${props.columns.md}, 1fr);
+      grid-column: span ${12 / props.columns.md};
     `)}
 
     ${props.columns.lg &&
     respondTo.lg(css`
-      grid-template-columns: repeat(${props.columns.lg}, 1fr);
+      grid-column: span ${12 / props.columns.lg};
     `)}
-  `,
-)
+`)
 
 type CarouselProps = Pick<StyledSimpleGridProps, 'theme'>
 export const Carousel = styled.div((props: CarouselProps): FlattenSimpleInterpolation => css`

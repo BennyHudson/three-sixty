@@ -22,7 +22,7 @@ const WorkPage: FC<WorkPageProps> = ({ data }: WorkPageProps): ReactElement => {
     <>
       <FullPageFeature title='The eCommerce agency for market defining brands' appearance='secondary' />
       <Section appearance='secondary'>
-        <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={2} rowSpacing={2}>
+        <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={1} rowSpacing={1}>
           {data.caseStudies.nodes.map((caseStudy, index) => {
             return (
               <SimpleCard

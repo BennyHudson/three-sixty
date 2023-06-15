@@ -7,7 +7,7 @@ export const PostExcerpt = styled.div(
   (props: StyledPostExcerptProps): FlattenSimpleInterpolation => css`
     display: flex;
     flex-direction: column;
-    gap: ${props.theme.spacing[2]}px;
+    gap: ${props.theme.spacing[4]}px;
   `,
 )
 
@@ -16,6 +16,6 @@ export const Content = styled.div(
     padding-right: ${props.theme.spacing[8]}px;
     display: flex;
     flex-direction: column;
-    gap: ${props.theme.spacing[4]}px;
+    gap: ${props.theme.spacing[2]}px;
   `,
 )

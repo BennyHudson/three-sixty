@@ -51,7 +51,7 @@ const HomePage: FC<HomePageProps> = ({ data }: HomePageProps): ReactElement => {
         </SimpleGrid>
       </Section>
       <Section appearance='secondary'>
-        <SimpleGrid columns={{ sm: 1, md: 3 }}>
+        <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={10}>
           {homepageContent.services.map((service, index) => {
             return <SimpleContentBlock key={index} heading={service.title} content={service.content} />
           })}
@@ -59,7 +59,7 @@ const HomePage: FC<HomePageProps> = ({ data }: HomePageProps): ReactElement => {
       </Section>
       <Section appearance='secondary'>
         <Title title='Our Work' link={{ to: '/work', text: 'All Work' }} />
-        <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={2} rowSpacing={2}>
+        <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={1} rowSpacing={1}>
           {caseStudies.nodes.map((caseStudy, index) => {
             return (
               <SimpleCard

@@ -13,12 +13,6 @@ export const FullPageFeature = styled.div(
     align-items: center;
     background: ${props.appearance === 'primary' ? props.theme.colours.black : props.theme.colours.white};
 
-    ${Heading} {
-      &:first-child {
-        max-width: 15ch;
-      }
-    }
-
     ${Container} {
       z-index: 10;
     }

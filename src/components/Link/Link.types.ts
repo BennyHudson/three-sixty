@@ -6,4 +6,5 @@ export interface LinkProps {
   inverse?: boolean
   children?: ReactNode
   href?: string
+  showUnderline?: boolean
 }

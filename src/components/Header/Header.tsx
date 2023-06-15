@@ -22,12 +22,12 @@ const Header: FC<HeaderProps> = ({ inverse }: HeaderProps): ReactElement => {
   const { showNavigation, setHeaderHeight } = useContext(PageContext) as PageContextProps
 
   const onScroll: EventListener = (e: Event) => {
-    console.log(e)
     const scrollTop = e.target ? e.target.documentElement.scrollTop : 0
     if (scrollTop === 0) {
       setTransparent(true)
     } else {
       setTransparent(false)
+      setInverseHeaderContents(false)
     }
   }
 
@@ -65,12 +65,12 @@ const Header: FC<HeaderProps> = ({ inverse }: HeaderProps): ReactElement => {
     }
 
     if (!transparent) {
-      setInverseHeaderContents(true)
+      setInverseHeaderContents(false)
     }
   }, [transparent, inverse, showNavigation])
 
   return (
-    <Styled.Header transparent={transparent} inverse={inverse} ref={header}>
+    <Styled.Header transparent={transparent} inverse={inverse} ref={header} showNavigation={showNavigation}>
       <Styled.Content>
         <Logo inverse={inverseHeaderContents} />
         <NavTrigger inverse={inverseHeaderContents} />

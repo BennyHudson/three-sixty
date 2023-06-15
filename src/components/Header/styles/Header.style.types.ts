@@ -4,4 +4,5 @@ export interface StyledHeaderProps {
   theme: Theme
   transparent: boolean
   inverse: boolean
+  showNavigation: boolean
 }

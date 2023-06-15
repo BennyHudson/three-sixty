@@ -49,18 +49,20 @@ const Footer: FC = (): ReactElement => {
       <Styled.FooterMain>
         <Container>
           <Heading size={1} text='Work with us' inverse />
+          <Link href='#' showUnderline inverse><Heading size={3} text='Lorem ipsum dolor sit amet,
+consectetur adipiscing.' inverse /></Link>
         </Container>
       </Styled.FooterMain>
       <Container>
         <Styled.FooterColumns>
           <div>
-            <Paragraph size={1} text='Company Name | 2023' inverse noMargin />
-            <Paragraph size={1} text={address} inverse />
+            <Paragraph text='Company Name | 2023' inverse noMargin />
+            <Paragraph text={address} inverse />
           </div>
 
           <div>
-            <Paragraph size={1} text='Follow' inverse noMargin />
-            <Paragraph size={1} inverse>
+            <Paragraph text='Follow' inverse noMargin />
+            <Paragraph inverse>
               {socials.map((social, index) => {
                 return (
                   <>
@@ -75,8 +77,8 @@ const Footer: FC = (): ReactElement => {
           </div>
 
           <div>
-            <Paragraph size={1} text='Legal' inverse noMargin />
-            <Paragraph size={1} inverse>
+            <Paragraph text='Legal' inverse noMargin />
+            <Paragraph inverse>
               {legals.map((legal, index) => {
                 return (
                   <Link inverse href={legal.file.localFile.publicUrl} key={index}>
@@ -88,8 +90,8 @@ const Footer: FC = (): ReactElement => {
           </div>
 
           <div>
-            <Paragraph size={1} text='Contact' inverse noMargin />
-            <Paragraph size={1}>
+            <Paragraph text='Contact' inverse noMargin />
+            <Paragraph>
               <Link href={`mailto:${contactEmail}`} text={contactEmail} inverse />
             </Paragraph>
           </div>

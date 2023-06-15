@@ -25,7 +25,6 @@ const NewsPage: FC<NewsPageProps> = ({ data }: NewsPageProps): ReactElement => {
     <>
       <FullPageFeature title='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' />
       <Section appearance='tertiary'>
-        <Title title='Lorem ipsum dolor sit amet consectetur' />
         <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={2} rowSpacing={6}>
           {data.posts.edges.map((post, index) => {
             return <PostExcerpt key={index} {...post.node} />

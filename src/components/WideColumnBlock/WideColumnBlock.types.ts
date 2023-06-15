@@ -5,4 +5,5 @@ export interface WideColumnBlockProps {
   rightColumn: ReactNode
   inverse?: boolean
   verticalAlign?: 'top' | 'center'
+  sticky?: boolean
 }

@@ -6,9 +6,15 @@ export interface CaseStudyProps {
   featuredImage: {
     node: {
       localFile: IGatsbyImageData
+      sourceUrl: string
     }
   }
   workTypes: {
+    nodes: {
+      name: string
+    }[]
+  }
+  tags: {
     nodes: {
       name: string
     }[]

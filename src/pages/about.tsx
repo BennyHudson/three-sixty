@@ -75,7 +75,7 @@ const AboutPage: FC<AboutPageProps> = ({ data }: AboutPageProps): ReactElement =
         />
       </Section>
       <Section appearance='secondary'>
-        <SimpleGrid columns={{ sm: 1, md: 3 }}>
+        <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={10}>
           {aboutPage.mainContent.columns.map((column, index) => {
             return <SimpleContentBlock key={index} heading={column.title} content={column.content} />
           })}
@@ -91,7 +91,7 @@ const AboutPage: FC<AboutPageProps> = ({ data }: AboutPageProps): ReactElement =
       </Section>
       <Section appearance='secondary'>
         <Title title={aboutPage.theTeam.title} link={{ to: '/', text: 'Join The Team' }} />
-        <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={2} rowSpacing={2} smCarousel>
+        <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={1} rowSpacing={1} smCarousel>
           {aboutPage.theTeam.team.map((teamMember) => {
             return <SimpleCard title={teamMember.name} secondaryHeading={teamMember.role} featuredImage={teamMember.picture.localFile} />
           })}

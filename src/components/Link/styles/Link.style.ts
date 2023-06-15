@@ -9,6 +9,7 @@ export const Link = styled(GatsbyLink)(
     color: ${props.theme.colours.black};
     text-decoration: none;
     transition: 0.4s all ease;
+    font-family: 'everettmedium';
 
     &:hover {
       text-decoration: underline;
@@ -17,6 +18,10 @@ export const Link = styled(GatsbyLink)(
     ${props.inverse &&
     css`
       color: ${props.theme.colours.white};
+    `}
+
+    ${props.showUnderline && css`
+      text-decoration: underline;
     `}
   `,
 )

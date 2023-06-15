@@ -14,6 +14,8 @@ import SimpleGrid from '@components/SimpleGrid'
 import Title from '@components/Title'
 
 import type { CaseStudyProps } from '@typings/CaseStudy.types'
+import Heading from '@components/Heading/Heading'
+import Capability from '@components/Capability/Capability'
 
 interface CapabilityPageProps {
   data: {
@@ -49,19 +51,12 @@ const CapabilityPage: FC<CapabilityPageProps> = ({ data }: CapabilityPageProps):
       <FullPageFeature appearance='secondary' title='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' />
       {capabilities.map((capability, index) => {
         return (
-          <Panel appearance={panelAppearance(index)} key={index}>
-            <SimpleGrid columns={{ sm: 1, md: 3 }}>
-              <SimpleContentBlock inverse heading={capability.title}>
-                <Paragraph text={capability.content} />
-                <ListGroup items={capability.microservices.map((microservice) => microservice.title)} />
-              </SimpleContentBlock>
-            </SimpleGrid>
-          </Panel>
+          <Capability {...capability} appearance={panelAppearance(index)} key={index} />
         )
       })}
       <Section appearance='secondary'>
         <Title title='Our Work' link={{ to: '/work', text: 'All Work' }} />
-        <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={2} rowSpacing={2}>
+        <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={1} rowSpacing={1}>
           {caseStudies.nodes.map((caseStudy, index) => {
             return (
               <SimpleCard

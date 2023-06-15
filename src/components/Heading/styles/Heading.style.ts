@@ -10,6 +10,7 @@ export const Heading = styled.h2(
     font-size: ${props.theme.typography.heading[props.size!].fontSizeMobile};
     line-height: ${props.theme.typography.heading[props.size!].lineHeightMobile};
     font-family: 'everettregular';
+    white-space: pre-line;
 
     ${props.weight === 1 &&
     css`

@@ -1,9 +1,16 @@
-import styled, { css } from 'styled-components'
+import styled, { createGlobalStyle, css } from 'styled-components'
 import type { FlattenSimpleInterpolation } from 'styled-components'
 
 import respondTo from '@mixins/respondTo'
 
 import type { StyledNavigationProps } from './Navigation.style.types'
+
+export const ScrollLock = createGlobalStyle((): FlattenSimpleInterpolation => css`
+    html,
+    body {
+      overflow: hidden;
+    }
+`)
 
 export const Navigation = styled.nav(
   (props: StyledNavigationProps): FlattenSimpleInterpolation => css`

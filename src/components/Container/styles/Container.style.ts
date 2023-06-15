@@ -12,7 +12,7 @@ export const Container = styled.div(
     max-width: ${props.theme.containerWidth}px;
 
     ${respondTo.md(css`
-      width: calc(100% - ${props.theme.spacing[8] * 2}px);
+      width: calc(100% - ${props.theme.spacing[10] * 2}px);
     `)}
   `,
 )

@@ -8,18 +8,14 @@ import MetaBlock from '@components/MetaBlock/MetaBlock'
 import RawHtmlWrapper from '@components/RawHtmlWrapper/RawHtmlWrapper'
 import Section from '@components/Section/Section'
 import WideColumnBlock from '@components/WideColumnBlock/WideColumnBlock'
+import Heading from '@components/Heading/Heading'
+import SimpleGrid from '@components/SimpleGrid/SimpleGrid'
+import { CaseStudyProps } from '@typings/CaseStudy.types'
 
 interface CaseStudyTemplateProps {
   data: {
     allWpCaseStudy: {
-      nodes: {
-        title: string
-        featuredImage: {
-          node: {
-            sourceUrl: string
-          }
-        }
-      }[]
+      nodes: CaseStudyProps[]
     }
   }
 }
@@ -47,6 +43,19 @@ const CaseStudyTemplate: FC<CaseStudyTemplateProps> = ({ data }: CaseStudyTempla
           rightColumn={<RawHtmlWrapper content={caseStudy.caseStudyContent.introContent} />}
         />
         <CaseStudyContent content={caseStudy.caseStudyContent.contentBuilder} />
+      </Section>
+      <Section appearance='secondary'>
+        <Heading text='Results-driven, performance obsessed' size={4} weight={3} />
+        <SimpleGrid columns={{ sm: 2, md: 4 }} spacing={10} rowSpacing={5}>
+          {caseStudy.caseStudyContent.results.map((result, index) => {
+            return (
+              <div key={index}>
+                <Heading size={3} weight={3} noMargin text={result.value} />
+                <Heading size={1} noMargin text={result.title} />
+              </div>
+            )
+          })}
+        </SimpleGrid>
       </Section>
     </>
   )
