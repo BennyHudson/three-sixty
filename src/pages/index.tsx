@@ -43,7 +43,7 @@ const HomePage: FC<HomePageProps> = ({ data }: HomePageProps): ReactElement => {
   return (
     <>
       <FullPageFeature title={homepageContent.featureTitle} />
-      <Section appearance='tertiary'>
+      <Section appearance='tertiary' paddingLevel={1}>
         <SimpleGrid columns={{ sm: 3, md: homepageContent.homeClients.length }} spacing={2}>
           {homepageContent.homeClients.map((client, index) => {
             return <ClientLogo key={index} logo={{ localFile: client.logo.localFile, title: client.clientName }} />

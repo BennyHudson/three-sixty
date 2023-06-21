@@ -2,8 +2,6 @@ import { Link, graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import type { FC, ReactElement } from 'react'
 
-import Container from '@components/Container'
-
 import type { Menu } from './Navigation.types'
 import * as Styled from './styles/Navigation.style'
 
@@ -27,7 +25,7 @@ const Navigation: FC = (): ReactElement => {
   return (
     <>
       <Styled.Navigation>
-        <Container>
+        <Styled.Container>
           <Styled.Menu>
             {nodes.map((menuItem) => {
               return (
@@ -37,7 +35,7 @@ const Navigation: FC = (): ReactElement => {
               )
             })}
           </Styled.Menu>
-        </Container>
+        </Styled.Container>
       </Styled.Navigation>
       <Styled.ScrollLock />
     </>

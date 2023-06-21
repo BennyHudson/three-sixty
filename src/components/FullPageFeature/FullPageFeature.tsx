@@ -13,14 +13,15 @@ const FullPageFeature: FC<FullPageFeatureProps> = ({
   appearance = 'primary',
   background,
   subtitle,
+  showOverlay = true
 }: FullPageFeatureProps): ReactElement => {
   return (
     <Styled.FullPageFeature appearance={appearance} background={background}>
       <Container>
-        <Heading text={title} size={5} inverse={appearance === 'primary' || !!background} weight={3} noMargin />
+        <Heading text={title} size={5} inverse={appearance === 'primary' || !!background} weight={3} />
         {subtitle && <Heading text={subtitle} size={1} inverse={appearance === 'primary' || !!background} weight={3} noMargin />}
       </Container>
-      <Overlay />
+      {showOverlay && <Overlay />}
     </Styled.FullPageFeature>
   )
 }

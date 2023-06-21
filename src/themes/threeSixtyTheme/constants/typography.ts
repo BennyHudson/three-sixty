@@ -23,8 +23,8 @@ const typography = {
     2: {
       fontSizeMobile: '24px',
       lineHeightMobile: '1.5',
-      fontSize: '24px',
-      lineHeight: '32px',
+      fontSize: '18px',
+      lineHeight: '26px',
     },
     3: {
       fontSizeMobile: '24px',

@@ -44,13 +44,16 @@ const CaseStudyTemplate: FC<CaseStudyTemplateProps> = ({ data }: CaseStudyTempla
         />
         <CaseStudyContent content={caseStudy.caseStudyContent.contentBuilder} />
       </Section>
+      <Section appearance='secondary' paddingLevel={1}>
+        <Heading text='Results-driven,' size={4} weight={3} noMargin />
+        <Heading text='performance obsessed' size={4} weight={3} />
+      </Section>
       <Section appearance='secondary'>
-        <Heading text='Results-driven, performance obsessed' size={4} weight={3} />
         <SimpleGrid columns={{ sm: 2, md: 4 }} spacing={10} rowSpacing={5}>
           {caseStudy.caseStudyContent.results.map((result, index) => {
             return (
               <div key={index}>
-                <Heading size={3} weight={3} noMargin text={result.value} />
+                <Heading size={5} weight={3} noMargin text={result.value} />
                 <Heading size={1} noMargin text={result.title} />
               </div>
             )

@@ -13,11 +13,11 @@ const SimpleCard: FC<SimpleCardProps> = ({ title, featuredImage, uri, secondaryH
   return (
     <Styled.SimpleCard to={uri} as={uri ? Link : 'div'}>
       <Styled.Content>
-        <Heading text={title} inverse noMargin />
+        <Heading size={2} text={title} inverse noMargin />
         {secondaryHeading && Array.isArray(secondaryHeading) ? (
           <>
-            {secondaryHeading.map((secondaryHeading) => {
-              return <Heading size={1} text={secondaryHeading} inverse />
+            {secondaryHeading.map((secondaryHeading, index) => {
+              return <Heading size={1} text={secondaryHeading} inverse key={index} />
             })}
           </>
         ) : (

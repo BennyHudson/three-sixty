@@ -25,7 +25,7 @@ export const Panel = styled.div(
     `}
 
     ${respondTo.md(css`
-      padding: ${props.theme.spacing[8]}px;
+      padding: ${props.theme.spacing[8]}px 0;
     `)}
   `,
 )

@@ -3,4 +3,5 @@ export interface FullPageFeatureProps {
   appearance?: 'primary' | 'secondary'
   background?: string
   subtitle?: string
+  showOverlay?: boolean
 }

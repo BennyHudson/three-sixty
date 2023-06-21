@@ -50,3 +50,9 @@ export const MenuItem = styled.li(
     }
   `,
 )
+
+export const Container  = styled.div((props: StyledNavigationProps): FlattenSimpleInterpolation => css`
+  // max-width: ${props.theme.containerWidth}px;
+  width: 100%;
+  margin: 0 auto;
+`)

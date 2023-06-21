@@ -49,25 +49,25 @@ const Footer: FC = (): ReactElement => {
       <Styled.FooterMain>
         <Container>
           <Heading size={1} text='Work with us' inverse />
-          <Link href='#' showUnderline inverse><Heading size={3} text='Lorem ipsum dolor sit amet,
-consectetur adipiscing.' inverse /></Link>
+          <Link href='#' showUnderline inverse appearance='secondary'><Heading size={3} text='Lorem ipsum dolor sit amet,
+consectetur adipiscing.' inverse appearance='secondary' /></Link>
         </Container>
       </Styled.FooterMain>
       <Container>
         <Styled.FooterColumns>
           <div>
-            <Paragraph text='Company Name | 2023' inverse noMargin />
-            <Paragraph text={address} inverse />
+            <Heading size={1} text='Company Name | 2023' inverse noMargin />
+            <Paragraph text={address} inverse appearance='secondary' />
           </div>
 
           <div>
-            <Paragraph text='Follow' inverse noMargin />
-            <Paragraph inverse>
+            <Heading size={1} text='Follow' inverse noMargin />
+            <Paragraph inverse appearance='secondary'>
               {socials.map((social, index) => {
                 return (
                   <>
                     {index !== 0 && ' | '}
-                    <Link inverse href={social.url} key={index}>
+                    <Link inverse appearance='secondary' href={social.url} key={index}>
                       {social.title}
                     </Link>
                   </>
@@ -77,11 +77,11 @@ consectetur adipiscing.' inverse /></Link>
           </div>
 
           <div>
-            <Paragraph text='Legal' inverse noMargin />
-            <Paragraph inverse>
+            <Heading size={1} text='Legal' inverse noMargin />
+            <Paragraph inverse appearance='secondary'>
               {legals.map((legal, index) => {
                 return (
-                  <Link inverse href={legal.file.localFile.publicUrl} key={index}>
+                  <Link inverse appearance='secondary' href={legal.file.localFile.publicUrl} key={index}>
                     {index !== 0 && ' | '}{legal.title}
                   </Link>
                 )
@@ -90,9 +90,9 @@ consectetur adipiscing.' inverse /></Link>
           </div>
 
           <div>
-            <Paragraph text='Contact' inverse noMargin />
+            <Heading size={1} text='Contact' inverse noMargin />
             <Paragraph>
-              <Link href={`mailto:${contactEmail}`} text={contactEmail} inverse />
+              <Link href={`mailto:${contactEmail}`} text={contactEmail} inverse appearance='secondary' />
             </Paragraph>
           </div>
         </Styled.FooterColumns>

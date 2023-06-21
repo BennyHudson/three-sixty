@@ -26,7 +26,7 @@ export const Section = styled.div(
     `}
 
   ${respondTo.md(css`
-      padding: ${props.theme.spacing[10]}px 0;
+      padding: ${props.paddingLevel === 1 ? props.theme.spacing[4] : props.theme.spacing[10]}px 0;
     `)}
   `,
 )

@@ -25,9 +25,9 @@ const ArticleContent: FC<ArticleContentProps> = ({ content }: ArticleContentProp
         case `${prefix}_ImageBlock`:
           const image = getImage(contentBlock.image.localFile)
           return (
-            <Styled.ContentBlock>
+            <Styled.ImageBlock>
               <GatsbyImage image={image} alt='' />
-            </Styled.ContentBlock>
+            </Styled.ImageBlock>
           )
         }
       })}

@@ -12,3 +12,7 @@ export const ArticleContent = styled.div(
 )
 
 export const ContentBlock = styled.div((): FlattenSimpleInterpolation => [])
+
+export const ImageBlock = styled.div((props: StyledArticleContentProps): FlattenSimpleInterpolation => css`
+  padding: ${props.theme.spacing[4]}px 0;
+`)

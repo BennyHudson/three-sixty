@@ -7,4 +7,5 @@ export interface LinkProps {
   children?: ReactNode
   href?: string
   showUnderline?: boolean
+  appearance?: 'primary' | 'secondary'
 }

@@ -14,6 +14,11 @@ export const Paragraph = styled.p(
       margin-bottom: ${props.theme.spacing[2]}px;
     `}
 
+    ${props.inverse &&
+    css`
+      color: ${props.appearance === 'primary' ? props.theme.colours.white : props.theme.colours.altGrey};
+    `}
+
     &:last-child {
       margin-bottom: 0;
     }

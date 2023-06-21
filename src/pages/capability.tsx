@@ -48,7 +48,7 @@ const CapabilityPage: FC<CapabilityPageProps> = ({ data }: CapabilityPageProps):
 
   return (
     <>
-      <FullPageFeature appearance='secondary' title='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' />
+      <FullPageFeature appearance='secondary' title='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' showOverlay={false} />
       {capabilities.map((capability, index) => {
         return (
           <Capability {...capability} appearance={panelAppearance(index)} key={index} />

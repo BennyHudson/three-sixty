@@ -56,7 +56,7 @@ const PostTemplate: FC<PostTemplateProps> = ({ data }: PostTemplateProps): React
       <Section appearance='secondary'>
         <WideColumnBlock
           leftColumn={<>
-            <Heading size={2} text={article.title} noMargin />
+            <Heading size={2} text={article.title} />
             <Heading size={1} text={`${article.date} | ${article.author.node.name}`} />
           </>}
           rightColumn={<ArticleContent content={article.articleContent.postContentBuilder} />}

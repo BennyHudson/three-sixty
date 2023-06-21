@@ -6,6 +6,7 @@ const colours: Colours = {
   midGrey: '#181818',
   lightGrey: '#f9f9f9',
   white: '#ffffff',
+  altGrey: '#7a7a7a',
 }
 
 export default colours

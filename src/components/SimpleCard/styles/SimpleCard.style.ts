@@ -39,7 +39,7 @@ export const Content = styled.div(
     left: 0;
     width: 100%;
     height: 100%;
-    padding: ${props.theme.spacing[4]}px;
+    padding: ${props.theme.spacing[6]}px ${props.theme.spacing[4]}px;
     z-index: 20;
     display: flex;
     flex-direction: column;

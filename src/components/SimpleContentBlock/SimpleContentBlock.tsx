@@ -18,7 +18,7 @@ const SimpleContentBlock: FC<SimpleContentBlockProps> = ({
   return (
     <Styled.SimpleContentBlock>
       <div>
-        {subheading && <Heading text={subheading} noMargin inverse={inverse} size={1} />}
+        {subheading && <Heading text={subheading} inverse={inverse} size={1} />}
         <Heading text={heading} noMargin inverse={inverse} />
       </div>
       {content ? <RawHtmlWrapper inverse={inverse} content={content} /> : children}
