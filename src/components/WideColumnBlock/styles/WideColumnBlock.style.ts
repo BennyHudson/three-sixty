@@ -22,14 +22,18 @@ export const WideColumnBlock = styled.div(
 )
 
 export const NarrowColumn = styled.div((props: StyledWideColumnBlockProps): FlattenSimpleInterpolation => css`
-  grid-column: col-start / span 4;
+  ${respondTo.md(css`
+    grid-column: col-start / span 4;
 
-  ${props.sticky && css`
-    position: sticky;
-    top: ${props.theme.spacing[10] + props.headerHeight}px;
-  `}
+    ${props.sticky && css`
+      position: sticky;
+      top: ${props.theme.spacing[10] + props.headerHeight}px;
+    `}
+  `)}
 `)
 
 export const WideColumn = styled.div((): FlattenSimpleInterpolation => css`
-  grid-column: col-start 5 / span 8;
+  ${respondTo.md(css`
+    grid-column: col-start 5 / span 8;
+  `)}
 `)

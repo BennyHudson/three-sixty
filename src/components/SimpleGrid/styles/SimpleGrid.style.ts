@@ -8,15 +8,19 @@ import type { StyledSimpleGridProps } from './SimpleGrid.style.types'
 export const SimpleGrid = styled.div(
   (props: StyledSimpleGridProps): FlattenSimpleInterpolation => css`
     display: grid;
-    grid-template-columns: repeat(12, [col-start] 1fr);
+    grid-template-columns: repeat(4, [col-start] 1fr);
     column-gap: ${props.theme.spacing[props.spacing]}px;
     row-gap: ${props.theme.spacing[props.rowSpacing]}px;
+
+    ${respondTo.md(css`
+      grid-template-columns: repeat(12, [col-start] 1fr);
+    `)}
   `,
 )
 
 export const GridColumn = styled.div((props: StyledSimpleGridProps): FlattenSimpleInterpolation => css`
   display: flex;
-  grid-column: span ${12 / props.columns.sm};
+  grid-column: span ${4 / props.columns.sm};
 
   ${props.columns.md &&
     respondTo.md(css`
