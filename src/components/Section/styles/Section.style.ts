@@ -8,6 +8,7 @@ import type { StyledSectionProps } from './Section.style.types'
 export const Section = styled.div(
   (props: StyledSectionProps): FlattenSimpleInterpolation => css`
     padding: ${props.theme.spacing[4]}px 0;
+    overflow: hidden;
 
     ${props.extraMargin && css`
       margin: ${props.theme.spacing[4]}px 0;
