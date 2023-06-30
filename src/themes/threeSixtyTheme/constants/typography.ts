@@ -15,14 +15,14 @@ const typography = {
   },
   heading: {
     1: {
-      fontSizeMobile: '20px',
-      lineHeightMobile: '1.5',
+      fontSizeMobile: '14px',
+      lineHeightMobile: '22px',
       fontSize: '14px',
       lineHeight: '22px',
     },
     2: {
-      fontSizeMobile: '24px',
-      lineHeightMobile: '1.5',
+      fontSizeMobile: '18px',
+      lineHeightMobile: '26px',
       fontSize: '18px',
       lineHeight: '26px',
     },

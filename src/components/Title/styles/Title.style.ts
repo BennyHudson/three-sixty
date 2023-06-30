@@ -4,11 +4,13 @@ import type { FlattenSimpleInterpolation } from 'styled-components'
 import { Heading } from '@components/Heading/styles/Heading.style'
 import { Link } from '@components/Link/styles/Link.style'
 
+import respondTo from '@mixins/respondTo'
+
 import type { StyledTitleProps } from './Title.style.types'
 
 export const Title = styled.div(
   (props: StyledTitleProps): FlattenSimpleInterpolation => css`
-    margin-bottom: ${props.theme.spacing[8]}px;
+    margin-bottom: ${props.theme.spacing[4]}px;
     display: flex;
     align-items: baseline;
     justify-content: space-between;
@@ -21,5 +23,9 @@ export const Title = styled.div(
     ${Link} {
       flex-shrink: 0;
     }
+
+    ${respondTo.md(css`
+      margin-bottom: ${props.theme.spacing[8]}px;
+    `)}
   `,
 )

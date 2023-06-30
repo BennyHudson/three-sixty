@@ -32,8 +32,16 @@ export const NarrowColumn = styled.div((props: StyledWideColumnBlockProps): Flat
   `)}
 `)
 
-export const WideColumn = styled.div((): FlattenSimpleInterpolation => css`
+export const WideColumn = styled.div((props: StyledWideColumnBlockProps): FlattenSimpleInterpolation => css`
+  ${props.reverse && css`
+    order: 1;
+  `}
+
   ${respondTo.md(css`
     grid-column: col-start 5 / span 8;
+
+    ${props.reverse && css`
+      order: unset;
+    `}
   `)}
 `)

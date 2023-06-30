@@ -7,4 +7,5 @@ export interface StyledWideColumnBlockProps {
   verticalAlign: WideColumnBlockProps['verticalAlign']
   sticky: boolean
   headerHeight: number
+  reverse: boolean
 }

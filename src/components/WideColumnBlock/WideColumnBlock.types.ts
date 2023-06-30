@@ -6,4 +6,5 @@ export interface WideColumnBlockProps {
   inverse?: boolean
   verticalAlign?: 'top' | 'center'
   sticky?: boolean
+  reverse?: boolean
 }

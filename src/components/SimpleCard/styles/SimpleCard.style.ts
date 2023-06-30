@@ -2,10 +2,12 @@ import { Link } from 'gatsby'
 import styled, { css } from 'styled-components'
 import type { FlattenSimpleInterpolation } from 'styled-components'
 
+import respondTo from '@mixins/respondTo'
+
 import type { StyledSimpleCardProps } from './SimpleCard.style.types'
 
 export const SimpleCard = styled(Link)(
-  (props: StyledSimpleCardProps): FlattenSimpleInterpolation => css`
+  (): FlattenSimpleInterpolation => css`
     position: relative;
     overflow: hidden;
 
@@ -39,10 +41,14 @@ export const Content = styled.div(
     left: 0;
     width: 100%;
     height: 100%;
-    padding: ${props.theme.spacing[6]}px ${props.theme.spacing[4]}px;
+    padding: ${props.theme.spacing[4]}px;
     z-index: 20;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+
+    ${respondTo.md(css`
+      padding: ${props.theme.spacing[6]}px ${props.theme.spacing[4]}px;
+    `)}
   `,
 )

@@ -81,7 +81,7 @@ const AboutPage: FC<AboutPageProps> = ({ data }: AboutPageProps): ReactElement =
           })}
         </SimpleGrid>
       </Section>
-      <Section appearance='tertiary'>
+      <Section appearance='tertiary' extraMargin>
         <Title title={aboutPage.clients.title} />
         <SimpleGrid columns={{ sm: 3, md: 6 }} spacing={2} rowSpacing={2}>
           {aboutPage.clients.logos.map((client) => {

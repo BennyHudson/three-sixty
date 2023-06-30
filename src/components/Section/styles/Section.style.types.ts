@@ -6,4 +6,6 @@ export interface StyledSectionProps {
   theme: Theme
   appearance: SectionProps['appearance']
   paddingLevel: SectionProps['paddingLevel']
+  extraMargin: boolean
+  extraMarginBottom: boolean
 }

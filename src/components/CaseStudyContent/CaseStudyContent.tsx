@@ -20,6 +20,7 @@ const CaseStudyContent: FC<CaseStudyContentProps> = ({ content }: CaseStudyConte
           return (
             <WideColumnBlock
               verticalAlign='center'
+              reverse
               leftColumn={
                 <SimpleContentBlock heading={contentBlock.heading} subheading={contentBlock.title} content={contentBlock.content} />
               }

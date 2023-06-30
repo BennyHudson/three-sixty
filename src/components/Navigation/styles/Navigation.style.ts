@@ -53,6 +53,10 @@ export const MenuItem = styled.li(
 
 export const Container  = styled.div((props: StyledNavigationProps): FlattenSimpleInterpolation => css`
   // max-width: ${props.theme.containerWidth}px;
-  width: 100%;
+  width: calc(100% - ${props.theme.spacing[4] * 2}px);
   margin: 0 auto;
+
+  ${respondTo.md(css`
+    width: 100%;
+  `)}
 `)
