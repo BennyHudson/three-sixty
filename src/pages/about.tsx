@@ -4,7 +4,6 @@ import type { IGatsbyImageData } from 'gatsby-plugin-image'
 import React from 'react'
 import type { FC, ReactElement } from 'react'
 
-import ClientLogo from '@components/ClientLogo/ClientLogo'
 import FullPageFeature from '@components/FullPageFeature'
 import Heading from '@components/Heading'
 import PostExcerpt from '@components/PostExcerpt'
@@ -17,6 +16,7 @@ import Title from '@components/Title/Title'
 import WideColumnBlock from '@components/WideColumnBlock/WideColumnBlock'
 
 import type { PostProps } from '@typings/Post.types'
+import LogoGrid from '@components/LogoGrid/LogoGrid'
 
 interface AboutPageProps {
   data: {
@@ -81,14 +81,7 @@ const AboutPage: FC<AboutPageProps> = ({ data }: AboutPageProps): ReactElement =
           })}
         </SimpleGrid>
       </Section>
-      <Section appearance='tertiary' extraMargin>
-        <Title title={aboutPage.clients.title} />
-        <SimpleGrid columns={{ sm: 3, md: 6 }} spacing={2} rowSpacing={2}>
-          {aboutPage.clients.logos.map((client) => {
-            return <ClientLogo logo={{ localFile: client.logo.localFile, title: client.clientName }} />
-          })}
-        </SimpleGrid>
-      </Section>
+      <LogoGrid logos={aboutPage.clients.logos} title={aboutPage.clients.title} extraMargin />
       <Section appearance='secondary'>
         <Title title={aboutPage.theTeam.title} link={{ to: '/', text: 'Join The Team' }} />
         <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={1} rowSpacing={1} smCarousel>

@@ -13,6 +13,7 @@ import WideColumnBlock from '@components/WideColumnBlock/WideColumnBlock'
 
 import type { PostProps } from '@typings/Post.types'
 import type { ContentBlock, ImageBlock } from '@typings/PostContentBuilder.types'
+import { useBreakpoints } from '@hooks/useBreakpoints'
 
 interface PostTemplateProps {
   data: {
@@ -46,6 +47,7 @@ interface PostTemplateProps {
 
 const PostTemplate: FC<PostTemplateProps> = ({ data }: PostTemplateProps): ReactElement => {
   const article = data.allWpPost.nodes[0]
+  const { mdAndAbove } = useBreakpoints()
   return (
     <>
       <FullPageFeature
@@ -54,14 +56,18 @@ const PostTemplate: FC<PostTemplateProps> = ({ data }: PostTemplateProps): React
         background={article.featuredImage.node.sourceUrl}
       />
       <Section appearance='secondary'>
-        <WideColumnBlock
-          leftColumn={<>
-            <Heading size={2} text={article.title} />
-            <Heading size={1} text={`${article.date} | ${article.author.node.name}`} />
-          </>}
-          rightColumn={<ArticleContent content={article.articleContent.postContentBuilder} />}
-          sticky
-        />
+        {mdAndAbove ? 
+          <WideColumnBlock
+            leftColumn={<>
+              <Heading size={2} text={article.title} />
+              <Heading size={1} text={`${article.date} | ${article.author.node.name}`} />
+            </>}
+            rightColumn={<ArticleContent content={article.articleContent.postContentBuilder} />}
+            sticky
+          />
+          :
+          <ArticleContent content={article.articleContent.postContentBuilder} />
+        }
       </Section>
       <Section appearance='secondary'>
         <Title title='Related Articles' link={{ to: '/news', text: 'View all News' }} />

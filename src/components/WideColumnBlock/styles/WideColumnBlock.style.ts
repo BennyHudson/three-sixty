@@ -34,7 +34,7 @@ export const NarrowColumn = styled.div((props: StyledWideColumnBlockProps): Flat
 
 export const WideColumn = styled.div((props: StyledWideColumnBlockProps): FlattenSimpleInterpolation => css`
   ${props.reverse && css`
-    order: 1;
+    order: -1;
   `}
 
   ${respondTo.md(css`

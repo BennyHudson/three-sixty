@@ -17,6 +17,10 @@ export const FullPageFeature = styled.div(
       z-index: 10;
     }
 
+    ${Heading} {
+      margin-bottom: ${props.theme.spacing[1]}px;
+    }
+
     ${props.background &&
     css`
       background: url('${props.background}') center center no-repeat;

@@ -2,25 +2,31 @@ import { graphql } from 'gatsby'
 import React from 'react'
 import type { FC, ReactElement } from 'react'
 
-import CaseStudyContent from '@components/CaseStudyContent/CaseStudyContent'
-import FullPageFeature from '@components/FullPageFeature/FullPageFeature'
-import MetaBlock from '@components/MetaBlock/MetaBlock'
-import RawHtmlWrapper from '@components/RawHtmlWrapper/RawHtmlWrapper'
-import Section from '@components/Section/Section'
-import WideColumnBlock from '@components/WideColumnBlock/WideColumnBlock'
-import Heading from '@components/Heading/Heading'
-import SimpleGrid from '@components/SimpleGrid/SimpleGrid'
+import CaseStudyContent from '@components/CaseStudyContent'
+import FullPageFeature from '@components/FullPageFeature'
+import MetaBlock from '@components/MetaBlock'
+import RawHtmlWrapper from '@components/RawHtmlWrapper'
+import Section from '@components/Section'
+import WideColumnBlock from '@components/WideColumnBlock'
+import Heading from '@components/Heading'
+import SimpleGrid from '@components/SimpleGrid'
+import SimpleCard from '@components/SimpleCard'
 import { CaseStudyProps } from '@typings/CaseStudy.types'
+import Title from '@components/Title/Title'
 
 interface CaseStudyTemplateProps {
   data: {
     allWpCaseStudy: {
       nodes: CaseStudyProps[]
     }
+    caseStudies: {
+      nodes: CaseStudyProps[]
+    }
   }
 }
 
 const CaseStudyTemplate: FC<CaseStudyTemplateProps> = ({ data }: CaseStudyTemplateProps): ReactElement => {
+  const { caseStudies } = data
   const caseStudy = data.allWpCaseStudy.nodes[0]
 
   const metaContent = [
@@ -39,6 +45,7 @@ const CaseStudyTemplate: FC<CaseStudyTemplateProps> = ({ data }: CaseStudyTempla
       />
       <Section appearance='secondary'>
         <WideColumnBlock
+          reverse
           leftColumn={<MetaBlock metaContent={metaContent} />}
           rightColumn={<RawHtmlWrapper content={caseStudy.caseStudyContent.introContent} />}
         />
@@ -56,6 +63,22 @@ const CaseStudyTemplate: FC<CaseStudyTemplateProps> = ({ data }: CaseStudyTempla
                 <Heading size={5} weight={3} noMargin text={result.value} />
                 <Heading size={1} noMargin text={result.title} />
               </div>
+            )
+          })}
+        </SimpleGrid>
+      </Section>
+      <Section appearance='tertiary'>
+        <Title title='Our Work' link={{ to: '/work', text: 'All Work' }} />
+        <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={1} rowSpacing={1}>
+          {caseStudies.nodes.map((caseStudy, index) => {
+            return (
+              <SimpleCard
+                key={index}
+                title={caseStudy.title}
+                uri={caseStudy.uri}
+                featuredImage={caseStudy.featuredImage.node.localFile}
+                secondaryHeading={caseStudy.workTypes.nodes.map((category) => category.name)}
+              />
             )
           })}
         </SimpleGrid>
@@ -116,6 +139,26 @@ export const caseStudyQuery = graphql`
                 }
               }
             }
+          }
+        }
+      }
+    }
+    caseStudies: allWpCaseStudy(limit: 3) {
+      nodes {
+        title
+        uri
+        featuredImage {
+          node {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(width: 810, height: 1170)
+              }
+            }
+          }
+        }
+        workTypes {
+          nodes {
+            name
           }
         }
       }

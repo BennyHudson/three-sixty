@@ -31,7 +31,7 @@ export const FooterColumns = styled.div(
     padding: ${props.theme.spacing[4]}px 0;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    gap: ${props.theme.spacing[6]}px;
+    gap: ${props.theme.spacing[4]}px;
 
     ${respondTo.md(css`
       padding: ${props.theme.spacing[8]}px 0;

@@ -12,6 +12,8 @@ import SimpleGrid from '@components/SimpleGrid'
 import Title from '@components/Title'
 
 import type { CaseStudyProps } from '@typings/CaseStudy.types'
+import LogoGrid from '@components/LogoGrid/LogoGrid'
+import { useBreakpoints } from '@hooks/useBreakpoints'
 
 interface HomePageProps {
   data: {
@@ -39,17 +41,12 @@ interface HomePageProps {
 const HomePage: FC<HomePageProps> = ({ data }: HomePageProps): ReactElement => {
   const { caseStudies } = data
   const { homepageContent } = data.wpPage
+  const { sm } = useBreakpoints()
 
   return (
     <>
       <FullPageFeature title={homepageContent.featureTitle} />
-      <Section appearance='tertiary' paddingLevel={1} extraMarginBottom>
-        <SimpleGrid columns={{ sm: 3, md: homepageContent.homeClients.length }} spacing={2}>
-          {homepageContent.homeClients.map((client, index) => {
-            return <ClientLogo key={index} logo={{ localFile: client.logo.localFile, title: client.clientName }} />
-          })}
-        </SimpleGrid>
-      </Section>
+      <LogoGrid logos={homepageContent.homeClients} carousel={sm} extraMarginBottom />
       <Section appearance='secondary'>
         <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={10}>
           {homepageContent.services.map((service, index) => {

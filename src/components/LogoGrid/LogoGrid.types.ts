@@ -7,4 +7,8 @@ export interface LogoGridProps {
       localFile: IGatsbyImageData
     }
   }[]
+  carousel?: boolean
+  title?: string
+  extraMargin?: boolean
+  extraMarginBottom?: boolean
 }
