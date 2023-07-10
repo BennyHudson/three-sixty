@@ -18,8 +18,10 @@ const FullPageFeature: FC<FullPageFeatureProps> = ({
   return (
     <Styled.FullPageFeature appearance={appearance} background={background}>
       <Container>
-        <Heading text={title} size={5} inverse={appearance === 'primary' || !!background} weight={2} noMargin />
-        {subtitle && <Heading text={subtitle} size={1} inverse={appearance === 'primary' || !!background} weight={3} noMargin />}
+        <div className='animate__animated animate__fadeInUp'>
+          <Heading text={title} size={5} inverse={appearance === 'primary' || !!background} weight={2} noMargin />
+          {subtitle && <Heading text={subtitle} size={1} inverse={appearance === 'primary' || !!background} weight={3} noMargin />}
+        </div>
       </Container>
       {showOverlay && <Overlay />}
     </Styled.FullPageFeature>

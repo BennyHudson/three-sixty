@@ -1,6 +1,7 @@
 import React from 'react'
 import type { FC, ReactElement } from 'react'
 import Slider from 'react-slick'
+import ScrollAnimation from 'react-animate-on-scroll'
 
 import ClientLogo from '@components/ClientLogo'
 import Section from '@components/Section'
@@ -45,7 +46,11 @@ const LogoGrid: FC<LogoGridProps> = ({ logos, carousel, title, extraMarginBottom
       {title && <Title title={title} />}
       <Styled.LogoGrid>
         {logos.map((logo, index) => {
-          return <ClientLogo logo={{ localFile: logo.logo.localFile, title: logo.clientName }} key={index} />
+          return (
+            <ScrollAnimation animateIn='animate__animated animate__fadeIn' delay={(100 * index) + 100} animateOnce>
+              <ClientLogo logo={{ localFile: logo.logo.localFile, title: logo.clientName }} key={index} />
+            </ScrollAnimation>
+          )
         })}
       </Styled.LogoGrid>
     </Section>

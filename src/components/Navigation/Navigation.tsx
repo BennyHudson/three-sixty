@@ -27,9 +27,9 @@ const Navigation: FC = (): ReactElement => {
       <Styled.Navigation>
         <Styled.Container>
           <Styled.Menu>
-            {nodes.map((menuItem) => {
+            {nodes.map((menuItem, index) => {
               return (
-                <Styled.MenuItem key={menuItem.id}>
+                <Styled.MenuItem key={menuItem.id} className={'animate__animated animate__fadeInLeft'} index={index}>
                   <Link to={menuItem.uri}>{menuItem.label}</Link>
                 </Styled.MenuItem>
               )

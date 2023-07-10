@@ -10,6 +10,7 @@ export const SimpleCard = styled(Link)(
   (): FlattenSimpleInterpolation => css`
     position: relative;
     overflow: hidden;
+    display: block;
 
     &::after {
       content: '';

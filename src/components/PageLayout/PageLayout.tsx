@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import type { FC, ReactElement } from 'react'
 import { ThemeProvider } from 'styled-components'
 
+import 'animate.css'
+
 import Footer from '@components/Footer'
 import Header from '@components/Header'
 import Navigation from '@components/Navigation'

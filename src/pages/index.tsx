@@ -3,7 +3,6 @@ import type { IGatsbyImageData } from 'gatsby-plugin-image'
 import React from 'react'
 import type { FC, ReactElement } from 'react'
 
-import ClientLogo from '@components/ClientLogo/ClientLogo'
 import FullPageFeature from '@components/FullPageFeature'
 import Section from '@components/Section'
 import SimpleCard from '@components/SimpleCard'
