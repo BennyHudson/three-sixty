@@ -76,7 +76,7 @@ const CaseStudyTemplate: FC<CaseStudyTemplateProps> = ({ data }: CaseStudyTempla
                 key={index}
                 title={caseStudy.title}
                 uri={caseStudy.uri}
-                featuredImage={caseStudy.featuredImage.node.localFile}
+                featuredImage={caseStudy.secondaryFeature.secondaryFeature.localFile}
                 secondaryHeading={caseStudy.workTypes.nodes.map((category) => category.name)}
               />
             )
@@ -121,6 +121,9 @@ export const caseStudyQuery = graphql`
               fieldGroupName
               heading
               title
+              mediaType
+              videoId
+              videoSource
               image {
                 localFile {
                   childImageSharp {
@@ -131,6 +134,9 @@ export const caseStudyQuery = graphql`
             }
             ... on WpCaseStudy_Casestudycontent_ContentBuilder_ImageBlock {
               fieldGroupName
+              mediaType
+              videoId
+              videoSource
               image {
                 localFile {
                   childImageSharp {
@@ -147,8 +153,8 @@ export const caseStudyQuery = graphql`
       nodes {
         title
         uri
-        featuredImage {
-          node {
+        secondaryFeature {
+          secondaryFeature {
             localFile {
               childImageSharp {
                 gatsbyImageData(width: 810, height: 1170)

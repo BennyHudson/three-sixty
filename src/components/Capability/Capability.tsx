@@ -18,7 +18,7 @@ const Capability: FC<CapabilityProps> = ({
   microservices,
 }: CapabilityProps): ReactElement => {
   return (
-    <Panel appearance={appearance}>
+    <Panel appearance={appearance} id={title.toLowerCase()}>
       <SimpleGrid columns={{ sm: 1, md: 3 }}>
         <Styled.Content>
           <div>

@@ -21,6 +21,7 @@ interface CapabilityPageProps {
   data: {
     wpPage: {
       capabilityPage: {
+        title: string
         capabilities: {
           title: string
           content: string
@@ -48,7 +49,7 @@ const CapabilityPage: FC<CapabilityPageProps> = ({ data }: CapabilityPageProps):
 
   return (
     <>
-      <FullPageFeature appearance='secondary' title='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' showOverlay={false} />
+      <FullPageFeature appearance='secondary' title={data.wpPage.capabilityPage.title} showOverlay={false} />
       {capabilities.map((capability, index) => {
         return (
           <Capability {...capability} appearance={panelAppearance(index)} key={index} />
@@ -63,7 +64,7 @@ const CapabilityPage: FC<CapabilityPageProps> = ({ data }: CapabilityPageProps):
                 key={index}
                 title={caseStudy.title}
                 uri={caseStudy.uri}
-                featuredImage={caseStudy.featuredImage.node.localFile}
+                featuredImage={caseStudy.secondaryFeature.secondaryFeature.localFile}
                 secondaryHeading={caseStudy.workTypes.nodes.map((category) => category.name)}
               />
             )
@@ -82,6 +83,7 @@ export const capabilityPageQuery = graphql`
   query CapabilityPage {
     wpPage(databaseId: { eq: 14 }) {
       capabilityPage {
+        title
         capabilities {
           title
           content
@@ -95,8 +97,8 @@ export const capabilityPageQuery = graphql`
       nodes {
         title
         uri
-        featuredImage {
-          node {
+        secondaryFeature {
+          secondaryFeature {
             localFile {
               childImageSharp {
                 gatsbyImageData(width: 810, height: 1170)

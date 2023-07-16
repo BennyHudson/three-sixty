@@ -6,4 +6,6 @@ export interface SimpleContentBlockProps {
   content?: string
   children?: ReactNode
   subheading?: string
+  linkText?: string
+  linkTo?: string
 }

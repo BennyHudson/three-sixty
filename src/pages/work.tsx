@@ -29,7 +29,7 @@ const WorkPage: FC<WorkPageProps> = ({ data }: WorkPageProps): ReactElement => {
                 key={index}
                 title={caseStudy.title}
                 uri={caseStudy.uri}
-                featuredImage={caseStudy.featuredImage.node.localFile}
+                featuredImage={caseStudy.secondaryFeature.secondaryFeature.localFile}
                 secondaryHeading={caseStudy.workTypes.nodes.map((category) => category.name)}
               />
             )
@@ -50,8 +50,8 @@ export const workQuery = graphql`
       nodes {
         title
         uri
-        featuredImage {
-          node {
+        secondaryFeature {
+          secondaryFeature {
             localFile {
               childImageSharp {
                 gatsbyImageData(width: 810, height: 1170)

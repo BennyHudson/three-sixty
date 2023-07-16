@@ -23,6 +23,9 @@ const Footer: FC = (): ReactElement => {
             threeSixtyOptions {
               address
               contactEmail
+              headerText
+              footerText
+              formUrl
               legals {
                 title
                 file {
@@ -42,15 +45,14 @@ const Footer: FC = (): ReactElement => {
     }
   `)
 
-  const { address, contactEmail, legals, socials } = footerData.allWp.nodes[0].globalOptions.threeSixtyOptions
+  const { address, contactEmail, legals, socials, headerText, footerText, formUrl } = footerData.allWp.nodes[0].globalOptions.threeSixtyOptions
 
   return (
     <Styled.Footer headerHeight={headerHeight}>
       <Styled.FooterMain>
         <Container>
-          <Heading size={1} text='Work with us' inverse />
-          <Link href='#' showUnderline inverse appearance='secondary'><Heading size={3} text='Lorem ipsum dolor sit amet,
-consectetur adipiscing.' inverse appearance='secondary' /></Link>
+          <Heading size={1} text={headerText} inverse />
+          <Link href={formUrl} showUnderline inverse appearance='secondary'><Heading size={3} text={footerText} inverse appearance='secondary' /></Link>
         </Container>
       </Styled.FooterMain>
       <Container>

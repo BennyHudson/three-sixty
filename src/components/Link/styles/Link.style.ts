@@ -10,6 +10,7 @@ export const Link = styled(GatsbyLink)(
     text-decoration: none;
     transition: 0.4s all ease;
     font-family: 'everettregular';
+    white-space: pre-line;
 
     &:hover {
       text-decoration: underline;

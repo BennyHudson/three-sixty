@@ -1,5 +1,6 @@
 import React from 'react'
 import type { FC, ReactElement } from 'react'
+import { AnchorLink } from 'gatsby-plugin-anchor-links'
 
 import Heading from '@components/Heading'
 import Paragraph from '@components/Paragraph'
@@ -14,14 +15,17 @@ const SimpleContentBlock: FC<SimpleContentBlockProps> = ({
   content,
   children,
   subheading,
+  linkText,
+  linkTo,
 }: SimpleContentBlockProps): ReactElement => {
   return (
-    <Styled.SimpleContentBlock>
+    <Styled.SimpleContentBlock inverse={inverse}>
       <div>
         {subheading && <Heading text={subheading} inverse={inverse} size={1} />}
         <Heading text={heading} noMargin inverse={inverse} />
       </div>
       {content ? <RawHtmlWrapper inverse={inverse} content={content} /> : children}
+      {linkTo && <AnchorLink to={linkTo}>{linkText}</AnchorLink>}
     </Styled.SimpleContentBlock>
   )
 }

@@ -7,6 +7,7 @@ import WideColumnBlock from '@components/WideColumnBlock/WideColumnBlock'
 
 import type { CaseStudyContentProps } from './CaseStudyContent.types'
 import * as Styled from './styles/CaseStudyContent.style'
+import VideoPlayer from '@components/VideoPlayer'
 
 const CaseStudyContent: FC<CaseStudyContentProps> = ({ content }: CaseStudyContentProps): ReactElement => {
   const prefix = 'CaseStudy_Casestudycontent_ContentBuilder'
@@ -16,7 +17,7 @@ const CaseStudyContent: FC<CaseStudyContentProps> = ({ content }: CaseStudyConte
       {content.map((contentBlock) => {
         switch (contentBlock.fieldGroupName) {
         case `${prefix}_ContentImage`:
-          const image = getImage(contentBlock.image.localFile)
+          const image = getImage(contentBlock.image?.localFile)
           return (
             <WideColumnBlock
               verticalAlign='center'
@@ -24,13 +25,18 @@ const CaseStudyContent: FC<CaseStudyContentProps> = ({ content }: CaseStudyConte
               leftColumn={
                 <SimpleContentBlock heading={contentBlock.heading} subheading={contentBlock.title} content={contentBlock.content} />
               }
-              rightColumn={<GatsbyImage image={image} alt={contentBlock.heading} />}
+              rightColumn={contentBlock.mediaType === 'image' ? <GatsbyImage image={image} alt={contentBlock.heading} /> : <VideoPlayer videoSource={contentBlock.videoSource} videoId={contentBlock.videoId} />}
             />
           )
+          break
 
         case `${prefix}_ImageBlock`:
-          const img = getImage(contentBlock.image.localFile)
-          return <GatsbyImage image={img} alt='' />
+          if (contentBlock.mediaType === 'image') {
+            const img = getImage(contentBlock.image?.localFile)
+            return <GatsbyImage image={img} alt='' />
+          }
+
+          return <VideoPlayer videoSource={contentBlock.videoSource} videoId={contentBlock.videoId} />
         }
       })}
     </Styled.CaseStudyContent>

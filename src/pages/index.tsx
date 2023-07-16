@@ -49,7 +49,7 @@ const HomePage: FC<HomePageProps> = ({ data }: HomePageProps): ReactElement => {
       <Section appearance='secondary'>
         <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={10}>
           {homepageContent.services.map((service, index) => {
-            return <SimpleContentBlock key={index} heading={service.title} content={service.content} />
+            return <SimpleContentBlock key={index} heading={service.title} content={service.content} linkText={service.linkText} linkTo={service.linkTo} />
           })}
         </SimpleGrid>
       </Section>
@@ -62,7 +62,7 @@ const HomePage: FC<HomePageProps> = ({ data }: HomePageProps): ReactElement => {
                 key={index}
                 title={caseStudy.title}
                 uri={caseStudy.uri}
-                featuredImage={caseStudy.featuredImage.node.localFile}
+                featuredImage={caseStudy.secondaryFeature.secondaryFeature.localFile}
                 secondaryHeading={caseStudy.workTypes.nodes.map((category) => category.name)}
               />
             )
@@ -95,6 +95,8 @@ export const homepageQuery = graphql`
         services {
           content
           title
+          linkText
+          linkTo
         }
       }
     }
@@ -102,8 +104,8 @@ export const homepageQuery = graphql`
       nodes {
         title
         uri
-        featuredImage {
-          node {
+        secondaryFeature {
+          secondaryFeature {
             localFile {
               childImageSharp {
                 gatsbyImageData(width: 810, height: 1170)

@@ -15,5 +15,9 @@ export const SimpleContentBlock = styled.div(
       width: 18ch;
       flex-grow: 0;
     }
+    
+    a {
+      color: ${props.inverse ? props.theme.colours.white : props.theme.colours.black};
+    }
   `,
 )
