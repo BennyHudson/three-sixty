@@ -13,6 +13,8 @@ export const FullPageFeature = styled.div(
     align-items: center;
     background: ${props.appearance === 'primary' ? props.theme.colours.black : props.theme.colours.white};
     overflow: hidden;
+    width: 100%;
+    position: relative;
 
     ${Container} {
       z-index: 10;
@@ -35,8 +37,8 @@ export const BackgroundVideo = styled.video(
     position: absolute;
     top: 50%;
     left: 50%;
-    min-width: 100%;
-    min-height: 100%;
+    width: 100%;
+    height: 100%;
     width: auto;
     height: auto;
     transform: translateX(-50%) translateY(-50%);
