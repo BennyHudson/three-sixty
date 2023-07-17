@@ -11,7 +11,7 @@ const Paragraph: FC<ParagraphProps> = ({
   weight = 2,
   inverse = false,
   noMargin = false,
-  appearance = 'primary'
+  appearance = 'primary',
 }: ParagraphProps): ReactElement => {
   return (
     <Styled.Paragraph inverse={inverse} size={size} weight={weight} noMargin={noMargin} appearance={appearance}>

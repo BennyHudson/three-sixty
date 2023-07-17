@@ -20,7 +20,7 @@ interface WorkPageProps {
 const WorkPage: FC<WorkPageProps> = ({ data }: WorkPageProps): ReactElement => {
   return (
     <>
-      <FullPageFeature title='The eCommerce agency for market defining brands' appearance='secondary' />
+      <FullPageFeature title='The eCommerce agency for market defining brands' appearance='secondary' showOverlay={false} />
       <Section appearance='secondary'>
         <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={1} rowSpacing={1}>
           {data.caseStudies.nodes.map((caseStudy, index) => {

@@ -6,6 +6,7 @@ import type { FC, ReactElement } from 'react'
 
 import FullPageFeature from '@components/FullPageFeature'
 import Heading from '@components/Heading'
+import LogoGrid from '@components/LogoGrid/LogoGrid'
 import PostExcerpt from '@components/PostExcerpt'
 import RawHtmlWrapper from '@components/RawHtmlWrapper/RawHtmlWrapper'
 import Section from '@components/Section'
@@ -16,7 +17,6 @@ import Title from '@components/Title/Title'
 import WideColumnBlock from '@components/WideColumnBlock/WideColumnBlock'
 
 import type { PostProps } from '@typings/Post.types'
-import LogoGrid from '@components/LogoGrid/LogoGrid'
 
 interface AboutPageProps {
   data: {
@@ -70,6 +70,7 @@ const AboutPage: FC<AboutPageProps> = ({ data }: AboutPageProps): ReactElement =
       <FullPageFeature title={aboutPage.feature.title} />
       <Section appearance='secondary'>
         <WideColumnBlock
+          size={2}
           leftColumn={<Heading text={aboutPage.mainContent.intro} />}
           rightColumn={<RawHtmlWrapper content={aboutPage.mainContent.content} />}
         />
@@ -147,6 +148,32 @@ export const aboutPageQuery = graphql`
               }
             }
           }
+        }
+      }
+      seo {
+        metaDesc
+        metaKeywords
+        canonical
+        opengraphType
+        opengraphUrl
+        opengraphTitle
+        opengraphSiteName
+        opengraphPublisher
+        opengraphPublishedTime
+        opengraphModifiedTime
+        opengraphImage {
+          sourceUrl
+        }
+        twitterTitle
+        twitterDescription
+        title
+        twitterImage {
+          sourceUrl
+        }
+        schema {
+          articleType
+          pageType
+          raw
         }
       }
     }

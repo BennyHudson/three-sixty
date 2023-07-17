@@ -34,6 +34,12 @@ const config: GatsbyConfig = {
       __key: 'images',
     },
     {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        icon: 'src/assets/images/favicon.jpg',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-alias-imports',
       options: {
         alias: {

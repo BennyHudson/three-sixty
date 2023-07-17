@@ -12,6 +12,12 @@ const typography = {
       fontSize: '14px',
       lineHeight: '22px',
     },
+    3: {
+      fontSizeMobile: '16px',
+      lineHeightMobile: '1.5',
+      fontSize: '16px',
+      lineHeight: '1.5',
+    },
   },
   heading: {
     1: {

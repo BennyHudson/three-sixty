@@ -11,4 +11,5 @@ export interface LogoGridProps {
   title?: string
   extraMargin?: boolean
   extraMarginBottom?: boolean
+  feature?: boolean
 }

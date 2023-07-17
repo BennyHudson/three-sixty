@@ -2,7 +2,9 @@ import { type HeadFC, type PageProps, graphql } from 'gatsby'
 import React from 'react'
 import type { FC, ReactElement } from 'react'
 
+import Capability from '@components/Capability/Capability'
 import FullPageFeature from '@components/FullPageFeature'
+import Heading from '@components/Heading/Heading'
 import ListGroup from '@components/ListGroup/ListGroup'
 import Panel from '@components/Panel'
 import type { PanelProps } from '@components/Panel/Panel.types'
@@ -14,8 +16,8 @@ import SimpleGrid from '@components/SimpleGrid'
 import Title from '@components/Title'
 
 import type { CaseStudyProps } from '@typings/CaseStudy.types'
-import Heading from '@components/Heading/Heading'
-import Capability from '@components/Capability/Capability'
+import HeadTags from '@components/HeadTags'
+import type { HeadTagsProps } from '@components/HeadTags/HeadTags.types'
 
 interface CapabilityPageProps {
   data: {
@@ -28,8 +30,12 @@ interface CapabilityPageProps {
           microservices: {
             title: string
           }[]
+          backgroundImage: {
+            sourceUrl: string
+          }
         }[]
       }
+      seo: HeadTagsProps['seo']
     }
     caseStudies: {
       nodes: CaseStudyProps[]
@@ -41,19 +47,30 @@ const CapabilityPage: FC<CapabilityPageProps> = ({ data }: CapabilityPageProps):
   const { capabilities } = data.wpPage.capabilityPage
   const { caseStudies } = data
 
-  const panelAppearance = (index: number): PanelProps['appearance'] => {
-    if ((index + 1) % 3 === 0) return 'tertiary'
-    if ((index + 1) % 2 === 0) return 'secondary'
-    return 'primary'
+  const panelAppearance = (index: number): { inverse: boolean; appearance: PanelProps['appearance'] } => {
+    if ((index + 1) % 3 === 0) {
+      return {
+        appearance: 'tertiary',
+        inverse: true,
+      }
+    }
+    if ((index + 1) % 2 === 0) {
+      return {
+        appearance: 'secondary',
+        inverse: false,
+      }
+    }
+    return {
+      appearance: 'primary',
+      inverse: true,
+    }
   }
 
   return (
     <>
       <FullPageFeature appearance='secondary' title={data.wpPage.capabilityPage.title} showOverlay={false} />
       {capabilities.map((capability, index) => {
-        return (
-          <Capability {...capability} appearance={panelAppearance(index)} key={index} />
-        )
+        return <Capability {...capability} {...panelAppearance(index)} key={index} />
       })}
       <Section appearance='secondary'>
         <Title title='Our Work' link={{ to: '/work', text: 'All Work' }} />
@@ -77,7 +94,11 @@ const CapabilityPage: FC<CapabilityPageProps> = ({ data }: CapabilityPageProps):
 
 export default CapabilityPage
 
-export const Head: HeadFC = () => <title>Home Page</title>
+export const Head = ({ data }: CapabilityPageProps) => {
+  const { seo } = data.wpPage
+
+  return <HeadTags seo={seo} />
+}
 
 export const capabilityPageQuery = graphql`
   query CapabilityPage {
@@ -90,6 +111,35 @@ export const capabilityPageQuery = graphql`
           microservices {
             title
           }
+          backgroundImage {
+            sourceUrl
+          }
+        }
+      }
+      seo {
+        metaDesc
+        metaKeywords
+        canonical
+        opengraphType
+        opengraphUrl
+        opengraphTitle
+        opengraphSiteName
+        opengraphPublisher
+        opengraphPublishedTime
+        opengraphModifiedTime
+        opengraphImage {
+          sourceUrl
+        }
+        twitterTitle
+        twitterDescription
+        title
+        twitterImage {
+          sourceUrl
+        }
+        schema {
+          articleType
+          pageType
+          raw
         }
       }
     }

@@ -7,4 +7,5 @@ export interface WideColumnBlockProps {
   verticalAlign?: 'top' | 'center'
   sticky?: boolean
   reverse?: boolean
+  size?: 1 | 2
 }

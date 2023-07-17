@@ -18,11 +18,12 @@ export const SimpleGrid = styled.div(
   `,
 )
 
-export const GridColumn = styled.div((props: StyledSimpleGridProps): FlattenSimpleInterpolation => css`
-  display: flex;
-  grid-column: span ${4 / props.columns.sm};
+export const GridColumn = styled.div(
+  (props: StyledSimpleGridProps): FlattenSimpleInterpolation => css`
+    display: flex;
+    grid-column: span ${4 / props.columns.sm};
 
-  ${props.columns.md &&
+    ${props.columns.md &&
     respondTo.md(css`
       grid-column: span ${12 / props.columns.md};
     `)}
@@ -31,15 +32,18 @@ export const GridColumn = styled.div((props: StyledSimpleGridProps): FlattenSimp
     respondTo.lg(css`
       grid-column: span ${12 / props.columns.lg};
     `)}
-`)
+  `,
+)
 
 type CarouselProps = Pick<StyledSimpleGridProps, 'theme'>
-export const Carousel = styled.div((props: CarouselProps): FlattenSimpleInterpolation => css`
-  .slick-list {
-    overflow: visible;
-  }
+export const Carousel = styled.div(
+  (props: CarouselProps): FlattenSimpleInterpolation => css`
+    .slick-list {
+      overflow: visible;
+    }
 
-  .slick-slide {
-    padding-right: ${props.theme.spacing[2]}px;
-  }
-`)
+    .slick-slide {
+      padding-right: ${props.theme.spacing[2]}px;
+    }
+  `,
+)

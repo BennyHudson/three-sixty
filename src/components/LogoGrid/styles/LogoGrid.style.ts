@@ -14,7 +14,7 @@ export const LogoGridWrapper = styled.div(
 
 export const LogoGrid = styled.div(
   (props: StyledLogoGridProps): FlattenSimpleInterpolation => css`
-    display: grid;
+    display: grid !important;
     align-items: center;
     justify-content: center;
     grid-template-columns: repeat(3, 1fr);

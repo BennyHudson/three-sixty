@@ -1,4 +1,4 @@
-export type ParagraphKeys = 1 | 2
+export type ParagraphKeys = 1 | 2 | 3
 export type HeadingKeys = 1 | 2 | 3 | 4 | 5 | 6
 export type WeightKeys = 1 | 2 | 3
 

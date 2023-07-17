@@ -12,6 +12,7 @@ export const FullPageFeature = styled.div(
     display: flex;
     align-items: center;
     background: ${props.appearance === 'primary' ? props.theme.colours.black : props.theme.colours.white};
+    overflow: hidden;
 
     ${Container} {
       z-index: 10;
@@ -26,5 +27,19 @@ export const FullPageFeature = styled.div(
       background: url('${props.background}') center center no-repeat;
       background-size: cover;
     `}
+  `,
+)
+
+export const BackgroundVideo = styled.video(
+  (): FlattenSimpleInterpolation => css`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
   `,
 )

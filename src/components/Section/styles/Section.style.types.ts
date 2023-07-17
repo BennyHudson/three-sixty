@@ -8,4 +8,5 @@ export interface StyledSectionProps {
   paddingLevel: SectionProps['paddingLevel']
   extraMargin: boolean
   extraMarginBottom: boolean
+  hideOverflow: boolean
 }

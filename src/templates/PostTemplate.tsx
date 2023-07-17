@@ -11,9 +11,10 @@ import SimpleGrid from '@components/SimpleGrid/SimpleGrid'
 import Title from '@components/Title/Title'
 import WideColumnBlock from '@components/WideColumnBlock/WideColumnBlock'
 
+import { useBreakpoints } from '@hooks/useBreakpoints'
+
 import type { PostProps } from '@typings/Post.types'
 import type { ContentBlock, ImageBlock } from '@typings/PostContentBuilder.types'
-import { useBreakpoints } from '@hooks/useBreakpoints'
 
 interface PostTemplateProps {
   data: {
@@ -55,23 +56,25 @@ const PostTemplate: FC<PostTemplateProps> = ({ data }: PostTemplateProps): React
         subtitle={`${article.date} | ${article.author.node.name}`}
         background={article.featuredImage.node.sourceUrl}
       />
-      <Section appearance='secondary'>
-        {mdAndAbove ? 
+      <Section appearance='secondary' hideOverflow={false}>
+        {mdAndAbove ? (
           <WideColumnBlock
-            leftColumn={<>
-              <Heading size={2} text={article.title} />
-              <Heading size={1} text={`${article.date} | ${article.author.node.name}`} />
-            </>}
+            leftColumn={
+              <>
+                <Heading size={2} text={article.title} />
+                <Heading size={1} text={`${article.date} | ${article.author.node.name}`} />
+              </>
+            }
             rightColumn={<ArticleContent content={article.articleContent.postContentBuilder} />}
             sticky
           />
-          :
+        ) : (
           <ArticleContent content={article.articleContent.postContentBuilder} />
-        }
+        )}
       </Section>
       <Section appearance='secondary'>
         <Title title='Related Articles' link={{ to: '/news', text: 'View all News' }} />
-        <SimpleGrid columns={{ sm: 1, md: 3}} spacing={2} rowSpacing={6}>
+        <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={2} rowSpacing={6}>
           {data.posts.edges.map((post, index) => {
             return <PostExcerpt key={index} {...post.node} />
           })}

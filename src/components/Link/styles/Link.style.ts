@@ -21,7 +21,8 @@ export const Link = styled(GatsbyLink)(
       color: ${props.appearance === 'primary' ? props.theme.colours.white : props.theme.colours.altGrey};
     `}
 
-    ${props.showUnderline && css`
+    ${props.showUnderline &&
+    css`
       text-decoration: underline;
     `}
   `,

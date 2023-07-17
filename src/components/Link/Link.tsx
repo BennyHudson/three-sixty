@@ -5,7 +5,15 @@ import type { FC, ReactElement } from 'react'
 import type { LinkProps } from './Link.types'
 import * as Styled from './styles/Link.style'
 
-const Link: FC<LinkProps> = ({ to, text, inverse = false, children, href, showUnderline = false, appearance = 'primary' }: LinkProps): ReactElement => {
+const Link: FC<LinkProps> = ({
+  to,
+  text,
+  inverse = false,
+  children,
+  href,
+  showUnderline = false,
+  appearance = 'primary',
+}: LinkProps): ReactElement => {
   const linkType = () => {
     if (href) return 'a'
     return GatsbyLink

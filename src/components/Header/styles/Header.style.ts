@@ -14,9 +14,10 @@ export const Header = styled.div(
     z-index: 1000;
     background: ${props.theme.colours.white};
     transition: 0.4s all ease;
-    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 
-    ${(props.inverse && props.transparent) &&
+    ${props.inverse &&
+    props.transparent &&
     css`
       &::after {
         content: '';
@@ -37,7 +38,7 @@ export const Header = styled.div(
   `,
 )
 
-type ContentProps = Pick<StyledHeaderProps, 'theme'>
+type ContentProps = Pick<StyledHeaderProps, 'theme' | 'transparent' | 'showNavigation'>
 export const Content = styled.div(
   (props: ContentProps): FlattenSimpleInterpolation => css`
     position: relative;
@@ -47,9 +48,15 @@ export const Content = styled.div(
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: 0.4s all ease;
 
     ${respondTo.md(css`
-      padding: ${props.theme.spacing[6]}px ${props.theme.spacing[10]}px;
+      padding: ${props.theme.spacing[3]}px ${props.theme.spacing[10]}px;
+
+      ${(props.transparent || props.showNavigation) &&
+      css`
+        padding: ${props.theme.spacing[6]}px ${props.theme.spacing[10]}px;
+      `}
     `)}
   `,
 )

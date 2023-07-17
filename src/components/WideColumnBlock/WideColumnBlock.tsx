@@ -13,12 +13,17 @@ const WideColumnBlock: FC<WideColumnBlockProps> = ({
   verticalAlign = 'top',
   sticky = false,
   reverse = false,
+  size = 1,
 }: WideColumnBlockProps): ReactElement => {
   const { headerHeight } = useContext(PageContext) as PageContextProps
   return (
     <Styled.WideColumnBlock verticalAlign={verticalAlign}>
-      <Styled.NarrowColumn sticky={sticky} headerHeight={headerHeight}>{leftColumn}</Styled.NarrowColumn>
-      <Styled.WideColumn reverse={reverse}>{rightColumn}</Styled.WideColumn>
+      <Styled.NarrowColumn sticky={sticky} headerHeight={headerHeight}>
+        {leftColumn}
+      </Styled.NarrowColumn>
+      <Styled.WideColumn reverse={reverse} size={size}>
+        {rightColumn}
+      </Styled.WideColumn>
     </Styled.WideColumnBlock>
   )
 }

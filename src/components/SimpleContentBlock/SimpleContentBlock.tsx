@@ -1,6 +1,6 @@
+import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import React from 'react'
 import type { FC, ReactElement } from 'react'
-import { AnchorLink } from 'gatsby-plugin-anchor-links'
 
 import Heading from '@components/Heading'
 import Paragraph from '@components/Paragraph'

@@ -15,6 +15,12 @@ export interface CaseStudyProps {
       sourceUrl: string
     }
   }
+  brandLinks: {
+    brandLinks: {
+      text: string
+      url: string
+    }[]
+  }
   workTypes: {
     nodes: {
       name: string

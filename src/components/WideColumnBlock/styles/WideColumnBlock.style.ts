@@ -21,27 +21,45 @@ export const WideColumnBlock = styled.div(
   `,
 )
 
-export const NarrowColumn = styled.div((props: StyledWideColumnBlockProps): FlattenSimpleInterpolation => css`
-  ${respondTo.md(css`
-    grid-column: col-start / span 4;
+export const NarrowColumn = styled.div(
+  (props: StyledWideColumnBlockProps): FlattenSimpleInterpolation => css`
+    ${respondTo.md(css`
+      grid-column: col-start / span 4;
 
-    ${props.sticky && css`
-      position: sticky;
-      top: ${props.theme.spacing[10] + props.headerHeight}px;
+      ${props.sticky &&
+      css`
+        position: sticky;
+        top: ${props.theme.spacing[10] + props.headerHeight}px;
+      `}
+    `)}
+  `,
+)
+
+export const WideColumn = styled.div(
+  (props: StyledWideColumnBlockProps): FlattenSimpleInterpolation => css`
+    ${props.reverse &&
+    css`
+      order: -1;
     `}
-  `)}
-`)
 
-export const WideColumn = styled.div((props: StyledWideColumnBlockProps): FlattenSimpleInterpolation => css`
-  ${props.reverse && css`
-    order: -1;
-  `}
+    ${respondTo.md(css`
+      grid-column: col-start 5 / span 8;
 
-  ${respondTo.md(css`
-    grid-column: col-start 5 / span 8;
+      ${props.reverse &&
+      css`
+        order: unset;
+      `}
 
-    ${props.reverse && css`
-      order: unset;
-    `}
-  `)}
-`)
+      ${props.size === 2 &&
+      css`
+        p {
+          &:first-of-type {
+            font-size: ${props.theme.typography.paragraph[3].fontSize};
+            line-height: ${props.theme.typography.paragraph[3].lineHeight};
+            font-family: 'everettregular';
+          }
+        }
+      `}
+    `)}
+  `,
+)

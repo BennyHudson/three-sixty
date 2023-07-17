@@ -1,14 +1,10 @@
-import type { ReactElement, FC } from 'react'
+import type { FC, ReactElement } from 'react'
 import React from 'react'
 
+import type { VideoPlayerProps } from './VideoPlayer.types'
 import * as Styled from './styles/VideoPlayer.style'
 
-import type { VideoPlayerProps } from './VideoPlayer.types'
-
-const VideoPlayer: FC<VideoPlayerProps> = ({
-  videoSource,
-  videoId
-}: VideoPlayerProps): ReactElement => {
+const VideoPlayer: FC<VideoPlayerProps> = ({ videoSource, videoId }: VideoPlayerProps): ReactElement => {
   if (videoSource === 'youtube') {
     return (
       <Styled.VideoPlayer>
@@ -27,12 +23,12 @@ const VideoPlayer: FC<VideoPlayerProps> = ({
 
   return (
     <Styled.VideoPlayer>
-      <iframe 
-        title="vimeo-player" 
-        src={`https://player.vimeo.com/video/${videoId}`} 
-        width="640" 
-        height="360" 
-        frameBorder="0" 
+      <iframe
+        title='vimeo-player'
+        src={`https://player.vimeo.com/video/${videoId}`}
+        width='640'
+        height='360'
+        frameBorder='0'
         allowFullScreen
       />
     </Styled.VideoPlayer>

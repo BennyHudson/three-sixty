@@ -5,12 +5,14 @@ import respondTo from '@mixins/respondTo'
 
 import type { StyledNavigationProps } from './Navigation.style.types'
 
-export const ScrollLock = createGlobalStyle((): FlattenSimpleInterpolation => css`
+export const ScrollLock = createGlobalStyle(
+  (): FlattenSimpleInterpolation => css`
     html,
     body {
       overflow: hidden;
     }
-`)
+  `,
+)
 
 export const Navigation = styled.nav(
   (props: StyledNavigationProps): FlattenSimpleInterpolation => css`
@@ -43,7 +45,7 @@ export const Menu = styled.ul(
 export const MenuItem = styled.li(
   (props: StyledNavigationProps): FlattenSimpleInterpolation => css`
     font-size: ${props.theme.typography.heading[3].fontSize};
-    animation-delay: ${((100 * props.index) + 100) / 1000}s;
+    animation-delay: ${(100 * props.index + 100) / 1000}s;
 
     a {
       color: ${props.theme.colours.white};
@@ -52,12 +54,14 @@ export const MenuItem = styled.li(
   `,
 )
 
-export const Container  = styled.div((props: StyledNavigationProps): FlattenSimpleInterpolation => css`
-  // max-width: ${props.theme.containerWidth}px;
-  width: calc(100% - ${props.theme.spacing[4] * 2}px);
-  margin: 0 auto;
+export const Container = styled.div(
+  (props: StyledNavigationProps): FlattenSimpleInterpolation => css`
+    // max-width: ${props.theme.containerWidth}px;
+    width: calc(100% - ${props.theme.spacing[4] * 2}px);
+    margin: 0 auto;
 
-  ${respondTo.md(css`
-    width: 100%;
-  `)}
-`)
+    ${respondTo.md(css`
+      width: 100%;
+    `)}
+  `,
+)

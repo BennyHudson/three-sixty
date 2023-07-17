@@ -4,15 +4,17 @@ import type { FC, ReactElement } from 'react'
 
 import CaseStudyContent from '@components/CaseStudyContent'
 import FullPageFeature from '@components/FullPageFeature'
+import Heading from '@components/Heading'
+import Link from '@components/Link'
 import MetaBlock from '@components/MetaBlock'
 import RawHtmlWrapper from '@components/RawHtmlWrapper'
 import Section from '@components/Section'
-import WideColumnBlock from '@components/WideColumnBlock'
-import Heading from '@components/Heading'
-import SimpleGrid from '@components/SimpleGrid'
 import SimpleCard from '@components/SimpleCard'
-import { CaseStudyProps } from '@typings/CaseStudy.types'
+import SimpleGrid from '@components/SimpleGrid'
 import Title from '@components/Title/Title'
+import WideColumnBlock from '@components/WideColumnBlock'
+
+import type { CaseStudyProps } from '@typings/CaseStudy.types'
 
 interface CaseStudyTemplateProps {
   data: {
@@ -29,12 +31,28 @@ const CaseStudyTemplate: FC<CaseStudyTemplateProps> = ({ data }: CaseStudyTempla
   const { caseStudies } = data
   const caseStudy = data.allWpCaseStudy.nodes[0]
 
-  const metaContent = [
+  const { brandLinks } = caseStudy.brandLinks
+
+  let metaContent = [
     {
       title: 'Services',
       content: caseStudy.tags.nodes.map((tag) => tag.name),
     },
   ]
+
+  if (brandLinks) {
+    metaContent = [
+      metaContent[0],
+      {
+        title: 'Brand Links',
+        content: brandLinks.map((brandLink, index) => (
+          <Link key={index} href={brandLink.url}>
+            {brandLink.text}
+          </Link>
+        )),
+      },
+    ]
+  }
 
   return (
     <>
@@ -46,8 +64,9 @@ const CaseStudyTemplate: FC<CaseStudyTemplateProps> = ({ data }: CaseStudyTempla
       <Section appearance='secondary'>
         <WideColumnBlock
           reverse
+          size={2}
           leftColumn={<MetaBlock metaContent={metaContent} />}
-          rightColumn={<RawHtmlWrapper content={caseStudy.caseStudyContent.introContent} />}
+          rightColumn={<RawHtmlWrapper content={caseStudy.caseStudyContent.introContent} size={2} />}
         />
         <CaseStudyContent content={caseStudy.caseStudyContent.contentBuilder} />
       </Section>
@@ -55,8 +74,8 @@ const CaseStudyTemplate: FC<CaseStudyTemplateProps> = ({ data }: CaseStudyTempla
         <Heading text='Results-driven,' size={4} weight={3} noMargin />
         <Heading text='performance obsessed' size={4} weight={3} />
       </Section>
-      <Section appearance='secondary'>
-        <SimpleGrid columns={{ sm: 2, md: 4 }} spacing={10} rowSpacing={5}>
+      <Section appearance='secondary' extraMarginBottom>
+        <SimpleGrid columns={{ sm: 2, md: 4 }} spacing={10} rowSpacing={10}>
           {caseStudy.caseStudyContent.results.map((result, index) => {
             return (
               <div key={index}>
@@ -107,6 +126,12 @@ export const caseStudyQuery = graphql`
         featuredImage {
           node {
             sourceUrl
+          }
+        }
+        brandLinks {
+          brandLinks {
+            text
+            url
           }
         }
         caseStudyContent {

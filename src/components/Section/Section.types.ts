@@ -6,4 +6,5 @@ export interface SectionProps {
   paddingLevel?: 1 | 2
   extraMargin?: boolean
   extraMarginBottom?: boolean
+  hideOverflow?: boolean
 }

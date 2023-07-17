@@ -71,7 +71,7 @@ const Header: FC<HeaderProps> = ({ inverse }: HeaderProps): ReactElement => {
 
   return (
     <Styled.Header transparent={transparent} inverse={inverse} ref={header} showNavigation={showNavigation}>
-      <Styled.Content>
+      <Styled.Content transparent={transparent} showNavigation={showNavigation}>
         <Logo inverse={inverseHeaderContents} />
         <NavTrigger inverse={inverseHeaderContents} />
       </Styled.Content>
