@@ -50,6 +50,7 @@ export const CarouselWrapper = styled.div(
     width: 100%;
     background: ${props.theme.colours.lightGrey};
     overflow: hidden;
+    position: relative;
   `,
 )
 
