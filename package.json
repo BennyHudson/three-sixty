@@ -29,6 +29,7 @@
     "@types/styled-components": "^5.1.26",
     "animate.css": "^4.1.1",
     "babel-plugin-styled-components": "^2.1.1",
+    "dayjs": "^1.11.9",
     "eslint-plugin-import": "^2.27.5",
     "gatsby": "^5.8.1",
     "gatsby-plugin-alias-imports": "^1.0.5",

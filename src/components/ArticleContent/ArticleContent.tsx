@@ -15,20 +15,20 @@ const ArticleContent: FC<ArticleContentProps> = ({ content }: ArticleContentProp
     <Styled.ArticleContent>
       {content.map((contentBlock) => {
         switch (contentBlock.fieldGroupName) {
-          case `${prefix}_ContentBlock`:
-            return (
-              <Styled.ContentBlock>
-                <RawHtmlWrapper content={contentBlock.content} />
-              </Styled.ContentBlock>
-            )
+        case `${prefix}_ContentBlock`:
+          return (
+            <Styled.ContentBlock>
+              <RawHtmlWrapper content={contentBlock.content} />
+            </Styled.ContentBlock>
+          )
 
-          case `${prefix}_ImageBlock`:
-            const image = getImage(contentBlock.image.localFile)
-            return (
-              <Styled.ImageBlock>
-                <GatsbyImage image={image} alt='' />
-              </Styled.ImageBlock>
-            )
+        case `${prefix}_ImageBlock`:
+          const image = getImage(contentBlock.image.localFile)
+          return (
+            <Styled.ImageBlock>
+              <GatsbyImage image={image} alt='' />
+            </Styled.ImageBlock>
+          )
         }
       })}
     </Styled.ArticleContent>

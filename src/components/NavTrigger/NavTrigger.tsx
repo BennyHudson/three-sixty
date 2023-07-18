@@ -1,9 +1,12 @@
+import { graphql, useStaticQuery } from 'gatsby'
+
+import React, { useContext } from 'react'
+
+import type { FC, ReactElement } from 'react'
+
 import type { IconProp } from '@fortawesome/fontawesome-svg-core'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { graphql, useStaticQuery } from 'gatsby'
-import React, { useContext } from 'react'
-import type { FC, ReactElement } from 'react'
 
 import Link from '@components/Link/Link'
 

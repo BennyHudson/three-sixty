@@ -1,3 +1,4 @@
+import dayjs from 'dayjs'
 import { graphql, useStaticQuery } from 'gatsby'
 import React, { useContext } from 'react'
 import type { FC, ReactElement } from 'react'
@@ -21,6 +22,7 @@ const Footer: FC = (): ReactElement => {
         nodes {
           globalOptions {
             threeSixtyOptions {
+              companyName
               address
               contactEmail
               headerText
@@ -45,7 +47,7 @@ const Footer: FC = (): ReactElement => {
     }
   `)
 
-  const { address, contactEmail, legals, socials, headerText, footerText, formUrl } =
+  const { companyName, address, contactEmail, legals, socials, headerText, footerText, formUrl } =
     footerData.allWp.nodes[0].globalOptions.threeSixtyOptions
 
   return (
@@ -61,7 +63,7 @@ const Footer: FC = (): ReactElement => {
       <Container>
         <Styled.FooterColumns>
           <div>
-            <Heading size={1} text='Company Name | 2023' inverse noMargin />
+            <Heading size={1} text={`${companyName} | ${dayjs().year()}`} inverse noMargin />
             <Paragraph text={address} inverse appearance='secondary' />
           </div>
 

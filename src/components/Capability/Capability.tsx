@@ -28,7 +28,7 @@ const Capability: FC<CapabilityProps> = ({
             <Paragraph text={content} inverse={inverse} size={3} />
           </div>
           <div>
-            <Heading size={2} text={"What's included"} inverse={inverse} weight={3} />
+            <Heading size={2} text={'What\'s included'} inverse={inverse} weight={3} />
             <ListGroup items={microservices.map((microservice) => microservice.title)} inverse={inverse} />
           </div>
         </Styled.Content>

@@ -1,9 +1,11 @@
-import { type HeadFC, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import type { IGatsbyImageData } from 'gatsby-plugin-image'
 import React from 'react'
 import type { FC, ReactElement } from 'react'
 
 import FullPageFeature from '@components/FullPageFeature'
+import HeadTags from '@components/HeadTags'
+import type { HeadTagsProps } from '@components/HeadTags/HeadTags.types'
 import Heading from '@components/Heading'
 import LogoGrid from '@components/LogoGrid/LogoGrid'
 import PostExcerpt from '@components/PostExcerpt'
@@ -52,6 +54,7 @@ interface AboutPageProps {
           }[]
         }
       }
+      seo: HeadTagsProps['seo']
     }
     posts: {
       edges: {
@@ -111,7 +114,11 @@ const AboutPage: FC<AboutPageProps> = ({ data }: AboutPageProps): ReactElement =
 
 export default AboutPage
 
-export const Head: HeadFC = () => <title>About Page</title>
+export const Head = ({ data }: AboutPageProps) => {
+  const { seo } = data.wpPage
+
+  return <HeadTags seo={seo} />
+}
 
 export const aboutPageQuery = graphql`
   query AboutPage {
