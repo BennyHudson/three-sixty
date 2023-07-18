@@ -5,7 +5,7 @@ export interface FullPageFeatureProps {
   subtitle?: string
   showOverlay?: boolean
   backgroundVideo?: {
-    poster: string
+    poster?: string
     mp4: string
     webm: string
   }

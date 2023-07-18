@@ -1,23 +1,18 @@
-import { type HeadFC, type PageProps, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import React from 'react'
 import type { FC, ReactElement } from 'react'
 
 import Capability from '@components/Capability/Capability'
 import FullPageFeature from '@components/FullPageFeature'
-import Heading from '@components/Heading/Heading'
-import ListGroup from '@components/ListGroup/ListGroup'
-import Panel from '@components/Panel'
+import HeadTags from '@components/HeadTags'
+import type { HeadTagsProps } from '@components/HeadTags/HeadTags.types'
 import type { PanelProps } from '@components/Panel/Panel.types'
-import Paragraph from '@components/Paragraph/Paragraph'
 import Section from '@components/Section'
 import SimpleCard from '@components/SimpleCard'
-import SimpleContentBlock from '@components/SimpleContentBlock/SimpleContentBlock'
 import SimpleGrid from '@components/SimpleGrid'
 import Title from '@components/Title'
 
 import type { CaseStudyProps } from '@typings/CaseStudy.types'
-import HeadTags from '@components/HeadTags'
-import type { HeadTagsProps } from '@components/HeadTags/HeadTags.types'
 
 interface CapabilityPageProps {
   data: {

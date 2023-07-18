@@ -1,4 +1,4 @@
-import type { HeadingKeys, WeightKeys } from '@themes/threeSixtyTheme/constants/typography.types'
+import type { HeadingKeys } from '@themes/threeSixtyTheme/constants/typography.types'
 
 export interface HeadingProps {
   text: string | string[]

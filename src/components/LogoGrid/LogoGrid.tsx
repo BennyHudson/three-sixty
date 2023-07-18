@@ -17,6 +17,7 @@ const LogoGrid: FC<LogoGridProps> = ({
   extraMarginBottom = false,
   extraMargin = false,
   feature = false,
+  paddingLevel = 2,
 }: LogoGridProps): ReactElement => {
   if (carousel) {
     const sliderSettings = {
@@ -66,13 +67,13 @@ const LogoGrid: FC<LogoGridProps> = ({
     }
 
     return (
-      <Section appearance='tertiary' extraMarginBottom={extraMarginBottom} extraMargin={extraMargin}>
+      <Section appearance='tertiary' extraMarginBottom={extraMarginBottom} extraMargin={extraMargin} paddingLevel={paddingLevel}>
         <Slider {...sliderSettings}>
           {logoArrays.map((clients, index) => {
             return (
               <Styled.LogoGrid key={index}>
-                {clients.map((logo, index) => {
-                  return <ClientLogo logo={{ localFile: logo.logo.localFile, title: logo.clientName }} />
+                {clients.map((logo, i) => {
+                  return <ClientLogo logo={{ localFile: logo.logo.localFile, title: logo.clientName }} key={i} />
                 })}
               </Styled.LogoGrid>
             )
@@ -83,7 +84,7 @@ const LogoGrid: FC<LogoGridProps> = ({
   }
 
   return (
-    <Section appearance='tertiary' extraMarginBottom={extraMarginBottom} extraMargin={extraMargin}>
+    <Section appearance='tertiary' extraMarginBottom={extraMarginBottom} extraMargin={extraMargin} paddingLevel={paddingLevel}>
       {title && <Title title={title} />}
       <Styled.LogoGrid>
         {logos.map((logo, index) => {

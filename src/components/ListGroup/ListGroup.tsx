@@ -7,8 +7,12 @@ import * as Styled from './styles/ListGroup.style'
 const ListGroup: FC<ListGroupProps> = ({ items, inverse = false }: ListGroupProps): ReactElement => {
   return (
     <Styled.ListGroup>
-      {items.map((item) => {
-        return <Styled.ListItem inverse={inverse}>{item}</Styled.ListItem>
+      {items.map((item, index) => {
+        return (
+          <Styled.ListItem inverse={inverse} key={index}>
+            {item}
+          </Styled.ListItem>
+        )
       })}
     </Styled.ListGroup>
   )

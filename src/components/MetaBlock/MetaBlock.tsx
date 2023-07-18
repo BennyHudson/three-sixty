@@ -10,12 +10,12 @@ import * as Styled from './styles/MetaBlock.style'
 const MetaBlock: FC<MetaBlockProps> = ({ metaContent }: MetaBlockProps): ReactElement => {
   return (
     <Styled.MetaBlock>
-      {metaContent.map((metaContentBlock) => {
+      {metaContent.map((metaContentBlock, index) => {
         return (
-          <div>
+          <div key={index}>
             <Heading size={1} text={metaContentBlock.title} />
-            {metaContentBlock.content.map((item) => {
-              return <Paragraph noMargin text={item} />
+            {metaContentBlock.content.map((item, i) => {
+              return <Paragraph key={i} noMargin text={item} />
             })}
           </div>
         )

@@ -3,7 +3,6 @@ import React from 'react'
 import type { FC, ReactElement } from 'react'
 
 import Heading from '@components/Heading'
-import Paragraph from '@components/Paragraph'
 import RawHtmlWrapper from '@components/RawHtmlWrapper/RawHtmlWrapper'
 
 import type { SimpleContentBlockProps } from './SimpleContentBlock.types'

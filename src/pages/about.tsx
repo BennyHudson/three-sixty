@@ -1,5 +1,4 @@
-import { type HeadFC, type PageProps, graphql } from 'gatsby'
-import { getImage } from 'gatsby-plugin-image'
+import { type HeadFC, graphql } from 'gatsby'
 import type { IGatsbyImageData } from 'gatsby-plugin-image'
 import React from 'react'
 import type { FC, ReactElement } from 'react'
@@ -86,16 +85,23 @@ const AboutPage: FC<AboutPageProps> = ({ data }: AboutPageProps): ReactElement =
       <Section appearance='secondary'>
         <Title title={aboutPage.theTeam.title} link={{ to: '/', text: 'Join The Team' }} />
         <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={1} rowSpacing={1} smCarousel>
-          {aboutPage.theTeam.team.map((teamMember) => {
-            return <SimpleCard title={teamMember.name} secondaryHeading={teamMember.role} featuredImage={teamMember.picture.localFile} />
+          {aboutPage.theTeam.team.map((teamMember, index) => {
+            return (
+              <SimpleCard
+                key={index}
+                title={teamMember.name}
+                secondaryHeading={teamMember.role}
+                featuredImage={teamMember.picture.localFile}
+              />
+            )
           })}
         </SimpleGrid>
       </Section>
       <Section appearance='tertiary'>
         <Title title='Lorem ipsum dolor sit amet consectetur' />
         <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={2} rowSpacing={6}>
-          {data.posts.edges.map((post) => {
-            return <PostExcerpt {...post.node} />
+          {data.posts.edges.map((post, index) => {
+            return <PostExcerpt key={index} {...post.node} />
           })}
         </SimpleGrid>
       </Section>

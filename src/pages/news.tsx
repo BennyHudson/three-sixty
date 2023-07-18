@@ -1,4 +1,4 @@
-import { type HeadFC, type PageProps, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import React from 'react'
 import type { FC, ReactElement } from 'react'
 
@@ -6,7 +6,6 @@ import FullPageFeature from '@components/FullPageFeature/FullPageFeature'
 import PostExcerpt from '@components/PostExcerpt'
 import Section from '@components/Section'
 import SimpleGrid from '@components/SimpleGrid'
-import Title from '@components/Title'
 
 import type { PostProps } from '@typings/Post.types'
 
@@ -37,7 +36,7 @@ const NewsPage: FC<NewsPageProps> = ({ data }: NewsPageProps): ReactElement => {
 
 export default NewsPage
 
-export const Head: HeadFC = () => <title>Home Page</title>
+export const Head = () => <title>Home Page</title>
 
 export const newsQuery = graphql`
   query WorkPage {

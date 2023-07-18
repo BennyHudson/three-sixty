@@ -1,5 +1,7 @@
 import type { IGatsbyImageData } from 'gatsby-plugin-image'
 
+import type { SectionProps } from '@components/Section/Section.types'
+
 export interface LogoGridProps {
   logos: {
     clientName: string
@@ -12,4 +14,5 @@ export interface LogoGridProps {
   extraMargin?: boolean
   extraMarginBottom?: boolean
   feature?: boolean
+  paddingLevel?: SectionProps['paddingLevel']
 }

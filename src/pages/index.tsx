@@ -1,10 +1,11 @@
-import { type HeadFC, type PageProps, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import type { IGatsbyImageData } from 'gatsby-plugin-image'
 import React from 'react'
 import type { FC, ReactElement } from 'react'
 
 import FullPageFeature from '@components/FullPageFeature'
 import HeadTags from '@components/HeadTags'
+import type { HeadTagsProps } from '@components/HeadTags/HeadTags.types'
 import LogoGrid from '@components/LogoGrid/LogoGrid'
 import Section from '@components/Section'
 import SimpleCard from '@components/SimpleCard'
@@ -15,13 +16,21 @@ import Title from '@components/Title'
 import { useBreakpoints } from '@hooks/useBreakpoints'
 
 import type { CaseStudyProps } from '@typings/CaseStudy.types'
-import type { HeadTagsProps } from '@components/HeadTags/HeadTags.types'
 
 interface HomePageProps {
   data: {
     wpPage: {
       homepageContent: {
         featureTitle: string
+        poster?: {
+          sourceUrl: string
+        }
+        mp4: {
+          mediaItemUrl: string
+        }
+        webm: {
+          mediaItemUrl: string
+        }
         homeClients: {
           clientName: string
           logo: {
@@ -31,6 +40,8 @@ interface HomePageProps {
         services: {
           title: string
           content: string
+          linkText?: string
+          linkTo?: string
         }[]
       }
       seo: HeadTagsProps['seo']
@@ -56,7 +67,7 @@ const HomePage: FC<HomePageProps> = ({ data }: HomePageProps): ReactElement => {
           webm: homepageContent.webm?.mediaItemUrl,
         }}
       />
-      <LogoGrid logos={homepageContent.homeClients} carousel={sm} extraMarginBottom feature />
+      <LogoGrid logos={homepageContent.homeClients} carousel={sm} extraMarginBottom feature paddingLevel={1} />
       <Section appearance='secondary'>
         <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={10}>
           {homepageContent.services.map((service, index) => {

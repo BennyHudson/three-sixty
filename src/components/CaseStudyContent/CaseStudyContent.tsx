@@ -6,9 +6,10 @@ import SimpleContentBlock from '@components/SimpleContentBlock/SimpleContentBloc
 import VideoPlayer from '@components/VideoPlayer'
 import WideColumnBlock from '@components/WideColumnBlock/WideColumnBlock'
 
+import { useBreakpoints } from '@hooks/useBreakpoints'
+
 import type { CaseStudyContentProps } from './CaseStudyContent.types'
 import * as Styled from './styles/CaseStudyContent.style'
-import { useBreakpoints } from '@hooks/useBreakpoints'
 
 const CaseStudyContent: FC<CaseStudyContentProps> = ({ content }: CaseStudyContentProps): ReactElement => {
   const prefix = 'CaseStudy_Casestudycontent_ContentBuilder'
@@ -40,7 +41,7 @@ const CaseStudyContent: FC<CaseStudyContentProps> = ({ content }: CaseStudyConte
             )
           }
 
-          if (contentBlock.fieldGroupName ===  `${prefix}_ImageBlock` && mdAndAbove) {
+          if (contentBlock.fieldGroupName === `${prefix}_ImageBlock` && mdAndAbove) {
             if (contentBlock.mediaType.toLowerCase() === 'image') {
               const img = getImage(contentBlock.image?.localFile)
               return <GatsbyImage image={img} alt='' key={index} />

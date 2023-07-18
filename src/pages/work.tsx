@@ -1,4 +1,4 @@
-import { type HeadFC, type PageProps, graphql } from 'gatsby'
+import { type HeadFC, graphql } from 'gatsby'
 import React from 'react'
 import type { FC, ReactElement } from 'react'
 
