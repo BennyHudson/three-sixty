@@ -54,21 +54,21 @@ const Footer: FC = (): ReactElement => {
     <Styled.Footer headerHeight={headerHeight}>
       <Styled.FooterMain>
         <Container>
-          <Heading size={1} text={headerText} inverse />
-          <Link href={formUrl} showUnderline inverse appearance='secondary'>
-            <Heading size={3} text={footerText} inverse appearance='secondary' />
+          <Heading size={1} text={headerText} />
+          <Link href={formUrl} showUnderline appearance='secondary'>
+            <Heading size={3} text={footerText} appearance='secondary' />
           </Link>
         </Container>
       </Styled.FooterMain>
       <Container>
         <Styled.FooterColumns>
           <div>
-            <Heading size={1} text={`${companyName} | ${dayjs().year()}`} inverse noMargin />
+            <Heading size={1} text={`${companyName} | ${dayjs().year()}`} noMargin />
             <Paragraph text={address} inverse appearance='secondary' />
           </div>
 
           <div>
-            <Heading size={1} text='Follow' inverse noMargin />
+            <Heading size={1} text='Follow' noMargin />
             <Paragraph inverse appearance='secondary'>
               {socials.map((social, index) => {
                 return (
@@ -84,7 +84,7 @@ const Footer: FC = (): ReactElement => {
           </div>
 
           <div>
-            <Heading size={1} text='Legal' inverse noMargin />
+            <Heading size={1} text='Legal' noMargin />
             <Paragraph inverse appearance='secondary'>
               {legals.map((legal, index) => {
                 return (
@@ -98,7 +98,7 @@ const Footer: FC = (): ReactElement => {
           </div>
 
           <div>
-            <Heading size={1} text='Contact' inverse noMargin />
+            <Heading size={1} text='Contact' noMargin />
             <Paragraph>
               <Link href={`mailto:${contactEmail}`} text={contactEmail} inverse appearance='secondary' />
             </Paragraph>

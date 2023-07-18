@@ -7,8 +7,8 @@ import type { StyledFooterProps } from './Footer.style.types'
 
 export const Footer = styled.div(
   (props: StyledFooterProps): FlattenSimpleInterpolation => css`
-    color: ${props.theme.colours.white};
-    background: ${props.theme.colours.black};
+    color: ${props.theme.colours.black};
+    background: #EBE7DC;
     height: calc(100svh - ${props.headerHeight}px);
     display: flex;
     flex-direction: column;
