@@ -23,6 +23,9 @@ const Header: FC<HeaderProps> = ({ inverse }: HeaderProps): ReactElement => {
 
   const onScroll: EventListener = (e: Event) => {
     const scrollTop = e.target ? e.target.documentElement.scrollTop : 0
+    if (header.current) {
+      setHeaderHeight(header.current?.clientHeight)
+    }
     if (scrollTop === 0) {
       setTransparent(true)
     } else {
@@ -41,7 +44,7 @@ const Header: FC<HeaderProps> = ({ inverse }: HeaderProps): ReactElement => {
     if (header.current) {
       setHeaderHeight(header.current?.clientHeight)
     }
-  }, [breakpoints])
+  }, [breakpoints, transparent, inverse])
 
   useEffect(() => {
     if (showNavigation) {
