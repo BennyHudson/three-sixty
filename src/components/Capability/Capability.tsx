@@ -8,9 +8,10 @@ import Panel from '@components/Panel/Panel'
 import Paragraph from '@components/Paragraph/Paragraph'
 import SimpleGrid from '@components/SimpleGrid/SimpleGrid'
 
+import { useBreakpoints } from '@hooks/useBreakpoints'
+
 import type { CapabilityProps } from './Capability.types'
 import * as Styled from './styles/Capability.style'
-import { useBreakpoints } from '@hooks/useBreakpoints'
 
 const Capability: FC<CapabilityProps> = ({
   appearance,

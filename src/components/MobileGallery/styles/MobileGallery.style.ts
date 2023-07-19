@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 
 import type { StyledMobileGalleryProps } from './MobileGallery.style.types'
 
-export const MobileGallery = styled.div((props: StyledMobileGalleryProps): FlattenSimpleInterpolation => css`
+export const MobileGallery = styled.div((): FlattenSimpleInterpolation => css`
   overflow: hidden;
   width: 100%;
 `)

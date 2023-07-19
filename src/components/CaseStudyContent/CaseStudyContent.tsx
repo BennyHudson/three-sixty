@@ -1,7 +1,6 @@
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import React from 'react'
 import type { FC, ReactElement } from 'react'
-import Slider from 'react-slick'
 
 import SimpleContentBlock from '@components/SimpleContentBlock/SimpleContentBlock'
 import VideoPlayer from '@components/VideoPlayer'
