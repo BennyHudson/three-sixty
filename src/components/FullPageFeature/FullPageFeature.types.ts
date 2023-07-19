@@ -9,4 +9,5 @@ export interface FullPageFeatureProps {
     mp4: string
     webm: string
   }
+  size?: 1 | 2
 }

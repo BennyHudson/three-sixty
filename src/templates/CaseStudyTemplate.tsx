@@ -15,6 +15,8 @@ import Title from '@components/Title/Title'
 import WideColumnBlock from '@components/WideColumnBlock'
 
 import type { CaseStudyProps } from '@typings/CaseStudy.types'
+import { useBreakpoints } from '@hooks/useBreakpoints'
+import MobileGallery from '@components/MobileGallery'
 
 interface CaseStudyTemplateProps {
   data: {
@@ -30,6 +32,8 @@ interface CaseStudyTemplateProps {
 const CaseStudyTemplate: FC<CaseStudyTemplateProps> = ({ data }: CaseStudyTemplateProps): ReactElement => {
   const { caseStudies } = data
   const caseStudy = data.allWpCaseStudy.nodes[0]
+
+  const { sm } = useBreakpoints()
 
   const { brandLinks } = caseStudy.brandLinks
 
@@ -70,6 +74,7 @@ const CaseStudyTemplate: FC<CaseStudyTemplateProps> = ({ data }: CaseStudyTempla
         />
         <CaseStudyContent content={caseStudy.caseStudyContent.contentBuilder} />
       </Section>
+      {sm && <MobileGallery content={caseStudy.caseStudyContent.contentBuilder} />}
       <Section appearance='secondary' paddingLevel={1}>
         <Heading text='Results-driven,' size={4} weight={3} noMargin />
         <Heading text='performance obsessed' size={4} weight={3} />

@@ -29,9 +29,9 @@ const WorkPage: FC<WorkPageProps> = ({ data }: WorkPageProps): ReactElement => {
   const { title } = data.wpPage.pageTitle
   return (
     <>
-      <FullPageFeature title={title} appearance='secondary' showOverlay={false} />
+      <FullPageFeature title={title} appearance='secondary' showOverlay={false} size={1} />
       <Section appearance='secondary'>
-        <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={1} rowSpacing={1}>
+        <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={1} rowSpacing={1} animateFirstRow={false}>
           {data.caseStudies.nodes.map((caseStudy, index) => {
             return (
               <SimpleCard

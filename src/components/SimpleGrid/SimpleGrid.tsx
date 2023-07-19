@@ -14,8 +14,25 @@ const SimpleGrid: FC<SimpleGridProps> = ({
   spacing = 8,
   rowSpacing = 8,
   smCarousel = false,
+  animateFirstRow = true,
 }: SimpleGridProps): ReactElement => {
-  const { sm } = useBreakpoints()
+  const { sm, mdAndAbove, lgAndAbove } = useBreakpoints()
+
+  const firstRowChecker = (index: number) => {
+    if (columns.lg && lgAndAbove) {
+      return index < columns.lg 
+    }
+
+    if (columns.md && mdAndAbove) {
+      return index < columns.md 
+    }
+
+    if (columns.sm && sm) {
+      return index < columns.sm 
+    }
+
+    return false
+  }
 
   if (smCarousel && sm) {
     const sliderSettings = {
@@ -43,9 +60,13 @@ const SimpleGrid: FC<SimpleGridProps> = ({
         return (
           <>
             <Styled.GridColumn columns={columns}>
-              <ScrollAnimation animateIn='animate__animated animate__fadeInUp' delay={200 * index + 200} animateOnce>
-                {child}
-              </ScrollAnimation>
+              {(!animateFirstRow && firstRowChecker(index)) ? (
+                <>{child}</>
+              ) : (
+                <ScrollAnimation animateIn='animate__animated animate__fadeInUp' delay={200 * index + 200} animateOnce>
+                  {child}
+                </ScrollAnimation>
+              )}
             </Styled.GridColumn>
           </>
         )

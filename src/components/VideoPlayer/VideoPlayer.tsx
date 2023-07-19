@@ -9,7 +9,7 @@ const VideoPlayer: FC<VideoPlayerProps> = ({ videoSource, videoId }: VideoPlayer
     return (
       <Styled.VideoPlayer>
         <iframe
-          width='853'
+          width='480'
           height='480'
           src={`https://www.youtube.com/embed/${videoId}`}
           frameBorder='0'
@@ -25,7 +25,7 @@ const VideoPlayer: FC<VideoPlayerProps> = ({ videoSource, videoId }: VideoPlayer
     <Styled.VideoPlayer>
       <iframe
         title='vimeo-player'
-        src={`https://player.vimeo.com/video/${videoId}`}
+        src={`https://player.vimeo.com/video/${videoId}?h=a6fda96fc0&autoplay=1&loop=1&color=ffffff&title=0&byline=0&portrait=0&muted=1`}
         width='640'
         height='360'
         frameBorder='0'

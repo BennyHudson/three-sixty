@@ -11,4 +11,7 @@ export interface CapabilityProps {
   backgroundImage: {
     sourceUrl: string
   }
+  mobileBackground: {
+    sourceUrl: string
+  }
 }

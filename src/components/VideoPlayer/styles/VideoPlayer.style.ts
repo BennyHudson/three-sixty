@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 
 export const VideoPlayer = styled.div(
   (): FlattenSimpleInterpolation => css`
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 1 / 1;
     width: 100%;
     position: relative;
 
@@ -11,8 +11,8 @@ export const VideoPlayer = styled.div(
       position: absolute;
       top: 0;
       left: 0;
-      max-width: 100% !important;
-      max-height: 100% !important;
+      width: 100% !important;
+      height: 100% !important;
     }
   `,
 )

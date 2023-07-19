@@ -5,5 +5,6 @@ import type { FullPageFeatureProps } from '../FullPageFeature.types'
 export interface StyledFullPageFeatureProps {
   theme: Theme
   appearance: FullPageFeatureProps['appearance']
+  size: FullPageFeatureProps['size']
   background: string
 }

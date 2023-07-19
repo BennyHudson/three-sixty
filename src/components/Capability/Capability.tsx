@@ -10,6 +10,7 @@ import SimpleGrid from '@components/SimpleGrid/SimpleGrid'
 
 import type { CapabilityProps } from './Capability.types'
 import * as Styled from './styles/Capability.style'
+import { useBreakpoints } from '@hooks/useBreakpoints'
 
 const Capability: FC<CapabilityProps> = ({
   appearance,
@@ -17,10 +18,12 @@ const Capability: FC<CapabilityProps> = ({
   content,
   microservices,
   backgroundImage,
+  mobileBackground,
   inverse,
 }: CapabilityProps): ReactElement => {
+  const { sm } = useBreakpoints()
   return (
-    <Panel appearance={appearance} id={title.toLowerCase()} backgroundImage={backgroundImage.sourceUrl}>
+    <Panel appearance={appearance} id={title.toLowerCase()} backgroundImage={sm ? mobileBackground.sourceUrl : backgroundImage.sourceUrl}>
       <SimpleGrid columns={{ sm: 1, md: 3 }}>
         <Styled.Content>
           <div>

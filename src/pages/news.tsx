@@ -31,9 +31,9 @@ const NewsPage: FC<NewsPageProps> = ({ data }: NewsPageProps): ReactElement => {
   const { title } = data.wpPage.pageTitle
   return (
     <>
-      <FullPageFeature title={title} />
+      <FullPageFeature title={title} size={1} />
       <Section appearance='tertiary'>
-        <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={2} rowSpacing={6}>
+        <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={2} rowSpacing={6} animateFirstRow={false}>
           {data.posts.edges.map((post, index) => {
             return <PostExcerpt key={index} {...post.node} />
           })}

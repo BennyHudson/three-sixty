@@ -57,6 +57,8 @@ const HomePage: FC<HomePageProps> = ({ data }: HomePageProps): ReactElement => {
   const { homepageContent } = data.wpPage
   const { sm } = useBreakpoints()
 
+  console.log(homepageContent.poster?.sourceUrl)
+
   return (
     <>
       <FullPageFeature
@@ -117,13 +119,13 @@ export const homepageQuery = graphql`
       homepageContent {
         featureTitle
         mp4 {
-          sourceUrl
+          mediaItemUrl
         }
         webm {
           mediaItemUrl
         }
         poster {
-          mediaItemUrl
+          sourceUrl
         }
         homeClients {
           clientName

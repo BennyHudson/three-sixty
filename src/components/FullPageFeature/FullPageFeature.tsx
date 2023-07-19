@@ -15,9 +15,10 @@ const FullPageFeature: FC<FullPageFeatureProps> = ({
   subtitle,
   showOverlay = true,
   backgroundVideo,
+  size = 2
 }: FullPageFeatureProps): ReactElement => {
   return (
-    <Styled.FullPageFeature appearance={appearance} background={background}>
+    <Styled.FullPageFeature appearance={appearance} background={background} size={size}>
       <Container>
         <div className='animate__animated animate__fadeInUp'>
           <Heading text={title} size={5} inverse={appearance === 'primary' || !!background} weight={2} noMargin />
@@ -26,7 +27,7 @@ const FullPageFeature: FC<FullPageFeatureProps> = ({
       </Container>
       {showOverlay && <Overlay />}
       {backgroundVideo && (
-        <Styled.BackgroundVideo autoPlay loop muted playsInline poster={backgroundVideo.poster}>
+        <Styled.BackgroundVideo autoPlay loop muted playsInline>
           <source src={backgroundVideo.mp4} type='video/mp4' />
           <source src={backgroundVideo.webm} type='video/webm' />
         </Styled.BackgroundVideo>

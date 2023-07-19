@@ -28,6 +28,9 @@ interface CapabilityPageProps {
           backgroundImage: {
             sourceUrl: string
           }
+          mobileBackground: {
+            sourceUrl: string
+          }
         }[]
       }
       seo: HeadTagsProps['seo']
@@ -107,6 +110,9 @@ export const capabilityPageQuery = graphql`
             title
           }
           backgroundImage {
+            sourceUrl
+          }
+          mobileBackground {
             sourceUrl
           }
         }

@@ -18,6 +18,7 @@ export const SimpleContentBlock = styled.div(
 
     a {
       color: ${props.inverse ? props.theme.colours.white : props.theme.colours.black};
+      font-family: 'everettregular';
     }
   `,
 )

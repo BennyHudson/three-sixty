@@ -1,6 +1,7 @@
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import React from 'react'
 import type { FC, ReactElement } from 'react'
+import Slider from 'react-slick'
 
 import SimpleContentBlock from '@components/SimpleContentBlock/SimpleContentBlock'
 import VideoPlayer from '@components/VideoPlayer'
@@ -14,7 +15,7 @@ import * as Styled from './styles/CaseStudyContent.style'
 const CaseStudyContent: FC<CaseStudyContentProps> = ({ content }: CaseStudyContentProps): ReactElement => {
   const prefix = 'CaseStudy_Casestudycontent_ContentBuilder'
 
-  const { sm, mdAndAbove } = useBreakpoints()
+  const { mdAndAbove } = useBreakpoints()
 
   return (
     <>
@@ -51,17 +52,6 @@ const CaseStudyContent: FC<CaseStudyContentProps> = ({ content }: CaseStudyConte
           }
         })}
       </Styled.CaseStudyContent>
-      {/* {sm && (
-        <>
-          {content.map((contentBlock, index) => {
-            if (contentBlock.fieldGroupName ===  `${prefix}_ImageBlock`) {
-              return (
-                <>Hello</>
-              )
-            }
-          })}
-        </>
-      )} */}
     </>
   )
 }

@@ -8,7 +8,7 @@ import type { StyledFullPageFeatureProps } from './FullPageFeature.style.types'
 
 export const FullPageFeature = styled.div(
   (props: StyledFullPageFeatureProps): FlattenSimpleInterpolation => css`
-    height: 100svh;
+    height: ${props.size === 2 ? '100svh' : '80svh'};
     display: flex;
     align-items: center;
     background: ${props.appearance === 'primary' ? props.theme.colours.black : props.theme.colours.white};

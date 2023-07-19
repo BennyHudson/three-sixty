@@ -12,4 +12,5 @@ export interface SimpleGridProps {
   spacing?: SpacingKeys
   rowSpacing?: SpacingKeys
   smCarousel?: boolean
+  animateFirstRow?: boolean
 }
