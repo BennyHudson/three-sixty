@@ -5,6 +5,5 @@ import type { PanelProps } from '../Panel.types'
 export interface StyledPanelProps {
   theme: Theme
   headerHeight: number
-  appearance: PanelProps['appearance']
   backgroundImage: string
 }

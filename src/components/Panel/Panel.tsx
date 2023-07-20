@@ -9,10 +9,10 @@ import PageContext from '@context/PageContext'
 import type { PanelProps } from './Panel.types'
 import * as Styled from './styles/Panel.style'
 
-const Panel: FC<PanelProps> = ({ appearance = 'primary', children, id, backgroundImage }: PanelProps): ReactElement => {
+const Panel: FC<PanelProps> = ({ children, id }: PanelProps): ReactElement => {
   const { headerHeight } = useContext(PageContext) as PageContextProps
   return (
-    <Styled.Panel headerHeight={headerHeight} appearance={appearance} id={id} backgroundImage={backgroundImage}>
+    <Styled.Panel headerHeight={headerHeight} id={id}>
       <Container>
         <Styled.Content>{children}</Styled.Content>
       </Container>

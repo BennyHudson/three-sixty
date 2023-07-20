@@ -1,17 +1,13 @@
-import type { PanelProps } from '@components/Panel/Panel.types'
+import type { IGatsbyImageData } from 'gatsby-plugin-image'
 
 export interface CapabilityProps {
-  appearance: PanelProps['appearance']
-  inverse: boolean
   title: string
   content: string
   microservices: {
     title: string
   }[]
   backgroundImage: {
-    sourceUrl: string
+    localFile: IGatsbyImageData
   }
-  mobileBackground: {
-    sourceUrl: string
-  }
+  animate: boolean
 }

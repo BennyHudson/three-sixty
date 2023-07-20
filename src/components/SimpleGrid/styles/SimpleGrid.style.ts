@@ -18,8 +18,9 @@ export const SimpleGrid = styled.div(
   `,
 )
 
+type ColumnProps = Pick<StyledSimpleGridProps, 'columns'>
 export const GridColumn = styled.div(
-  (props: StyledSimpleGridProps): FlattenSimpleInterpolation => css`
+  (props: ColumnProps): FlattenSimpleInterpolation => css`
     display: flex;
     grid-column: span ${4 / props.columns.sm};
 

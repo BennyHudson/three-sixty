@@ -26,7 +26,7 @@ const PageLayout: FC<PageLayoutProps> = ({ children, location }: PageLayoutProps
 
   useEffect(() => {
     setShowNavigation(false)
-    setInverseHeader(pathname !== '/capability/' && pathname !== '/work/')
+    setInverseHeader(pathname !== '/capability/' && pathname !== '/work/' && pathname !== '/news/')
   }, [location])
 
   return (

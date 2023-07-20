@@ -10,7 +10,7 @@ import type { StyledPanelProps } from './Panel.style.types'
 export const Panel = styled.div(
   (props: StyledPanelProps): FlattenSimpleInterpolation => css`
     min-height: calc(100svh - ${props.headerHeight}px);
-    background-color: ${props.theme.colours.grey};
+    background: ${props.theme.colours.white};
     padding: ${props.theme.spacing[8]}px 0;
     display: flex;
     align-items: center;
@@ -20,22 +20,6 @@ export const Panel = styled.div(
       position: relative;
       z-index: 20;
     }
-
-    ${props.backgroundImage &&
-    css`
-      background: url('${props.backgroundImage}') center center no-repeat;
-      background-size: cover;
-    `}
-
-    ${props.appearance === 'secondary' &&
-    css`
-      background-color: ${props.theme.colours.midGrey};
-    `}
-
-    ${props.appearance === 'tertiary' &&
-    css`
-      background-color: ${props.theme.colours.black};
-    `}
 
     ${respondTo.md(css`
       padding: ${props.theme.spacing[8]}px 0;

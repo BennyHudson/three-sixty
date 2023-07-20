@@ -13,13 +13,14 @@ const Link: FC<LinkProps> = ({
   href,
   showUnderline = false,
   appearance = 'primary',
+  target,
 }: LinkProps): ReactElement => {
   const linkType = () => {
     if (href) return 'a'
     return GatsbyLink
   }
   return (
-    <Styled.Link to={to} href={href} as={linkType()} inverse={inverse} showUnderline={showUnderline} appearance={appearance}>
+    <Styled.Link to={to} href={href} as={linkType()} inverse={inverse} showUnderline={showUnderline} appearance={appearance} target={target}>
       {text ?? children}
     </Styled.Link>
   )

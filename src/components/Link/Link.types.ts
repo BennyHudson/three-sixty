@@ -8,4 +8,5 @@ export interface LinkProps {
   href?: string
   showUnderline?: boolean
   appearance?: 'primary' | 'secondary'
+  target?: '_blank'
 }

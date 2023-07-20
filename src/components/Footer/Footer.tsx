@@ -31,9 +31,7 @@ const Footer: FC = (): ReactElement => {
               legals {
                 title
                 file {
-                  localFile {
-                    publicURL
-                  }
+                  publicUrl
                 }
               }
               socials {
@@ -49,7 +47,6 @@ const Footer: FC = (): ReactElement => {
 
   const { companyName, address, contactEmail, legals, socials, headerText, footerText, formUrl } =
     footerData.allWp.nodes[0].globalOptions.threeSixtyOptions
-
   return (
     <Styled.Footer headerHeight={headerHeight}>
       <Styled.FooterMain>
@@ -74,7 +71,7 @@ const Footer: FC = (): ReactElement => {
                 return (
                   <>
                     {index !== 0 && ' | '}
-                    <Link inverse appearance='secondary' href={social.url} key={index}>
+                    <Link inverse appearance='secondary' href={social.url} key={index} target='_blank'>
                       {social.title}
                     </Link>
                   </>
@@ -87,8 +84,9 @@ const Footer: FC = (): ReactElement => {
             <Heading size={1} text='Legal' noMargin />
             <Paragraph inverse appearance='secondary'>
               {legals.map((legal, index) => {
+                console.log(legal)
                 return (
-                  <Link inverse appearance='secondary' href={legal.file.localFile.publicUrl} key={index}>
+                  <Link inverse appearance='secondary' href={legal.file.publicUrl} key={index}>
                     {index !== 0 && ' | '}
                     {legal.title}
                   </Link>

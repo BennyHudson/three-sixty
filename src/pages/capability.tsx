@@ -13,6 +13,8 @@ import SimpleGrid from '@components/SimpleGrid'
 import Title from '@components/Title'
 
 import type { CaseStudyProps } from '@typings/CaseStudy.types'
+import SimpleContentBlock from '@components/SimpleContentBlock'
+import { IGatsbyImageData } from 'gatsby-plugin-image'
 
 interface CapabilityPageProps {
   data: {
@@ -26,11 +28,13 @@ interface CapabilityPageProps {
             title: string
           }[]
           backgroundImage: {
-            sourceUrl: string
+            localFile: IGatsbyImageData
           }
-          mobileBackground: {
-            sourceUrl: string
-          }
+        }[]
+        includedTitle: string
+        whatsIncluded: {
+          title: string
+          content: string
         }[]
       }
       seo: HeadTagsProps['seo']
@@ -42,34 +46,25 @@ interface CapabilityPageProps {
 }
 
 const CapabilityPage: FC<CapabilityPageProps> = ({ data }: CapabilityPageProps): ReactElement => {
-  const { capabilities } = data.wpPage.capabilityPage
+  const { capabilities, includedTitle, whatsIncluded } = data.wpPage.capabilityPage
   const { caseStudies } = data
-
-  const panelAppearance = (index: number): { inverse: boolean; appearance: PanelProps['appearance'] } => {
-    if ((index + 1) % 3 === 0) {
-      return {
-        appearance: 'tertiary',
-        inverse: true,
-      }
-    }
-    if ((index + 1) % 2 === 0) {
-      return {
-        appearance: 'secondary',
-        inverse: false,
-      }
-    }
-    return {
-      appearance: 'primary',
-      inverse: true,
-    }
-  }
 
   return (
     <>
-      <FullPageFeature appearance='secondary' title={data.wpPage.capabilityPage.title} showOverlay={false} />
+      <FullPageFeature appearance='secondary' title={data.wpPage.capabilityPage.title} showOverlay={false} size={1} />
       {capabilities.map((capability, index) => {
-        return <Capability {...capability} {...panelAppearance(index)} key={index} />
+        return <Capability {...capability} key={index} animate={index !== 0} />
       })}
+      <Section appearance='primary'>
+        <Title title={includedTitle} inverse />
+        <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={10}>
+          {whatsIncluded.map((service, index) => {
+            return (
+              <SimpleContentBlock key={index} heading={service.title} content={service.content} inverse />
+            )
+          })}
+        </SimpleGrid>
+      </Section>
       <Section appearance='secondary'>
         <Title title='Our Work' link={{ to: '/work', text: 'All Work' }} />
         <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={1} rowSpacing={1}>
@@ -110,11 +105,17 @@ export const capabilityPageQuery = graphql`
             title
           }
           backgroundImage {
-            sourceUrl
+            localFile {
+              childImageSharp {
+                gatsbyImageData(width: 1000, height: 1000)
+              }
+            }
           }
-          mobileBackground {
-            sourceUrl
-          }
+        }
+        includedTitle
+        whatsIncluded {
+          content
+          title
         }
       }
       seo {
