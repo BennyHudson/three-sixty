@@ -84,7 +84,6 @@ const Footer: FC = (): ReactElement => {
             <Heading size={1} text='Legal' noMargin />
             <Paragraph inverse appearance='secondary'>
               {legals.map((legal, index) => {
-                console.log(legal)
                 return (
                   <Link inverse appearance='secondary' href={legal.file.publicUrl} key={index}>
                     {index !== 0 && ' | '}

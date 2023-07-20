@@ -27,6 +27,16 @@ const PageLayout: FC<PageLayoutProps> = ({ children, location }: PageLayoutProps
   useEffect(() => {
     setShowNavigation(false)
     setInverseHeader(pathname !== '/capability/' && pathname !== '/work/' && pathname !== '/news/')
+
+    if (location.hash) {
+      setTimeout(() => {
+        const target = document.getElementById(location.hash!.replace('#', ''))?.offsetTop
+        scroll({
+          top: target,
+          behavior: 'smooth'
+        })
+      }, 200)
+    }
   }, [location])
 
   return (

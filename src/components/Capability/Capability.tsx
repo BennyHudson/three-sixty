@@ -20,37 +20,28 @@ const Capability: FC<CapabilityProps> = ({
   content,
   microservices,
   backgroundImage,
-  animate = true
+  animate = true,
+  id,
 }: CapabilityProps): ReactElement => {
   const image = getImage(backgroundImage.localFile)
   return (
-    <Section appearance='secondary'>
+    <Section appearance='secondary' id={id}>
       <WideColumnBlock
         verticalAlign='center'
         reverse
         leftColumn={
-          <ScrollAnimation animateIn='animate__animated animate__fadeInUp' delay={200} animateOnce>
-            <Styled.Content>
-              <div>
-                <Heading size={3} text={title} weight={3} />
-                <Paragraph text={content} size={3} />
-              </div>
-              <div>
-                <Heading size={2} text={'What\'s included'} weight={3} />
-                <ListGroup items={microservices.map((microservice) => microservice.title)} />
-              </div>
-            </Styled.Content>
-          </ScrollAnimation>
+          <Styled.Content>
+            <div>
+              <Heading size={3} text={title} weight={3} />
+              <Paragraph text={content} size={3} />
+            </div>
+            <div>
+              <Heading size={2} text={'What\'s included'} weight={3} />
+              <ListGroup items={microservices.map((microservice) => microservice.title)} />
+            </div>
+          </Styled.Content>
         }
-        rightColumn={
-          animate ? (
-            <ScrollAnimation animateIn='animate__animated animate__fadeInUp' delay={800} animateOnce>
-              <GatsbyImage image={image!} alt={title} />
-            </ScrollAnimation>
-          ) : (
-            <GatsbyImage image={image!} alt={title} />
-          )
-        }
+        rightColumn={<GatsbyImage image={image!} alt={title} />}
       />
     </Section>
   )

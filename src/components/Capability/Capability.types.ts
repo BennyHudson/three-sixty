@@ -10,4 +10,5 @@ export interface CapabilityProps {
     localFile: IGatsbyImageData
   }
   animate: boolean
+  id: string
 }

@@ -13,6 +13,7 @@ const Section: FC<SectionProps> = ({
   extraMargin = false,
   extraMarginBottom = false,
   hideOverflow = true,
+  id,
 }: SectionProps): ReactElement => {
   return (
     <Styled.Section
@@ -21,6 +22,7 @@ const Section: FC<SectionProps> = ({
       paddingLevel={paddingLevel}
       extraMargin={extraMargin}
       extraMarginBottom={extraMarginBottom}
+      id={id}
     >
       <Container>{children}</Container>
     </Styled.Section>

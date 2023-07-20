@@ -7,4 +7,5 @@ export interface SectionProps {
   extraMargin?: boolean
   extraMarginBottom?: boolean
   hideOverflow?: boolean
+  id?: string
 }

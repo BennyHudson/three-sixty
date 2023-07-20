@@ -53,7 +53,7 @@ const CapabilityPage: FC<CapabilityPageProps> = ({ data }: CapabilityPageProps):
     <>
       <FullPageFeature appearance='secondary' title={data.wpPage.capabilityPage.title} showOverlay={false} size={1} />
       {capabilities.map((capability, index) => {
-        return <Capability {...capability} key={index} animate={index !== 0} />
+        return <Capability {...capability} key={index} animate={index !== 0} id={capability.title.toLowerCase()} />
       })}
       <Section appearance='primary'>
         <Title title={includedTitle} inverse />
