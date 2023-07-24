@@ -47,9 +47,6 @@ const Header: FC<HeaderProps> = ({ inverse }: HeaderProps): ReactElement => {
   }, [breakpoints, transparent, inverse])
 
   const inverseHeaderContents = (): boolean => {
-    console.log('transparent', transparent)
-    console.log('inverse', inverse)
-    console.log('showNavigation', showNavigation)
     if (transparent && !showNavigation) {
       if (inverse) {
         return true
@@ -72,8 +69,6 @@ const Header: FC<HeaderProps> = ({ inverse }: HeaderProps): ReactElement => {
     
     return false
   }
-
-  console.log('inverseHeader', inverseHeader)
 
   useEffect(() => {
     setInversHeader(inverseHeaderContents())
