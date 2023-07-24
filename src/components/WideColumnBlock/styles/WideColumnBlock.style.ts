@@ -60,6 +60,17 @@ export const WideColumn = styled.div(
           }
         }
       `}
+
+      ${props.size === 3 &&
+      css`
+        p {
+          &:first-of-type {
+            font-size: ${props.theme.typography.heading[2].fontSize};
+            line-height: ${props.theme.typography.heading[2].lineHeight};
+            font-family: 'everettregular';
+          }
+        }
+      `}
     `)}
   `,
 )

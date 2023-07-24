@@ -22,6 +22,11 @@ import type { PostProps } from '@typings/Post.types'
 interface AboutPageProps {
   data: {
     wpPage: {
+      featuredImage: {
+        node: {
+          sourceUrl: string
+        }
+      }
       aboutPage: {
         feature: {
           title: string
@@ -33,6 +38,7 @@ interface AboutPageProps {
             title: string
             content: string
           }[]
+          newsTitle: string
         }
         clients: {
           title: string
@@ -65,11 +71,11 @@ interface AboutPageProps {
 }
 
 const AboutPage: FC<AboutPageProps> = ({ data }: AboutPageProps): ReactElement => {
-  const { aboutPage } = data.wpPage
+  const { aboutPage, featuredImage } = data.wpPage
 
   return (
     <>
-      <FullPageFeature title={aboutPage.feature.title} />
+      <FullPageFeature title={aboutPage.feature.title} background={featuredImage.node.sourceUrl} />
       <Section appearance='secondary'>
         <WideColumnBlock
           size={2}
@@ -101,7 +107,7 @@ const AboutPage: FC<AboutPageProps> = ({ data }: AboutPageProps): ReactElement =
         </SimpleGrid>
       </Section>
       <Section appearance='tertiary'>
-        <Title title='Lorem ipsum dolor sit amet consectetur' />
+        <Title title={aboutPage.mainContent.newsTitle} />
         <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={2} rowSpacing={6}>
           {data.posts.edges.map((post, index) => {
             return <PostExcerpt key={index} {...post.node} />
@@ -123,6 +129,11 @@ export const Head = ({ data }: AboutPageProps) => {
 export const aboutPageQuery = graphql`
   query AboutPage {
     wpPage(databaseId: { eq: 11 }) {
+      featuredImage {
+        node {
+          sourceUrl
+        }
+      }
       aboutPage {
         feature {
           title
@@ -134,6 +145,7 @@ export const aboutPageQuery = graphql`
             title
             content
           }
+          newsTitle
         }
         clients {
           title

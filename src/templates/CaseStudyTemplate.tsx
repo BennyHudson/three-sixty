@@ -17,6 +17,7 @@ import WideColumnBlock from '@components/WideColumnBlock'
 import type { CaseStudyProps } from '@typings/CaseStudy.types'
 import { useBreakpoints } from '@hooks/useBreakpoints'
 import MobileGallery from '@components/MobileGallery'
+import HeadTags from '@components/HeadTags'
 
 interface CaseStudyTemplateProps {
   data: {
@@ -50,7 +51,7 @@ const CaseStudyTemplate: FC<CaseStudyTemplateProps> = ({ data }: CaseStudyTempla
       {
         title: 'Brand Links',
         content: brandLinks.map((brandLink, index) => (
-          <Link key={index} href={brandLink.url}>
+          <Link key={index} href={brandLink.url} target='_blank'>
             {brandLink.text}
           </Link>
         )),
@@ -68,7 +69,7 @@ const CaseStudyTemplate: FC<CaseStudyTemplateProps> = ({ data }: CaseStudyTempla
       <Section appearance='secondary'>
         <WideColumnBlock
           reverse
-          size={2}
+          size={3}
           leftColumn={<MetaBlock metaContent={metaContent} />}
           rightColumn={<RawHtmlWrapper content={caseStudy.caseStudyContent.introContent} size={2} />}
         />
@@ -112,6 +113,12 @@ const CaseStudyTemplate: FC<CaseStudyTemplateProps> = ({ data }: CaseStudyTempla
 }
 
 export default CaseStudyTemplate
+
+export const Head = ({ data }: CaseStudyTemplateProps) => {
+  const { seo } = data.allWpCaseStudy.nodes[0]
+
+  return <HeadTags seo={seo} />
+}
 
 export const caseStudyQuery = graphql`
   query ($id: String!) {
@@ -175,6 +182,32 @@ export const caseStudyQuery = graphql`
                 }
               }
             }
+          }
+        }
+        seo {
+          metaDesc
+          metaKeywords
+          canonical
+          opengraphType
+          opengraphUrl
+          opengraphTitle
+          opengraphSiteName
+          opengraphPublisher
+          opengraphPublishedTime
+          opengraphModifiedTime
+          opengraphImage {
+            sourceUrl
+          }
+          twitterTitle
+          twitterDescription
+          title
+          twitterImage {
+            sourceUrl
+          }
+          schema {
+            articleType
+            pageType
+            raw
           }
         }
       }

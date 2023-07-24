@@ -1,3 +1,4 @@
+import { HeadTagsProps } from '@components/HeadTags/HeadTags.types'
 import type { IGatsbyImageData } from 'gatsby-plugin-image'
 
 export interface CaseStudyProps {
@@ -31,4 +32,5 @@ export interface CaseStudyProps {
       name: string
     }[]
   }
+  seo: HeadTagsProps['seo']
 }

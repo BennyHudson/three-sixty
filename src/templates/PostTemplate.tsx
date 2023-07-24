@@ -15,6 +15,8 @@ import { useBreakpoints } from '@hooks/useBreakpoints'
 
 import type { PostProps } from '@typings/Post.types'
 import type { ContentBlock, ImageBlock } from '@typings/PostContentBuilder.types'
+import HeadTags from '@components/HeadTags'
+import { HeadTagsProps } from '@components/HeadTags/HeadTags.types'
 
 interface PostTemplateProps {
   data: {
@@ -36,6 +38,7 @@ interface PostTemplateProps {
           subtitle: string
           postContentBuilder: ContentBlock[] | ImageBlock[]
         }
+        seo: HeadTagsProps['seo']
       }[]
     }
     posts: {
@@ -86,6 +89,12 @@ const PostTemplate: FC<PostTemplateProps> = ({ data }: PostTemplateProps): React
 
 export default PostTemplate
 
+export const Head = ({ data }: PostTemplateProps) => {
+  const { seo } = data.allWpPost.nodes[0]
+
+  return <HeadTags seo={seo} />
+}
+
 export const caseStudyQuery = graphql`
   query ($id: String!) {
     allWpPost(filter: { id: { eq: $id } }) {
@@ -119,6 +128,32 @@ export const caseStudyQuery = graphql`
                 }
               }
             }
+          }
+        }
+        seo {
+          metaDesc
+          metaKeywords
+          canonical
+          opengraphType
+          opengraphUrl
+          opengraphTitle
+          opengraphSiteName
+          opengraphPublisher
+          opengraphPublishedTime
+          opengraphModifiedTime
+          opengraphImage {
+            sourceUrl
+          }
+          twitterTitle
+          twitterDescription
+          title
+          twitterImage {
+            sourceUrl
+          }
+          schema {
+            articleType
+            pageType
+            raw
           }
         }
       }
