@@ -34,10 +34,10 @@ const Capability: FC<CapabilityProps> = ({
             <Heading size={3} text={title} weight={3} />
             <Paragraph text={content} size={3} />
           </div>
-          <div>
+          {/* <div>
             <Heading size={2} text={'What\'s included'} weight={3} />
             <ListGroup items={microservices.map((microservice) => microservice.title)} />
-          </div>
+          </div> */}
         </Styled.Content>
       </ScrollAnimation>
     )
