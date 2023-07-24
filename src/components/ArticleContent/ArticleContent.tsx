@@ -23,7 +23,7 @@ const ArticleContent: FC<ArticleContentProps> = ({ content }: ArticleContentProp
           )
 
         case `${prefix}_ImageBlock`:
-          const image = getImage(contentBlock.image.localFile)
+          const image = getImage(contentBlock.image?.localFile)
           return (
             <Styled.ImageBlock>
               <GatsbyImage image={image} alt='' />
