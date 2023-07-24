@@ -4,9 +4,11 @@ import type { FC, ReactElement } from 'react'
 
 import CaseStudyContent from '@components/CaseStudyContent'
 import FullPageFeature from '@components/FullPageFeature'
+import HeadTags from '@components/HeadTags'
 import Heading from '@components/Heading'
 import Link from '@components/Link'
 import MetaBlock from '@components/MetaBlock'
+import MobileGallery from '@components/MobileGallery'
 import RawHtmlWrapper from '@components/RawHtmlWrapper'
 import Section from '@components/Section'
 import SimpleCard from '@components/SimpleCard'
@@ -14,10 +16,9 @@ import SimpleGrid from '@components/SimpleGrid'
 import Title from '@components/Title/Title'
 import WideColumnBlock from '@components/WideColumnBlock'
 
-import type { CaseStudyProps } from '@typings/CaseStudy.types'
 import { useBreakpoints } from '@hooks/useBreakpoints'
-import MobileGallery from '@components/MobileGallery'
-import HeadTags from '@components/HeadTags'
+
+import type { CaseStudyProps } from '@typings/CaseStudy.types'
 
 interface CaseStudyTemplateProps {
   data: {

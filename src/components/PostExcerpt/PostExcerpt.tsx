@@ -10,8 +10,8 @@ import type { PostProps } from '@typings/Post.types'
 
 import * as Styled from './styles/PostExcerpt.style'
 
-const PostExcerpt: FC<PostProps> = ({ title, uri, featuredImage, excerpt }: PostProps): ReactElement => {
-  const image = getImage(featuredImage.node.localFile)
+const PostExcerpt: FC<PostProps> = ({ title, uri, secondaryFeature, excerpt }: PostProps): ReactElement => {
+  const image = getImage(secondaryFeature.secondaryFeature.localFile)
 
   return (
     <Styled.PostExcerpt>

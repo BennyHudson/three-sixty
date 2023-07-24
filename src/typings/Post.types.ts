@@ -9,4 +9,10 @@ export interface PostProps {
       localFile: IGatsbyImageData
     }
   }
+  secondaryFeature: {
+    secondaryFeature: {
+      localFile: IGatsbyImageData
+      sourceUrl: string
+    }
+  }
 }

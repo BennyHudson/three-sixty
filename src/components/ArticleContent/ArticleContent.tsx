@@ -4,6 +4,7 @@ import React from 'react'
 import type { FC, ReactElement } from 'react'
 
 import RawHtmlWrapper from '@components/RawHtmlWrapper/RawHtmlWrapper'
+import VideoPlayer from '@components/VideoPlayer'
 
 import type { ArticleContentProps } from './ArticleContent.types'
 import * as Styled from './styles/ArticleContent.style'
@@ -13,20 +14,25 @@ const ArticleContent: FC<ArticleContentProps> = ({ content }: ArticleContentProp
 
   return (
     <Styled.ArticleContent>
-      {content.map((contentBlock) => {
-        switch (contentBlock.fieldGroupName) {
-        case `${prefix}_ContentBlock`:
+      {content.map((contentBlock, index) => {
+        if (contentBlock.fieldGroupName === `${prefix}_ContentBlock`) {
           return (
-            <Styled.ContentBlock>
+            <Styled.ContentBlock key={index}>
               <RawHtmlWrapper content={contentBlock.content} />
             </Styled.ContentBlock>
           )
+        }
 
-        case `${prefix}_ImageBlock`:
+        if (contentBlock.fieldGroupName === `${prefix}_ImageBlock`) {
           const image = getImage(contentBlock.image?.localFile)
+
           return (
-            <Styled.ImageBlock>
-              <GatsbyImage image={image} alt='' />
+            <Styled.ImageBlock key={index}>
+              {contentBlock.mediaType.toLowerCase() === 'image' ? (
+                <GatsbyImage image={image!} alt='' />
+              ) : (
+                <VideoPlayer videoSource={contentBlock.videoSource!} videoId={contentBlock.videoId!} aspectRatio='16/9' />
+              )}
             </Styled.ImageBlock>
           )
         }

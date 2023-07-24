@@ -4,10 +4,10 @@ import React from 'react'
 import type { VideoPlayerProps } from './VideoPlayer.types'
 import * as Styled from './styles/VideoPlayer.style'
 
-const VideoPlayer: FC<VideoPlayerProps> = ({ videoSource, videoId }: VideoPlayerProps): ReactElement => {
+const VideoPlayer: FC<VideoPlayerProps> = ({ videoSource, videoId, aspectRatio = '1/1' }: VideoPlayerProps): ReactElement => {
   if (videoSource === 'youtube') {
     return (
-      <Styled.VideoPlayer>
+      <Styled.VideoPlayer aspectRatio={aspectRatio}>
         <iframe
           width='480'
           height='480'
@@ -22,7 +22,7 @@ const VideoPlayer: FC<VideoPlayerProps> = ({ videoSource, videoId }: VideoPlayer
   }
 
   return (
-    <Styled.VideoPlayer>
+    <Styled.VideoPlayer aspectRatio={aspectRatio}>
       <iframe
         title='vimeo-player'
         src={`https://player.vimeo.com/video/${videoId}?h=a6fda96fc0&autoplay=1&loop=1&color=ffffff&title=0&byline=0&portrait=0&muted=1`}

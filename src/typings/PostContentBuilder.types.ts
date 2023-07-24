@@ -7,7 +7,10 @@ export interface ContentBlock {
 
 export interface ImageBlock {
   fieldGroupName: 'Post_Articlecontent_PostContentBuilder_ImageBlock'
-  image: {
+  image?: {
     localFile: IGatsbyImageData
   }
+  mediaType: 'Image' | 'Video'
+  videoId?: string
+  videoSource?: 'youtube' | 'vimeo'
 }

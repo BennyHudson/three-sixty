@@ -1,9 +1,11 @@
 import type { FlattenSimpleInterpolation } from 'styled-components'
 import styled, { css } from 'styled-components'
 
+import type { StyledVideoPlayerProps } from './VideoPlayer.style.types'
+
 export const VideoPlayer = styled.div(
-  (): FlattenSimpleInterpolation => css`
-    aspect-ratio: 1 / 1;
+  (props: StyledVideoPlayerProps): FlattenSimpleInterpolation => css`
+    aspect-ratio: ${props.aspectRatio};
     width: 100%;
     position: relative;
 

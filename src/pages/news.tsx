@@ -90,8 +90,8 @@ export const newsQuery = graphql`
           title
           uri
           excerpt
-          featuredImage {
-            node {
+          secondaryFeature {
+            secondaryFeature {
               localFile {
                 childImageSharp {
                   gatsbyImageData(width: 640, height: 360)

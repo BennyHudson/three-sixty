@@ -15,7 +15,7 @@ const FullPageFeature: FC<FullPageFeatureProps> = ({
   subtitle,
   showOverlay = true,
   backgroundVideo,
-  size = 2
+  size = 2,
 }: FullPageFeatureProps): ReactElement => {
   return (
     <Styled.FullPageFeature appearance={appearance} background={background} size={size}>

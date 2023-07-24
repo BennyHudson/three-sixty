@@ -1,4 +1,5 @@
 import { graphql } from 'gatsby'
+import type { IGatsbyImageData } from 'gatsby-plugin-image'
 import React from 'react'
 import type { FC, ReactElement } from 'react'
 
@@ -6,15 +7,13 @@ import Capability from '@components/Capability/Capability'
 import FullPageFeature from '@components/FullPageFeature'
 import HeadTags from '@components/HeadTags'
 import type { HeadTagsProps } from '@components/HeadTags/HeadTags.types'
-import type { PanelProps } from '@components/Panel/Panel.types'
 import Section from '@components/Section'
 import SimpleCard from '@components/SimpleCard'
+import SimpleContentBlock from '@components/SimpleContentBlock'
 import SimpleGrid from '@components/SimpleGrid'
 import Title from '@components/Title'
 
 import type { CaseStudyProps } from '@typings/CaseStudy.types'
-import SimpleContentBlock from '@components/SimpleContentBlock'
-import { IGatsbyImageData } from 'gatsby-plugin-image'
 
 interface CapabilityPageProps {
   data: {
@@ -59,9 +58,7 @@ const CapabilityPage: FC<CapabilityPageProps> = ({ data }: CapabilityPageProps):
         <Title title={includedTitle} inverse />
         <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={10}>
           {whatsIncluded.map((service, index) => {
-            return (
-              <SimpleContentBlock key={index} heading={service.title} content={service.content} inverse />
-            )
+            return <SimpleContentBlock key={index} heading={service.title} content={service.content} inverse />
           })}
         </SimpleGrid>
       </Section>

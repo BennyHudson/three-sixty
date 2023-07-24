@@ -20,7 +20,15 @@ const Link: FC<LinkProps> = ({
     return GatsbyLink
   }
   return (
-    <Styled.Link to={to} href={href} as={linkType()} inverse={inverse} showUnderline={showUnderline} appearance={appearance} target={target}>
+    <Styled.Link
+      to={to}
+      href={href}
+      as={linkType()}
+      inverse={inverse}
+      showUnderline={showUnderline}
+      appearance={appearance}
+      target={target}
+    >
       {text ?? children}
     </Styled.Link>
   )

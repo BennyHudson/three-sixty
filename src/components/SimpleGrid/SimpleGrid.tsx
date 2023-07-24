@@ -20,15 +20,15 @@ const SimpleGrid: FC<SimpleGridProps> = ({
 
   const firstRowChecker = (index: number) => {
     if (columns.lg && lgAndAbove) {
-      return index < columns.lg 
+      return index < columns.lg
     }
 
     if (columns.md && mdAndAbove) {
-      return index < columns.md 
+      return index < columns.md
     }
 
     if (columns.sm && sm) {
-      return index < columns.sm 
+      return index < columns.sm
     }
 
     return false
@@ -60,7 +60,7 @@ const SimpleGrid: FC<SimpleGridProps> = ({
         return (
           <>
             <Styled.GridColumn columns={columns}>
-              {(!animateFirstRow && firstRowChecker(index)) ? (
+              {!animateFirstRow && firstRowChecker(index) ? (
                 <div className='animate__animated animate__fadeInUp'>{child}</div>
               ) : (
                 <ScrollAnimation animateIn='animate__animated animate__fadeInUp' delay={200 * index} animateOnce>

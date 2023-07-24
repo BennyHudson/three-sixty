@@ -33,7 +33,7 @@ const PageLayout: FC<PageLayoutProps> = ({ children, location }: PageLayoutProps
         const target = document.getElementById(location.hash!.replace('#', ''))?.offsetTop
         scroll({
           top: target,
-          behavior: 'smooth'
+          behavior: 'smooth',
         })
       }, 200)
     }

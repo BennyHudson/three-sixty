@@ -4,6 +4,8 @@ import type { FC, ReactElement } from 'react'
 
 import ArticleContent from '@components/ArticleContent/ArticleContent'
 import FullPageFeature from '@components/FullPageFeature/FullPageFeature'
+import HeadTags from '@components/HeadTags'
+import type { HeadTagsProps } from '@components/HeadTags/HeadTags.types'
 import Heading from '@components/Heading/Heading'
 import PostExcerpt from '@components/PostExcerpt/PostExcerpt'
 import Section from '@components/Section/Section'
@@ -15,8 +17,6 @@ import { useBreakpoints } from '@hooks/useBreakpoints'
 
 import type { PostProps } from '@typings/Post.types'
 import type { ContentBlock, ImageBlock } from '@typings/PostContentBuilder.types'
-import HeadTags from '@components/HeadTags'
-import { HeadTagsProps } from '@components/HeadTags/HeadTags.types'
 
 interface PostTemplateProps {
   data: {
@@ -120,6 +120,9 @@ export const caseStudyQuery = graphql`
             }
             ... on WpPost_Articlecontent_PostContentBuilder_ImageBlock {
               fieldGroupName
+              mediaType
+              videoId
+              videoSource
               image {
                 localFile {
                   childImageSharp {
@@ -164,8 +167,8 @@ export const caseStudyQuery = graphql`
           title
           uri
           excerpt
-          featuredImage {
-            node {
+          secondaryFeature {
+            secondaryFeature {
               localFile {
                 childImageSharp {
                   gatsbyImageData(width: 640, height: 360)

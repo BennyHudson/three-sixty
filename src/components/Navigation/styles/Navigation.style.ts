@@ -45,7 +45,7 @@ export const Menu = styled.ul(
 export const MenuItem = styled.li(
   (props: StyledNavigationProps): FlattenSimpleInterpolation => css`
     font-size: ${props.theme.typography.heading[3].fontSize};
-    animation-delay: ${(100 * props.index + 100) / 1000}s;
+    animation-delay: ${(100 * props.index) / 1000}s;
 
     a {
       color: ${props.theme.colours.white};

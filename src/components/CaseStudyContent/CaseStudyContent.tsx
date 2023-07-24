@@ -1,6 +1,7 @@
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import React from 'react'
 import type { FC, ReactElement } from 'react'
+import ScrollAnimation from 'react-animate-on-scroll'
 
 import SimpleContentBlock from '@components/SimpleContentBlock/SimpleContentBlock'
 import VideoPlayer from '@components/VideoPlayer'
@@ -10,7 +11,6 @@ import { useBreakpoints } from '@hooks/useBreakpoints'
 
 import type { CaseStudyContentProps } from './CaseStudyContent.types'
 import * as Styled from './styles/CaseStudyContent.style'
-import ScrollAnimation from 'react-animate-on-scroll'
 
 const CaseStudyContent: FC<CaseStudyContentProps> = ({ content }: CaseStudyContentProps): ReactElement => {
   const prefix = 'CaseStudy_Casestudycontent_ContentBuilder'
