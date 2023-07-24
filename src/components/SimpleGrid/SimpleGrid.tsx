@@ -63,7 +63,7 @@ const SimpleGrid: FC<SimpleGridProps> = ({
               {(!animateFirstRow && firstRowChecker(index)) ? (
                 <div className='animate__animated animate__fadeInUp'>{child}</div>
               ) : (
-                <ScrollAnimation animateIn='animate__animated animate__fadeInUp' delay={200 * index + 200} animateOnce>
+                <ScrollAnimation animateIn='animate__animated animate__fadeInUp' delay={200 * index} animateOnce>
                   {child}
                 </ScrollAnimation>
               )}
