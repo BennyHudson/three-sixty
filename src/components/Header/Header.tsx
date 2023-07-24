@@ -17,7 +17,7 @@ const Header: FC<HeaderProps> = ({ inverse }: HeaderProps): ReactElement => {
   const breakpoints = useBreakpoints()
 
   const [transparent, setTransparent] = useState(true)
-  const [inverseHeaderContents, setInverseHeaderContents] = useState(true)
+  const [inverseHeader, setInversHeader] = useState(true)
 
   const { showNavigation, setHeaderHeight } = useContext(PageContext) as PageContextProps
 
@@ -30,7 +30,7 @@ const Header: FC<HeaderProps> = ({ inverse }: HeaderProps): ReactElement => {
       setTransparent(true)
     } else {
       setTransparent(false)
-      setInverseHeaderContents(false)
+      setInversHeader(false)
     }
   }
 
@@ -46,37 +46,44 @@ const Header: FC<HeaderProps> = ({ inverse }: HeaderProps): ReactElement => {
     }
   }, [breakpoints, transparent, inverse])
 
-  useEffect(() => {
+  const inverseHeaderContents = (): boolean => {
+    console.log('transparent', transparent)
+    console.log('inverse', inverse)
+    console.log('showNavigation', showNavigation)
+    if (transparent && !showNavigation) {
+      if (inverse) {
+        return true
+      }
+
+      return false
+    }
+
+    if (!transparent && !showNavigation) {
+      if (inverse) {
+        return true
+      }
+
+      return false
+    }
+
     if (showNavigation) {
-      setInverseHeaderContents(true)
-      return
+      return true
     }
+    
+    return false
+  }
 
-    if (transparent && inverse) {
-      setInverseHeaderContents(true)
-      return
-    }
+  console.log('inverseHeader', inverseHeader)
 
-    if (transparent && !inverse) {
-      setInverseHeaderContents(false)
-      return
-    }
-
-    if (inverse) {
-      setInverseHeaderContents(true)
-      return
-    }
-
-    if (!transparent) {
-      setInverseHeaderContents(false)
-    }
+  useEffect(() => {
+    setInversHeader(inverseHeaderContents())
   }, [transparent, inverse, showNavigation])
 
   return (
     <Styled.Header transparent={transparent} inverse={inverse} ref={header} showNavigation={showNavigation}>
       <Styled.Content transparent={transparent} showNavigation={showNavigation}>
-        <Logo inverse={inverseHeaderContents} />
-        <NavTrigger inverse={inverseHeaderContents} />
+        <Logo inverse={inverseHeader} />
+        <NavTrigger inverse={inverseHeader} />
       </Styled.Content>
     </Styled.Header>
   )
