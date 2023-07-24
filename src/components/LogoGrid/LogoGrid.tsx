@@ -89,7 +89,7 @@ const LogoGrid: FC<LogoGridProps> = ({
       <Styled.LogoGrid>
         {logos.map((logo, index) => {
           return (
-            <ScrollAnimation key={index} animateIn='animate__animated animate__fadeIn' delay={100 * index + 100} animateOnce>
+            <ScrollAnimation key={index} animateIn='animate__animated animate__fadeIn' delay={100 * index} animateOnce>
               <ClientLogo logo={{ localFile: logo.logo.localFile, title: logo.clientName }} />
             </ScrollAnimation>
           )
