@@ -38,7 +38,7 @@ const NavTrigger: FC<NavTriggerProps> = ({ inverse }: NavTriggerProps): ReactEle
 
   return (
     <Styled.NavWrapper>
-      <Link href={formUrl} text={headerText} inverse={inverse} />
+      <Link href={formUrl} text={headerText} inverse={inverse} target='_blank' />
       <Styled.NavTrigger onClick={() => setShowNavigation(!showNavigation)} inverse={inverse}>
         <FontAwesomeIcon icon={showNavigation ? (faTimes as IconProp) : (faBars as IconProp)} />
       </Styled.NavTrigger>

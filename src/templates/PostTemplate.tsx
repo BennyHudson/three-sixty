@@ -24,11 +24,6 @@ interface PostTemplateProps {
       nodes: {
         title: string
         date: string
-        author: {
-          node: {
-            name: string
-          }
-        }
         featuredImage: {
           node: {
             sourceUrl: string
@@ -56,7 +51,7 @@ const PostTemplate: FC<PostTemplateProps> = ({ data }: PostTemplateProps): React
     <>
       <FullPageFeature
         title={article.title}
-        subtitle={`${article.date} | ${article.author.node.name}`}
+        subtitle={article.date}
         background={article.featuredImage.node.sourceUrl}
       />
       <Section appearance='secondary' hideOverflow={false}>
@@ -65,7 +60,7 @@ const PostTemplate: FC<PostTemplateProps> = ({ data }: PostTemplateProps): React
             leftColumn={
               <>
                 <Heading size={2} text={article.title} />
-                <Heading size={1} text={`${article.date} | ${article.author.node.name}`} />
+                <Heading size={1} text={article.date} />
               </>
             }
             rightColumn={<ArticleContent content={article.articleContent.postContentBuilder} />}
@@ -101,11 +96,6 @@ export const caseStudyQuery = graphql`
       nodes {
         title
         date(formatString: "DD/MM/YYYY")
-        author {
-          node {
-            name
-          }
-        }
         featuredImage {
           node {
             sourceUrl

@@ -52,7 +52,7 @@ const Footer: FC = (): ReactElement => {
       <Styled.FooterMain>
         <Container>
           <Heading size={1} text={headerText} />
-          <Link href={formUrl} showUnderline appearance='secondary'>
+          <Link href={formUrl} showUnderline appearance='secondary' target='_blank'>
             <Heading size={3} text={footerText} appearance='secondary' />
           </Link>
         </Container>
@@ -85,7 +85,7 @@ const Footer: FC = (): ReactElement => {
             <Paragraph inverse appearance='secondary'>
               {legals.map((legal, index) => {
                 return (
-                  <Link inverse appearance='secondary' href={legal.file.publicUrl} key={index}>
+                  <Link inverse appearance='secondary' href={legal.file.publicUrl} key={index} target='_blank'>
                     {index !== 0 && ' | '}
                     {legal.title}
                   </Link>

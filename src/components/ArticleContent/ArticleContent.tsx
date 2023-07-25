@@ -31,7 +31,7 @@ const ArticleContent: FC<ArticleContentProps> = ({ content }: ArticleContentProp
               {contentBlock.mediaType.toLowerCase() === 'image' ? (
                 <GatsbyImage image={image!} alt='' />
               ) : (
-                <VideoPlayer videoSource={contentBlock.videoSource!} videoId={contentBlock.videoId!} aspectRatio='16/9' />
+                <VideoPlayer videoSource={contentBlock.videoSource!} videoId={contentBlock.videoId!} aspectRatio='1/1' />
               )}
             </Styled.ImageBlock>
           )
